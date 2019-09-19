@@ -7,31 +7,32 @@ using System;
 public class Player : MonoBehaviour
 {
     #region v_Personal
-    private string vorname;
-    private string nachname;
-    private string nickname;
-    private int age;
-    private string nationality;
+    public string vorname;
+    public string nachname;
+    public string nickname;
+    public int age;
+    public string nationality;
     #endregion
     #region v_Attributes
-    private float logicalThinking;
-    private float decisions;
-    private float determination;
-    private float handEyeCoordination;
-    private float gameMechanics;
-    private float reactionTime;
-    private float teamwork;
-    private float leadership;
+    public float logicalThinking;
+    public float decisions;
+    public float concentration;
+    public float determination;
+    public float handEyeCoordination;
+    public float gameMechanics;
+    public float reactionTime;
+    public float teamwork;
+    public float leadership;
     #endregion
     #region v_gameAttributes
-    private CharacterGenerator.Role role;
-    private float farming;
-    private float supporting;
-    private float teamfight;
-    private float oneOnOne;
-    private float lastHitting;
-    private float mapAwareness;
-    private float mindgaming;
+    public CharacterGenerator.Role role;
+    public float farming;
+    public float supporting;
+    public float teamfight;
+    public float oneOnOne;
+    public float lastHitting;
+    public float mapAwareness;
+    public float mindgaming;
     #endregion
 
     #region gameData
@@ -39,11 +40,13 @@ public class Player : MonoBehaviour
     #endregion
 
     CharacterGenerator charGen;
+    DotACanvasUIController dotaCanvasUI;
 
     // Start is called before the first frame update
     void Start()
     {
         charGen = GetComponent<CharacterGenerator>();
+        dotaCanvasUI = FindObjectOfType<DotACanvasUIController>();
     }
 
     private void GeneratePlayer()
@@ -57,6 +60,7 @@ public class Player : MonoBehaviour
         charGen.GenerateAttributesForPlayer();
         logicalThinking = charGen.logicalThinking;
         decisions = charGen.decisions;
+        concentration = charGen.concentration;
         determination = charGen.determination;
         handEyeCoordination = charGen.handEyeCoordination;
         gameMechanics = charGen.gameMechanics;
@@ -81,30 +85,35 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.B))
         {
             GeneratePlayer();
-            //PrintCreatedPlayer();
+            DisplayPlayerOnCanvas();
         }
     }
 
-    private void PrintCreatedPlayer()
+    private void DisplayPlayerOnCanvas()
     {
-        Debug.Log(vorname + " " + "'" + nickname + "'" + " " + nachname);
-        Debug.Log(age);
-        Debug.Log(nationality);
-        Debug.Log("logicalThinking: " + logicalThinking);
-        Debug.Log("decisions: " + decisions);
-        Debug.Log("determination: " + determination);
-        Debug.Log("handEyeCoordination: " + handEyeCoordination);
-        Debug.Log("gameMechanics: " + gameMechanics);
-        Debug.Log("reactionTime: " + reactionTime);
-        Debug.Log("teamwork: " + teamwork);
-        Debug.Log("leadership: " + leadership);
-        Debug.Log("farming: " + farming);
-        Debug.Log("supporting: " + supporting);
-        Debug.Log("teamfight: " + teamfight);
-        Debug.Log("oneOnOne: " + oneOnOne);
-        Debug.Log("lastHitting: " + lastHitting);
-        Debug.Log("mapAwareness: " + mapAwareness);
-        Debug.Log("mindgaming: " + mindgaming);
-        Debug.Log("Role: " + role);
+        dotaCanvasUI.DisplayPlayer(this);
     }
+
+    //private void PrintCreatedPlayer()
+    //{
+    //    Debug.Log(vorname + " " + "'" + nickname + "'" + " " + nachname);
+    //    Debug.Log(age);
+    //    Debug.Log(nationality);
+    //    Debug.Log("logicalThinking: " + logicalThinking);
+    //    Debug.Log("decisions: " + decisions);
+    //    Debug.Log("determination: " + determination);
+    //    Debug.Log("handEyeCoordination: " + handEyeCoordination);
+    //    Debug.Log("gameMechanics: " + gameMechanics);
+    //    Debug.Log("reactionTime: " + reactionTime);
+    //    Debug.Log("teamwork: " + teamwork);
+    //    Debug.Log("leadership: " + leadership);
+    //    Debug.Log("farming: " + farming);
+    //    Debug.Log("supporting: " + supporting);
+    //    Debug.Log("teamfight: " + teamfight);
+    //    Debug.Log("oneOnOne: " + oneOnOne);
+    //    Debug.Log("lastHitting: " + lastHitting);
+    //    Debug.Log("mapAwareness: " + mapAwareness);
+    //    Debug.Log("mindgaming: " + mindgaming);
+    //    Debug.Log("Role: " + role);
+    //}
 }

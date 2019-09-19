@@ -25,6 +25,7 @@ namespace ESM.Character
         #region v_Attributes
         public float logicalThinking;
         public float decisions;
+        public float concentration;
         public float determination;
         public float handEyeCoordination;
         public float gameMechanics;
@@ -199,7 +200,7 @@ namespace ESM.Character
         private static float GetAttributeRatingInitial(float academyLevel)
         {
             float initialAttributeRating = academyLevel;
-            float ratingModifier = (float)UnityEngine.Random.Range(1, 6);
+            float ratingModifier = (float)UnityEngine.Random.Range(1, 11);
             float ratingModifierPositiveNegative = (float)UnityEngine.Random.Range(1, 3);
 
             if(ratingModifierPositiveNegative < 2)
@@ -259,6 +260,7 @@ namespace ESM.Character
         {
             logicalThinking = GenerateRatingForAttribute(academyLevel);
             decisions = GenerateRatingForAttribute(academyLevel);
+            concentration = GenerateRatingForAttribute(academyLevel);
             determination = GenerateRatingForAttribute(academyLevel);
             handEyeCoordination = GenerateRatingForAttribute(academyLevel);
             gameMechanics = GenerateRatingForAttribute(academyLevel);
