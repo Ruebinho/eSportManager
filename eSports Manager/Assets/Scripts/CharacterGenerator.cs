@@ -32,6 +32,16 @@ namespace ESM.Character
         public float reactionTime;
         public float teamwork;
         public float leadership;
+
+        public float logicalThinkingP;
+        public float decisionsP;
+        public float concentrationP;
+        public float determinationP;
+        public float handEyeCoordinationP;
+        public float gameMechanicsP;
+        public float reactionTimeP;
+        public float teamworkP;
+        public float leadershipP;
         #endregion
         #region v_gameAttributes
         public enum Role { Position1, Position2, Position3, Position4, Position5 };
@@ -43,6 +53,14 @@ namespace ESM.Character
         public float lastHitting;
         public float mapAwareness;
         public float mindgaming;
+
+        public float farmingP;
+        public float supportingP;
+        public float teamfightP;
+        public float oneOnOneP;
+        public float lastHittingP;
+        public float mapAwarenessP;
+        public float mindgamingP;
         #endregion
 
         #region General Generation Attributes
@@ -212,7 +230,12 @@ namespace ESM.Character
             {
                 initialAttributeRating += ratingModifier;
             }
-            
+
+            if (initialAttributeRating < 0)
+            {
+                initialAttributeRating = 0;
+            }
+
             return initialAttributeRating;
         }
 
@@ -247,7 +270,7 @@ namespace ESM.Character
             {
                 finalRatingAdjusted = 100;
             }
-            print(finalRatingAdjusted);
+            //print(finalRatingAdjusted);
             return finalRatingAdjusted;
         }
 
@@ -275,6 +298,35 @@ namespace ESM.Character
             lastHitting = GenerateRatingForAttribute(academyLevel);
             mapAwareness = GenerateRatingForAttribute(academyLevel);
             mindgaming = GenerateRatingForAttribute(academyLevel);
+        }
+
+        public void GeneratePotentialsForPlayer()
+        {
+            logicalThinkingP = GeneratePotentialForAttribute(logicalThinking);
+            decisionsP = GenerateRatingForAttribute(decisions);
+            concentrationP = GenerateRatingForAttribute(concentration);
+            determinationP = GenerateRatingForAttribute(determination);
+            handEyeCoordinationP = GenerateRatingForAttribute(handEyeCoordination);
+            gameMechanicsP = GenerateRatingForAttribute(gameMechanics);
+            reactionTimeP = GenerateRatingForAttribute(reactionTime);
+            teamworkP = GenerateRatingForAttribute(teamwork);
+            leadershipP = GenerateRatingForAttribute(leadership);
+
+            farmingP = GenerateRatingForAttribute(farming);
+            supportingP = GenerateRatingForAttribute(supporting);
+            teamfightP = GenerateRatingForAttribute(teamfight);
+            oneOnOneP = GenerateRatingForAttribute(oneOnOne);
+            lastHittingP = GenerateRatingForAttribute(lastHitting);
+            mapAwarenessP = GenerateRatingForAttribute(mapAwareness);
+            mindgamingP = GenerateRatingForAttribute(mindgaming);
+        }
+
+        private float GeneratePotentialForAttribute(float playerAttribute)
+        {
+            float maxPotential = 100f;
+            float PotentialAddition = (float)UnityEngine.Random.Range(playerAttribute, maxPotential);
+
+            return PotentialAddition;
         }
         #endregion
 
