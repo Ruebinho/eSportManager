@@ -23,5 +23,10 @@ public class InputTestDebugger : MonoBehaviour
                 Debug.Log(charGen.OutputGeneratedChar());
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            
+        }
     }
 }

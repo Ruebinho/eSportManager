@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class PlayerElementUIController : MonoBehaviour
 {
@@ -26,8 +27,9 @@ public class PlayerElementUIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerData = GetComponent<Player>();
+        //playerData = GetComponent<Player>();
         PopulateUIWithPlayerData();
+        setupButton();
 
         if (playerData.currentAbilityIsScouted)
         {
@@ -38,6 +40,17 @@ public class PlayerElementUIController : MonoBehaviour
         {
             ConvertPlayerAttributePotentialIntoStarRating();
         }
+    }
+
+    private void setupButton()
+    {
+        Button playerButton = GetComponent<Button>();
+        playerButton.onClick.AddListener(clickSelectPlayer);
+    }
+
+    public void clickSelectPlayer()
+    {
+        FindObjectOfType<TeamOverviewCanvasUIController>().SelectPlayer(this.gameObject);
     }
 
     private void ConvertPlayerAttributeIntoStarRating()

@@ -2,23 +2,40 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OrgGenerator : MonoBehaviour
+namespace ESM.Character
 {
-    private string[] teamNameList;
-
-    private string teamOGname;
-    private float teamOGruhm;
-    private Team[] teamOGteams;
-    private Finanzen teamOGFinanzen;
-    private Akademie teamOGAkademie;
-    private Merch teamOGMerchandise;
-
-
-    public Organization createTeamOG()
+    public class OrgGenerator : MonoBehaviour
     {
-        Organization teamOG = new Organization();
+        private CharacterGenerator charGen = null;
 
-        return teamOG;
+        private string[] teamNameList;
+
+        public string teamOGname;
+        public float teamOGruhm;
+        public Team[] teamOGteams;
+        public Finanzen teamOGFinanzen;
+        public Akademie teamOGAkademie;
+        public Merch teamOGMerchandise;
+
+
+        public Organization createTeamOG()
+        {
+            Organization teamOG = new Organization();
+            teamOG.orgName = teamOGname;
+            teamOG.orgRuhm = teamOGruhm;
+            teamOG.orgTeams = teamOGteams;
+            teamOG.orgFinanzen = teamOGFinanzen;
+            teamOG.orgAkademie = teamOGAkademie;
+            teamOG.orgMerchandise = teamOGMerchandise;
+
+            return teamOG;
+        }
+
+        private void Start()
+        {
+            charGen = FindObjectOfType<CharacterGenerator>();
+        }
+
     }
-
 }
+

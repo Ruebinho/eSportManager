@@ -6,6 +6,7 @@ public class Sponsor : MonoBehaviour
 {
     public string sponsorName;
     public float sponsorBetrag;
+    public float sponsorRuhm;
 
     // Start is called before the first frame update
     void Start()

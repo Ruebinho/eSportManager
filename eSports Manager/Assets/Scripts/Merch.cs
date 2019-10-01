@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Merch : MonoBehaviour
 {
+    public float merchLevel;
     // Start is called before the first frame update
     void Start()
     {

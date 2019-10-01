@@ -1,0 +1,102 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7781271214833589700
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7781271214833589707}
+  - component: {fileID: 7781271214833589706}
+  - component: {fileID: 7781271214833589701}
+  m_Layer: 0
+  m_Name: UIController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7781271214833589707
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7781271214833589700}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7781271214833589706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7781271214833589700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7e7702edba58cb449c3de7b4a3565be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameUI: {fileID: 0}
+  nicknameUI: {fileID: 0}
+  ageUI: {fileID: 0}
+  nationalityUI: {fileID: 0}
+  logicalThinkingUI: {fileID: 0}
+  decisionsUI: {fileID: 0}
+  concentrationUI: {fileID: 0}
+  determinationUI: {fileID: 0}
+  handEyeCoordinationUI: {fileID: 0}
+  gameMechanicsUI: {fileID: 0}
+  reactionTimeUI: {fileID: 0}
+  teamworkUI: {fileID: 0}
+  leadershipUI: {fileID: 0}
+  roleUI: {fileID: 0}
+  farmingUI: {fileID: 0}
+  supportingUI: {fileID: 0}
+  teamfightUI: {fileID: 0}
+  oneOnOneUI: {fileID: 0}
+  lastHittingUI: {fileID: 0}
+  mapAwarenessUI: {fileID: 0}
+  mindgamingUI: {fileID: 0}
+  logicalThinkingPUI: {fileID: 0}
+  decisionsPUI: {fileID: 0}
+  concentrationPUI: {fileID: 0}
+  determinationPUI: {fileID: 0}
+  handEyeCoordinationPUI: {fileID: 0}
+  gameMechanicsPUI: {fileID: 0}
+  reactionTimePUI: {fileID: 0}
+  teamworkPUI: {fileID: 0}
+  leadershipPUI: {fileID: 0}
+  farmingPUI: {fileID: 0}
+  supportingPUI: {fileID: 0}
+  teamfightPUI: {fileID: 0}
+  oneOnOnePUI: {fileID: 0}
+  lastHittingPUI: {fileID: 0}
+  mapAwarenessPUI: {fileID: 0}
+  mindgamingPUI: {fileID: 0}
+--- !u!114 &7781271214833589701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7781271214833589700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24cdf53be9ad57248a95de65e8c759f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentSelectedTeam: {fileID: 11400000, guid: 3170da47dee6f6741835b6e33fdc7380,
+    type: 2}
+  currentSelectedPlayer: {fileID: 0}
+  dotaCanvasUI: {fileID: 0}
+  playerUIInstatiateParent: {fileID: 0}
+  playerElementInstatiatePrefab: {fileID: 928569754322385122, guid: 9bb91bb91fec0e64b88526d49ba83ea0,
+    type: 3}

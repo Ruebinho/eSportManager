@@ -8,8 +8,10 @@ public class Player : MonoBehaviour
 {
     [Header("Player Game Data")]
     #region gameData
+    public bool isGeneratedPlayer = true;
     public bool currentAbilityIsScouted = false;
     public bool potentialIsScouted = false;
+    public Contract[] careerContracts = null;
     #endregion
 
     [Header("Player Personal Data")]
@@ -67,7 +69,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        charGen = GetComponent<CharacterGenerator>();
+        charGen = FindObjectOfType<CharacterGenerator>();
         dotaCanvasUI = FindObjectOfType<DotACanvasUIController>();
     }
 

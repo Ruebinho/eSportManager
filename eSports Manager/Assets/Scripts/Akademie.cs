@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Akademie : MonoBehaviour
 {
+    public float akademieLevel = 0;
+
     // Start is called before the first frame update
     void Start()
     {
