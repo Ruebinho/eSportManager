@@ -6,10 +6,10 @@ public class Organization : MonoBehaviour
 {
     public string orgName;
     public float orgRuhm;
-    public Team[] orgTeams;
-    public Finanzen orgFinanzen;
-    public Akademie orgAkademie;
-    public Merch orgMerchandise;
+    public List<Team> orgTeams;
+    public List<Finanzen> orgFinanzen;
+    public List<Akademie> orgAkademie;
+    public List<Merch> orgMerchandise;
 
     // Start is called before the first frame update
     void Start()

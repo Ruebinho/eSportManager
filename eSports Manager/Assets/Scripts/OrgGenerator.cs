@@ -10,27 +10,6 @@ namespace ESM.Character
 
         private string[] teamNameList;
 
-        public string teamOGname;
-        public float teamOGruhm;
-        public Team[] teamOGteams;
-        public Finanzen teamOGFinanzen;
-        public Akademie teamOGAkademie;
-        public Merch teamOGMerchandise;
-
-
-        public Organization createTeamOG()
-        {
-            Organization teamOG = new Organization();
-            teamOG.orgName = teamOGname;
-            teamOG.orgRuhm = teamOGruhm;
-            teamOG.orgTeams = teamOGteams;
-            teamOG.orgFinanzen = teamOGFinanzen;
-            teamOG.orgAkademie = teamOGAkademie;
-            teamOG.orgMerchandise = teamOGMerchandise;
-
-            return teamOG;
-        }
-
         private void Start()
         {
             charGen = FindObjectOfType<CharacterGenerator>();

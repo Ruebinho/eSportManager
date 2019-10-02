@@ -8,10 +8,12 @@ using TMPro;
 
 public class TeamOverviewCanvasUIController : MonoBehaviour
 {
-    public Team currentSelectedTeam = null;
-    public GameObject currentSelectedPlayer = null;
-    public DotACanvasUIController dotaCanvasUI = null;
 
+
+    public Team currentSelectedTeam = null;
+    public GameObject currentSelectedPlayerUI = null;
+    public DotACanvasUIController dotaCanvasUI = null;
+    
     public GameObject playerUIInstatiateParent = null;
     public GameObject playerElementInstatiatePrefab = null;
 
@@ -20,12 +22,23 @@ public class TeamOverviewCanvasUIController : MonoBehaviour
         currentSelectedTeam = FindObjectOfType<GameDatabase>().teamsInGame[0];
     }
 
+    //private void setupButton()
+    //{
+    //    Button playerInstanciateButton = GetComponent<Button>();
+    //    playerInstanciateButton.onClick.AddListener(clickSelectPlayer);
+    //}
+
+    //public void clickSelectPlayer()
+    //{
+    //    FindObjectOfType<TeamOverviewCanvasUIController>().SelectPlayer(this.gameObject);
+    //}
+
     public void SelectPlayer(GameObject playerElement)
     {
-        if (currentSelectedPlayer == playerElement) { }
-        else if (currentSelectedPlayer != playerElement || currentSelectedPlayer == null)
+        if (currentSelectedPlayerUI == playerElement) { }
+        else if (currentSelectedPlayerUI != playerElement || currentSelectedPlayerUI == null)
         {
-            if (currentSelectedPlayer != null)
+            if (currentSelectedPlayerUI != null)
             {
                 UnselectCurrentPlayer();
             }
@@ -37,7 +50,7 @@ public class TeamOverviewCanvasUIController : MonoBehaviour
                     child.gameObject.SetActive(true);
                 }
             }
-            currentSelectedPlayer = playerElement;
+            currentSelectedPlayerUI = playerElement;
         }
         else
         {
@@ -47,7 +60,7 @@ public class TeamOverviewCanvasUIController : MonoBehaviour
 
     public void UnselectCurrentPlayer()
     {
-        foreach (Transform child in currentSelectedPlayer.transform)
+        foreach (Transform child in currentSelectedPlayerUI.transform)
         {
             if (child.name == "Border")
             {
@@ -58,10 +71,10 @@ public class TeamOverviewCanvasUIController : MonoBehaviour
 
     public void ShowSelectedPlayerDetails()
     {
-        if (currentSelectedPlayer != null)
+        if (currentSelectedPlayerUI != null)
         {
             dotaCanvasUI = GetComponent<DotACanvasUIController>();
-            dotaCanvasUI.DisplayPlayer(currentSelectedPlayer.GetComponent<PlayerElementUIController>().playerData);
+            dotaCanvasUI.DisplayPlayer(currentSelectedPlayerUI.GetComponent<PlayerElementUIController>().playerData);
         }
         else
         {
@@ -69,11 +82,9 @@ public class TeamOverviewCanvasUIController : MonoBehaviour
         }
     }
 
-    public void InstantiatePlayerElementsForTeam()
+    public void InstantiatePlayerElementsForTeam(Team selectedTeam)
     {
-        Debug.Log(currentSelectedTeam.playersOnTeam);
-
-        foreach (Player player in currentSelectedTeam.playersOnTeam)
+        foreach (Player player in selectedTeam.playersOnTeam)
         {
             if (player != null)
             {
@@ -90,6 +101,6 @@ public class TeamOverviewCanvasUIController : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        currentSelectedPlayer = null;
+        currentSelectedPlayerUI = null;
     }
 }

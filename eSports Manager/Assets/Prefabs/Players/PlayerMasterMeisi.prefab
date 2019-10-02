@@ -48,6 +48,7 @@ MonoBehaviour:
   potentialIsScouted: 1
   careerContracts:
   - {fileID: 0}
+  initialContractInt: 1
   vorname: Stefan
   nachname: Meisenberg
   nickname: MasterMeisi

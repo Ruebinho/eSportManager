@@ -48,6 +48,7 @@ MonoBehaviour:
   potentialIsScouted: 1
   careerContracts:
   - {fileID: 0}
+  initialContractInt: 1
   vorname: Dennis
   nachname: "R\xFCbner"
   nickname: Ruebinho

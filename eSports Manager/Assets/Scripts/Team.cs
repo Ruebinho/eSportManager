@@ -8,6 +8,7 @@ using UnityEngine;
 
 public class Team : MonoBehaviour
 {
+    public Organization orgTeamBelongsTo;
     public string teamName;
     public Game teamGame;
     public List<Player> playersOnTeam = null;
@@ -18,7 +19,7 @@ public class Team : MonoBehaviour
     {
         gamedatabase = FindObjectOfType<GameDatabase>();
         SetupTeam();
-        Debug.Log(playersOnTeam);
+        //Debug.Log(playersOnTeam);
     }
 
     private void SetupTeam()
@@ -34,7 +35,7 @@ public class Team : MonoBehaviour
 
         foreach (Player player in gamedatabase.playersInGame)
         {
-            Debug.Log(IsPlayerNowContractedtoTeam(player));
+            //Debug.Log(IsPlayerNowContractedtoTeam(player));
             if (IsPlayerNowContractedtoTeam(player))
             {
                 playersOnTeam.Add(player);

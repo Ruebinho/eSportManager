@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public bool currentAbilityIsScouted = false;
     public bool potentialIsScouted = false;
     public Contract[] careerContracts = null;
+    public int initialContractInt = 0;
     #endregion
 
     [Header("Player Personal Data")]

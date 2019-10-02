@@ -43,5 +43,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f621034c24ca36346959fa1beefcf668, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playersToAdd:
+  - {fileID: 5220906631002418570, guid: 7d554c6202f059049bdf54e1d4d33596, type: 3}
+  - {fileID: 5220906631002418570, guid: ae7f5498b6f57cd42857ea0cc20e72dc, type: 3}
+  - {fileID: 5220906631002418570, guid: 2d62b274bdd06a243b3c71d10c8fc41c, type: 3}
+  - {fileID: 5220906631002418570, guid: 16dcb73be76ae234682c313b43e7bba6, type: 3}
+  - {fileID: 5220906631002418570, guid: 4305f4ed9cc066141b5cf285e2fbc644, type: 3}
+  playerSpawnerParent: {fileID: 0}
+  teamsToAdd:
+  - {fileID: 1587608694751059525, guid: 6c34aeffd136cf1419b623fbd41aa460, type: 3}
+  - {fileID: 7737260206324491510, guid: 6da9a2dbaca426a4d986e8031b5bef99, type: 3}
+  teamSpawnerParent: {fileID: 0}
+  contractsToAdd:
+  - {fileID: 2587043293363532066, guid: 94c5306b852e90844a66a7988f02bb97, type: 3}
+  - {fileID: 8780345350523607546, guid: 3aec102e194719048b161e8a2a7ee6f7, type: 3}
+  contractSpawnerParent: {fileID: 0}
+  orgsToAdd:
+  - {fileID: 7479518362689099309, guid: f642d361a601f68438234b3dd5d58e84, type: 3}
+  - {fileID: 8131160827757234106, guid: 8fc661b6a987f5742bdafd5ad186a662, type: 3}
+  orgSpawnerParent: {fileID: 0}
+  sponsorsToAdd:
+  - {fileID: 6910901021438400578, guid: 6c0927d42a2cca1498664843a578db3c, type: 3}
+  - {fileID: 149004811434176965, guid: 52d1fedc36c0606479df071d743cd858, type: 3}
+  sponsorSpawnerParent: {fileID: 0}
+  financesToAdd:
+  - {fileID: 7293603934475948718, guid: cd6ba6ab15623904da613bb9f1e10c68, type: 3}
+  - {fileID: 8428298385893091837, guid: 5f3d8bb1f2ab61148928242b9239baf1, type: 3}
+  financesSpawnerParent: {fileID: 0}
+  academiesToAdd:
+  - {fileID: 756594305633747831, guid: 015267d292909c7449d7fc28e9ec72a6, type: 3}
+  - {fileID: 5838846872450022990, guid: d426fa9c1987a6944b71d0eccaad8ff9, type: 3}
+  academySpawnerParent: {fileID: 0}
+  merchandisesToAdd:
+  - {fileID: 2822769945742969222, guid: 83a3f5d6795aa0a40ab42863f46997df, type: 3}
+  - {fileID: 7781266399452209579, guid: 2f60bc343ed95ae40a5e1d87643f909f, type: 3}
+  merchandiseSpawnerParent: {fileID: 0}
   playersInGame: []
   teamsInGame: []
+  contractsInGame: []
+  orgsInGame: []
+  financesInGame: []
+  sponsorsInGame: []
+  academiesInGame: []
+  merchandisesInGame: []

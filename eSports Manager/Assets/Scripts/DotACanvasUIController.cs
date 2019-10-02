@@ -8,7 +8,7 @@ using TMPro;
 
 public class DotACanvasUIController : MonoBehaviour
 {
-    #region Variables
+    #region PlayerVariables
     [SerializeField] public TextMeshProUGUI nameUI;
     [SerializeField] public TextMeshProUGUI nicknameUI;
     [SerializeField] public TextMeshProUGUI ageUI;
@@ -231,5 +231,10 @@ public class DotACanvasUIController : MonoBehaviour
     {
         playerAttributeUI.text = "N/A";
         playerAttributeUI.color = Color.white;
+    }
+
+    public void DisplayTeam(Team team)
+    {
+        
     }
 }
