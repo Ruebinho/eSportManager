@@ -341,7 +341,14 @@ MonoBehaviour:
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_outputSockets:
   - m_connectionMode: 0
-    m_connections: []
+    m_connections:
+    - m_inputConnectionPoint: {x: 202, y: 4}
+      m_outputConnectionPoint: {x: 202, y: 4}
+      m_id: a8b72429-6840-491a-abbc-fb4d16445467
+      m_inputNodeId: 5f679f1b-3465-43cb-ba0b-816a1b120096
+      m_inputSocketId: a23a12cd-e319-4739-a40f-f34cdd45e463
+      m_outputNodeId: 988c990b-f13b-497e-b707-8878470f8fd0
+      m_outputSocketId: 5ce21bad-bebd-4031-ad94-37a27f92da9a
     m_connectionPoints:
     - {x: -2, y: 4}
     - {x: 202, y: 4}
@@ -534,7 +541,7 @@ MonoBehaviour:
   m_version: 1
   m_description: 
   m_id: bbc8b479-e8ab-4a6f-859a-4e8c4390c989
-  m_lastModified: 132144731646596420
+  m_lastModified: 132146660910067020
 --- !u!114 &4975255557622816514
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -777,6 +784,13 @@ MonoBehaviour:
       m_inputSocketId: a23a12cd-e319-4739-a40f-f34cdd45e463
       m_outputNodeId: aec8b93b-f507-4caa-8fc8-01e54580ae9d
       m_outputSocketId: 9f2c91a0-de2d-472b-9926-12e3919e7d52
+    - m_inputConnectionPoint: {x: 202, y: 4}
+      m_outputConnectionPoint: {x: 202, y: 4}
+      m_id: a8b72429-6840-491a-abbc-fb4d16445467
+      m_inputNodeId: 5f679f1b-3465-43cb-ba0b-816a1b120096
+      m_inputSocketId: a23a12cd-e319-4739-a40f-f34cdd45e463
+      m_outputNodeId: 988c990b-f13b-497e-b707-8878470f8fd0
+      m_outputSocketId: 5ce21bad-bebd-4031-ad94-37a27f92da9a
     m_connectionPoints:
     - {x: -2, y: 4}
     - {x: 202, y: 4}
