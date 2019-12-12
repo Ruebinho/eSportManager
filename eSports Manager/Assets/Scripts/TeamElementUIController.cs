@@ -13,7 +13,7 @@ public class TeamElementUIController : MonoBehaviour
     void Start()
     {
         //playerData = GetComponent<Player>();
-        PopulateUIWithPlayerData();
+        PopulateUIWithTeamData();
         setupButton();
 
     }
@@ -26,18 +26,18 @@ public class TeamElementUIController : MonoBehaviour
 
     public void clickSelectTeam()
     {
-        FindObjectOfType<OrgTeamOverviewCanvasUIController>().SelectTeam(this.gameObject);
-        FindObjectOfType<TeamOverviewCanvasUIController>().currentSelectedTeam = teamData;
+        FindObjectOfType<UIController>().SelectTeam(this.gameObject);
+        FindObjectOfType<UIController>().currentSelectedTeam = teamData;
     }
 
-    private void PopulateUIWithPlayerData()
+    private void PopulateUIWithTeamData()
     {
         foreach (Transform child in transform)
         {
-            //if (child.name == "Name")
-            //{
-            //    child.GetComponent<TextMeshProUGUI>().text = teamData.vorname.ToString() + " " + teamData.nachname.ToString();
-            //}
+            if (child.name == "Name")
+            {
+                child.GetComponent<TextMeshProUGUI>().text = teamData.teamName.ToString();
+            }
 
             //if (child.name == "Nickname")
             //{

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7781271214833589706}
   - component: {fileID: 7781271214833589701}
   - component: {fileID: 6153333270409228007}
+  - component: {fileID: 1663518853}
   m_Layer: 0
   m_Name: UIController
   m_TagString: Untagged
@@ -112,10 +113,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e9cdd7e995d6f4eaad695f7b61b4de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  teamOverviewCanvasUIController: {fileID: 0}
   currentSelectedOrg: {fileID: 0}
-  currentSelectedTeam: {fileID: 0}
-  dotaCanvasUI: {fileID: 0}
   currentSelectedTeamUI: {fileID: 0}
   teamUIInstatiateParent: {fileID: 0}
   teamElementInstatiatePrefab: {fileID: 928569754322385122, guid: ad9a8dfadb931ce42bbbd5f610c3ab4c,
+    type: 3}
+--- !u!114 &1663518853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7781271214833589700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e1a477e66cd6c9428be883b196da58d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orgTeamOverviewCanvasUIController: {fileID: 0}
+  currentSelectedOrgUI: {fileID: 0}
+  orgUIInstatiateParent: {fileID: 0}
+  orgElementInstatiatePrefab: {fileID: 928569754322385122, guid: 8b2c4947596c18747927234c358d76ec,
     type: 3}

@@ -92,9 +92,9 @@ GameObject:
   - component: {fileID: 928569754322385126}
   - component: {fileID: 928569754322385127}
   - component: {fileID: 928569754322385124}
-  - component: {fileID: 7243301769398593707}
+  - component: {fileID: -2391897475971053564}
   m_Layer: 0
-  m_Name: TeamElement
+  m_Name: OrgElement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -218,7 +218,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7243301769398593707
+--- !u!114 &-2391897475971053564
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -227,10 +227,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 928569754322385122}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3a0aa6081433584e991de27a8ce85b4, type: 3}
+  m_Script: {fileID: 11500000, guid: 5107de680ca851c4b8499da14341de35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teamData: {fileID: 0}
+  orgData: {fileID: 0}
 --- !u!1 &928569755491583107
 GameObject:
   m_ObjectHideFlags: 0

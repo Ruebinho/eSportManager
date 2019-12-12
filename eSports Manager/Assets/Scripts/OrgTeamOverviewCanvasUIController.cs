@@ -12,6 +12,7 @@ public class OrgTeamOverviewCanvasUIController : MonoBehaviour
 
     GameDatabase gamedatabase;
 
+    public Organization currentSelectedOrg = null;
     public GameObject currentSelectedTeamUI = null;
     public GameObject teamUIInstatiateParent = null;
     public GameObject teamElementInstatiatePrefab = null;
@@ -71,11 +72,11 @@ public class OrgTeamOverviewCanvasUIController : MonoBehaviour
         }
     }
 
-    public void InstantiateTeamElements()
+    public void InstantiateTeamElements(Organization selectedOrg)
     {
         //Debug.Log(currentSelectedTeam.playersOnTeam);
 
-        foreach (Team team in gamedatabase.teamsInGame)
+        foreach (Team team in selectedOrg.orgTeams)
         {
             if (team != null)
             {

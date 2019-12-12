@@ -50,7 +50,7 @@ public class PlayerElementUIController : MonoBehaviour
 
     public void clickSelectPlayer()
     {
-        FindObjectOfType<TeamOverviewCanvasUIController>().SelectPlayer(this.gameObject);
+        FindObjectOfType<UIController>().SelectPlayer(this.gameObject);
     }
 
     private void ConvertPlayerAttributeIntoStarRating()

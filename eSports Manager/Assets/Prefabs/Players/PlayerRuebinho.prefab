@@ -72,7 +72,7 @@ MonoBehaviour:
   reactionTimeP: 99
   teamworkP: 99
   leadershipP: 99
-  role: 1
+  role: 0
   farming: 99
   supporting: 99
   teamfight: 99

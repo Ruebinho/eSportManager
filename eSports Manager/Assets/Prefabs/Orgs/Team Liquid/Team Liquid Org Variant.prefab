@@ -10,7 +10,12 @@ PrefabInstance:
     - target: {fileID: 8828753620786371934, guid: a33bec56a80ab2d47b2bbae73df038be,
         type: 3}
       propertyPath: m_Name
-      value: Org
+      value: Team Liquid Org Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5714457690356314340, guid: a33bec56a80ab2d47b2bbae73df038be,
+        type: 3}
+      propertyPath: orgName
+      value: Team Liquid
       objectReference: {fileID: 0}
     - target: {fileID: 2489442916209274842, guid: a33bec56a80ab2d47b2bbae73df038be,
         type: 3}
