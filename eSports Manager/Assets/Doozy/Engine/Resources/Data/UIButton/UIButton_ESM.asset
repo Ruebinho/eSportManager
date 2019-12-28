@@ -16,9 +16,14 @@ MonoBehaviour:
   DatabaseType: 0
   Names:
   - Back
+  - Finanzen
+  - Merch
+  - Org Details
+  - Org Overview
+  - Org Team Overview
+  - Player Overview
   - Quit
   - Settings
+  - Sponsors
+  - Staff
   - Team Overview
-  - Player Overview
-  - Org Team Overview
-  - Org Overview

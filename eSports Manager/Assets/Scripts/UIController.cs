@@ -231,7 +231,7 @@ public class UIController : MonoBehaviour
         }
     }
 
-    public void ShowSelectedOrgDetails()
+    public void ShowSelectedOrgTeams()
     {
         if (currentSelectedOrgUI != null)
         {
@@ -242,6 +242,11 @@ public class UIController : MonoBehaviour
         {
             Debug.Log("No Org selected!");
         }
+    }
+
+    public void ShowSelectedOrgDetails()
+    {
+        //TODO implement UI display
     }
 
     public void InstantiateOrgElements()
