@@ -15,8 +15,10 @@ MonoBehaviour:
   CategoryName: ESM
   DatabaseType: 0
   Names:
+  - Advance Game
   - Back
   - Finanzen
+  - Game Overview
   - Merch
   - Org Details
   - Org Overview

@@ -6,6 +6,7 @@ public class UIController : MonoBehaviour
 {
     GameDatabase gamedatabase;
 
+    public GameOverviewUIController gameoverviewUI = null;
     public DotACanvasUIController dotaCanvasUI = null;
 
     public Organization currentSelectedOrg = null;
@@ -275,7 +276,42 @@ public class UIController : MonoBehaviour
         currentSelectedOrgUI = null;
     }
 
+    public void ShowSelectedOrgMerch()
+    {
+        //TODO implement UI display
+    }
+
+    public void ShowSelectedOrgFinance()
+    {
+        //TODO implement UI display
+    }
+
+    public void ShowSelectedOrgSponsor()
+    {
+        //TODO implement UI display
+    }
+
+    public void ShowSelectedOrgStaff()
+    {
+        //TODO implement UI display
+    }
+
+    public void ShowGameOverview()
+    {
+        currentSelectedOrg = gamedatabase.orgsInGame[1];
+        //TODO implement UI display
+    }
+
     #endregion
 
+    #region core parameters
+
+    public void UpdateDateUI()
+    {
+        gameoverviewUI = FindObjectOfType<GameOverviewUIController>();
+        gameoverviewUI.UpdateDisplayDate();
+    }
+
+    #endregion
 
 }

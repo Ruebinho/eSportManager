@@ -8,15 +8,17 @@ public class GlobalGameParameters : MonoBehaviour
     public int gameTimeMonth = 1;
     public int gameTimeYear = 2019;
 
+    public Calendar calendar;
     // Start is called before the first frame update
     void Start()
     {
-        
+        calendar = FindObjectOfType<Calendar>();
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    public void UpdateGameDate()
     {
-        
+        gameTimeDay = calendar.returncurrentDay();
+        gameTimeMonth = calendar.returncurrentMonth();
+        gameTimeYear = calendar.returncurrentYear();
     }
 }
