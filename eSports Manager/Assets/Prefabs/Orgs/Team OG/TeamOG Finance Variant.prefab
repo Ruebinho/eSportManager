@@ -10,7 +10,12 @@ PrefabInstance:
     - target: {fileID: 7093592041682497662, guid: 3b59e222f5f02654d868428078729abf,
         type: 3}
       propertyPath: m_Name
-      value: Finance Variant
+      value: TeamOG Finance Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721242745107909084, guid: 3b59e222f5f02654d868428078729abf,
+        type: 3}
+      propertyPath: kontostand
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4114667469553075416, guid: 3b59e222f5f02654d868428078729abf,
         type: 3}
@@ -66,11 +71,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5721242745107909084, guid: 3b59e222f5f02654d868428078729abf,
-        type: 3}
-      propertyPath: kontostand
-      value: 50000000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b59e222f5f02654d868428078729abf, type: 3}

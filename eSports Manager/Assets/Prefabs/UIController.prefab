@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7781271214833589707}
   - component: {fileID: 1602645613}
   - component: {fileID: 7781271214833589706}
+  - component: {fileID: 1602645614}
+  - component: {fileID: 570863824697302740}
   m_Layer: 0
   m_Name: UIController
   m_TagString: Untagged
@@ -44,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76f7fbb746bf16488188226df6e12d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameoverviewUI: {fileID: 0}
   dotaCanvasUI: {fileID: 0}
   currentSelectedOrg: {fileID: 0}
   currentSelectedTeam: {fileID: 0}
@@ -108,3 +111,30 @@ MonoBehaviour:
   lastHittingPUI: {fileID: 0}
   mapAwarenessPUI: {fileID: 0}
   mindgamingPUI: {fileID: 0}
+--- !u!114 &1602645614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7781271214833589700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68192ca20d61b6e4d9a122f07a5243f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dayUI: {fileID: 0}
+  monthUI: {fileID: 0}
+  yearUI: {fileID: 0}
+--- !u!114 &570863824697302740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7781271214833589700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 312be1edd03b25b4c8351521ff09ea66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

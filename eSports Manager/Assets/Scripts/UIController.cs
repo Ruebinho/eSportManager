@@ -8,6 +8,7 @@ public class UIController : MonoBehaviour
 
     public GameOverviewUIController gameoverviewUI = null;
     public DotACanvasUIController dotaCanvasUI = null;
+    public FinanceUIController financeUI = null;
 
     public Organization currentSelectedOrg = null;
     public Team currentSelectedTeam = null;
@@ -29,6 +30,7 @@ public class UIController : MonoBehaviour
     void Start()
     {
         gamedatabase = FindObjectOfType<GameDatabase>();
+        currentSelectedOrg = gamedatabase.orgsInGame[1];
     }
 
     public void ShowAllOrgs()
@@ -283,7 +285,9 @@ public class UIController : MonoBehaviour
 
     public void ShowSelectedOrgFinance()
     {
-        //TODO implement UI display
+        Debug.Log(currentSelectedOrg);
+        financeUI = FindObjectOfType<FinanceUIController>();
+        financeUI.DisplayFinanceUIValues((Organization)currentSelectedOrg);
     }
 
     public void ShowSelectedOrgSponsor()
@@ -298,7 +302,6 @@ public class UIController : MonoBehaviour
 
     public void ShowGameOverview()
     {
-        currentSelectedOrg = gamedatabase.orgsInGame[1];
         //TODO implement UI display
     }
 

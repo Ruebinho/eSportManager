@@ -52,9 +52,9 @@ public class Team : MonoBehaviour
 
     private bool IsPlayerNowContractedtoTeam(Player player)
     {
-        Contract[] playerContracts = player.careerContracts;
+        PlayerContract[] playerContracts = player.careerContracts;
 
-        foreach (Contract playerContract in playerContracts)
+        foreach (PlayerContract playerContract in playerContracts)
         {
             if (PlayerContractOnGameDateIsWithCorrectTeam(playerContract))
             {
@@ -66,7 +66,7 @@ public class Team : MonoBehaviour
 
     }
 
-    private bool PlayerContractOnGameDateIsWithCorrectTeam(Contract playerContract)
+    private bool PlayerContractOnGameDateIsWithCorrectTeam(PlayerContract playerContract)
     {
         int gameDateDay = FindObjectOfType<GlobalGameParameters>().gameTimeDay;
         int gameDateMonth = FindObjectOfType<GlobalGameParameters>().gameTimeMonth;

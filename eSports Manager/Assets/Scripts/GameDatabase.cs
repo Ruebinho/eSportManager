@@ -11,7 +11,7 @@ public class GameDatabase : MonoBehaviour
     public Team[] teamsToAdd;
     public GameObject teamSpawnerParent;
 
-    public Contract[] contractsToAdd;
+    public PlayerContract[] contractsToAdd;
     public GameObject contractSpawnerParent;
 
     public Organization[] orgsToAdd;
@@ -31,7 +31,7 @@ public class GameDatabase : MonoBehaviour
 
     public List<Player> playersInGame;
     public List<Team> teamsInGame;
-    public List<Contract> contractsInGame;
+    public List<PlayerContract> contractsInGame;
     public List<Organization> orgsInGame;
     public List<Finanzen> financesInGame;
     public List<Sponsor> sponsorsInGame;
@@ -77,15 +77,15 @@ public class GameDatabase : MonoBehaviour
         foreach (Finanzen finance in financesToAdd)
         {
             Finanzen financeInGame = Instantiate(finance, financesSpawnerParent.transform);
-            financeInGame.sponsor = sponsorsInGame[financeInitCounter];
+            financeInGame.sponsors[0] = sponsorsInGame[financeInitCounter];
             financesInGame.Add(financeInGame);
 
             financeInitCounter++;
         }
 
-        foreach (Contract contract in contractsToAdd)
+        foreach (PlayerContract contract in contractsToAdd)
         {
-            Contract contractInGame = Instantiate(contract, contractSpawnerParent.transform);
+            PlayerContract contractInGame = Instantiate(contract, contractSpawnerParent.transform);
             contractInGame.teamPlayerIsContractedTo = teamsInGame[contractInitCounter];
             contractsInGame.Add(contractInGame);
 
