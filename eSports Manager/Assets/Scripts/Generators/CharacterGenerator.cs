@@ -204,13 +204,13 @@ namespace ESM.Character
 
         public string GetNickname()
         {
-            generatedNickname = GetRandomAttributeStringFromArray(nicknameList);
-
-            while(CheckIfNicknameIsInUse(generatedNickname))
+            do
             {
                 generatedNickname = GetRandomAttributeStringFromArray(nicknameList);
             }
+            while (CheckIfNicknameIsInUse(generatedNickname));
 
+            //generatedNickname = GetRandomAttributeStringFromArray(nicknameList);
             return generatedNickname;
         }
 
@@ -222,15 +222,15 @@ namespace ESM.Character
             {
                 if (player.nickname.Equals(generatedNickname))
                 {
+                    Debug.Log("nickname in use");
                     isNicknameUsed = true;
+                    break;
                 }
                 else
                 {
                     isNicknameUsed = false;
                 }
             }
-            Debug.Log(isNicknameUsed);
-            Debug.Log(generatedNickname);
 
             return isNicknameUsed;
         }
@@ -286,7 +286,7 @@ namespace ESM.Character
             float ratingModifier = (float)UnityEngine.Random.Range(1, 11);
             float ratingModifierPositiveNegative = (float)UnityEngine.Random.Range(1, 3);
 
-            if(ratingModifierPositiveNegative < 2)
+            if (ratingModifierPositiveNegative < 2)
             {
                 initialAttributeRating -= ratingModifier;
             }
@@ -307,7 +307,7 @@ namespace ESM.Character
         private float AdjustFR(float finalAttributeRating)
         {
             float chanceOfTalent = (float)UnityEngine.Random.Range(1, 100);
-            
+
             float finalRatingAdjusted = finalAttributeRating;
 
             if (chanceOfTalent <= 0 && chanceOfTalent <= 40f)
@@ -316,11 +316,11 @@ namespace ESM.Character
             }
             if (chanceOfTalent > 40f && chanceOfTalent <= 60f)
             {
-                finalRatingAdjusted = finalAttributeRating + RandomizedBonus(1,4);
+                finalRatingAdjusted = finalAttributeRating + RandomizedBonus(1, 4);
             }
             if (chanceOfTalent > 60f && chanceOfTalent <= 80f)
             {
-                finalRatingAdjusted = finalAttributeRating + RandomizedBonus(4,9);
+                finalRatingAdjusted = finalAttributeRating + RandomizedBonus(4, 9);
             }
             if (chanceOfTalent > 90f && chanceOfTalent <= 98f)
             {
@@ -368,30 +368,32 @@ namespace ESM.Character
         public void GeneratePotentialsForPlayer()
         {
             logicalThinkingP = GeneratePotentialForAttribute(logicalThinking);
-            decisionsP = GenerateRatingForAttribute(decisions);
-            concentrationP = GenerateRatingForAttribute(concentration);
-            determinationP = GenerateRatingForAttribute(determination);
-            handEyeCoordinationP = GenerateRatingForAttribute(handEyeCoordination);
-            gameMechanicsP = GenerateRatingForAttribute(gameMechanics);
-            reactionTimeP = GenerateRatingForAttribute(reactionTime);
-            teamworkP = GenerateRatingForAttribute(teamwork);
-            leadershipP = GenerateRatingForAttribute(leadership);
+            decisionsP = GeneratePotentialForAttribute(decisions);
+            concentrationP = GeneratePotentialForAttribute(concentration);
+            determinationP = GeneratePotentialForAttribute(determination);
+            handEyeCoordinationP = GeneratePotentialForAttribute(handEyeCoordination);
+            gameMechanicsP = GeneratePotentialForAttribute(gameMechanics);
+            reactionTimeP = GeneratePotentialForAttribute(reactionTime);
+            teamworkP = GeneratePotentialForAttribute(teamwork);
+            leadershipP = GeneratePotentialForAttribute(leadership);
 
-            farmingP = GenerateRatingForAttribute(farming);
-            supportingP = GenerateRatingForAttribute(supporting);
-            teamfightP = GenerateRatingForAttribute(teamfight);
-            oneOnOneP = GenerateRatingForAttribute(oneOnOne);
-            lastHittingP = GenerateRatingForAttribute(lastHitting);
-            mapAwarenessP = GenerateRatingForAttribute(mapAwareness);
-            mindgamingP = GenerateRatingForAttribute(mindgaming);
+            farmingP = GeneratePotentialForAttribute(farming);
+            supportingP = GeneratePotentialForAttribute(supporting);
+            teamfightP = GeneratePotentialForAttribute(teamfight);
+            oneOnOneP = GeneratePotentialForAttribute(oneOnOne);
+            lastHittingP = GeneratePotentialForAttribute(lastHitting);
+            mapAwarenessP = GeneratePotentialForAttribute(mapAwareness);
+            mindgamingP = GeneratePotentialForAttribute(mindgaming);
         }
 
         private float GeneratePotentialForAttribute(float playerAttribute)
         {
             float maxPotential = 100f;
-            float PotentialAddition = (float)UnityEngine.Random.Range(playerAttribute, maxPotential);
+            float potentialAddition = (float)UnityEngine.Random.Range(playerAttribute, maxPotential);
 
-            return PotentialAddition;
+            float potentialFinal = Mathf.Round(potentialAddition);
+
+            return potentialFinal;
         }
         #endregion
 
