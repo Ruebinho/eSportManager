@@ -14,9 +14,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5721242745107909084, guid: 3b59e222f5f02654d868428078729abf,
         type: 3}
+      propertyPath: sponsors.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721242745107909084, guid: 3b59e222f5f02654d868428078729abf,
+        type: 3}
       propertyPath: kontostand
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 5721242745107909084, guid: 3b59e222f5f02654d868428078729abf,
+        type: 3}
+      propertyPath: sponsors.Array.data[0]
+      value: 
+      objectReference: {fileID: 6910901021438400578, guid: 6c0927d42a2cca1498664843a578db3c,
+        type: 3}
     - target: {fileID: 4114667469553075416, guid: 3b59e222f5f02654d868428078729abf,
         type: 3}
       propertyPath: m_LocalPosition.x

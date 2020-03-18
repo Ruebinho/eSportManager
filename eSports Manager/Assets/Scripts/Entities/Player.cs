@@ -45,6 +45,8 @@ public class Player : MonoBehaviour
     public float leadershipP;
     #endregion
     #region v_gameAttributes
+    
+    public GlobalGameParameters.Game gamePlayerIsPlaying;
     public CharacterGenerator.Role role;
     public float farming;
     public float supporting;
@@ -74,62 +76,14 @@ public class Player : MonoBehaviour
         dotaCanvasUI = FindObjectOfType<DotACanvasUIController>();
     }
 
-    private void GeneratePlayer()
-    {
-        vorname = charGen.GetVorname();
-        nachname = charGen.GetNachname();
-        nickname = charGen.GetNickname();
-        age = UnityEngine.Random.Range(14, 36);
-        nationality = "Deutsch";
-
-        charGen.GenerateAttributesForPlayer();
-        logicalThinking = charGen.logicalThinking;
-        decisions = charGen.decisions;
-        concentration = charGen.concentration;
-        determination = charGen.determination;
-        handEyeCoordination = charGen.handEyeCoordination;
-        gameMechanics = charGen.gameMechanics;
-        reactionTime = charGen.reactionTime;
-        teamwork = charGen.teamwork;
-        leadership = charGen.leadership;
-        farming = charGen.farming;
-        supporting = charGen.supporting;
-        teamfight = charGen.teamfight;
-        oneOnOne = charGen.oneOnOne;
-        lastHitting = charGen.lastHitting;
-        mapAwareness = charGen.mapAwareness;
-        mindgaming = charGen.mindgaming;
-
-        charGen.GeneratePotentialsForPlayer();
-        logicalThinkingP = charGen.logicalThinkingP;
-        decisionsP = charGen.decisionsP;
-        concentrationP = charGen.concentrationP;
-        determinationP = charGen.determinationP;
-        handEyeCoordinationP = charGen.handEyeCoordinationP;
-        gameMechanicsP = charGen.gameMechanicsP;
-        reactionTimeP = charGen.reactionTimeP;
-        teamworkP = charGen.teamworkP;
-        leadershipP = charGen.leadershipP;
-        farmingP = charGen.farmingP;
-        supportingP = charGen.supportingP;
-        teamfightP = charGen.teamfightP;
-        oneOnOneP = charGen.oneOnOneP;
-        lastHittingP = charGen.lastHittingP;
-        mapAwarenessP = charGen.mapAwarenessP;
-        mindgamingP = charGen.mindgamingP;
-
-        charGen.GenerateRoleForPlayer();
-        role = charGen.role;
-    }
-
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            GeneratePlayer();
-            DisplayPlayerOnCanvas();
-        }
+        //if (Input.GetKeyDown(KeyCode.B))
+        //{
+        //    GeneratePlayer();
+        //    DisplayPlayerOnCanvas();
+        //}
     }
 
     private void DisplayPlayerOnCanvas()

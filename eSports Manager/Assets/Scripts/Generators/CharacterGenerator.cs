@@ -7,20 +7,23 @@ namespace ESM.Character
 {
     public class CharacterGenerator : MonoBehaviour
     {
+        public Player playerPrefab;
         #region Variables
         #region v_Names
-        private string[] vornameList;
-        private string[] nachnameList;
-        private string[] nicknameList;
-        private string[] nationality;
+        public string[] vornameList;
+        public string[] nachnameList;
+        public string[] nicknameList;
+        public string[] nationalityList;
+        public string[] vornameFriends;
+        public string[] nachnameFriends;
+        public string[] nicknameFriends;
 
-        private string generatedVorname = "";
-        private string generatedNachname = "";
-        private string generatedNickname = "";
+        public string generatedVorname = "";
+        public string generatedNachname = "";
+        public string generatedNickname = "";
+        public int generatedAge = 0;
+        public string generatedNationality = "";
 
-        private string[] vornameFriends;
-        private string[] nachnameFriends;
-        private string[] nicknameFriends;
         #endregion
         #region v_Attributes
         public float logicalThinking;
@@ -68,9 +71,20 @@ namespace ESM.Character
         public float academyLevel = 10f;
         #endregion
         #endregion
+
+        GameDatabase gameDatabase;
+
         private void Start()
         {
             InitializeNameDatabase();
+            gameDatabase = FindObjectOfType<GameDatabase>();
+
+            startSetup();
+        }
+
+        private void startSetup()
+        {
+            gameDatabase.SetupGameData();
         }
 
         #region Name Generation
@@ -162,6 +176,18 @@ namespace ESM.Character
             "Blackburn",
             "Bupa"
                 };
+
+            nationalityList = new string[] {
+            "German",
+            "French",
+            "British",
+            "Spanish",
+            "Portuguese",
+            "Swedish",
+            "Chinese",
+            "USA",
+            "Canadian"
+                };
         }
 
         public string GetVorname()
@@ -179,7 +205,46 @@ namespace ESM.Character
         public string GetNickname()
         {
             generatedNickname = GetRandomAttributeStringFromArray(nicknameList);
+
+            while(CheckIfNicknameIsInUse(generatedNickname))
+            {
+                generatedNickname = GetRandomAttributeStringFromArray(nicknameList);
+            }
+
             return generatedNickname;
+        }
+
+        private bool CheckIfNicknameIsInUse(string generatedNickname)
+        {
+            bool isNicknameUsed = false;
+
+            foreach (Player player in gameDatabase.playersInGame)
+            {
+                if (player.nickname.Equals(generatedNickname))
+                {
+                    isNicknameUsed = true;
+                }
+                else
+                {
+                    isNicknameUsed = false;
+                }
+            }
+            Debug.Log(isNicknameUsed);
+            Debug.Log(generatedNickname);
+
+            return isNicknameUsed;
+        }
+
+        public int GetAge()
+        {
+            generatedAge = UnityEngine.Random.Range(14, 40);
+            return generatedAge;
+        }
+
+        public string GetNationality()
+        {
+            generatedNationality = GetRandomAttributeStringFromArray(nationalityList);
+            return generatedNationality;
         }
 
 
@@ -360,6 +425,66 @@ namespace ESM.Character
         }
 
         #endregion
+
+        private GlobalGameParameters.Game GenerateRandomGameForPlayerCreation()
+        {
+            //TODO: update for all games
+            return GlobalGameParameters.Game.DotA2;
+        }
+
+        public Player GeneratePlayer()
+        {
+            Player generatedPlayer = playerPrefab;
+            generatedPlayer.isGeneratedPlayer = true;
+
+            generatedPlayer.vorname = GetVorname();
+            generatedPlayer.nachname = GetNachname();
+            generatedPlayer.nickname = GetNickname();
+            generatedPlayer.age = GetAge();
+            generatedPlayer.nationality = GetNationality();
+
+            GenerateAttributesForPlayer();
+            generatedPlayer.logicalThinking = logicalThinking;
+            generatedPlayer.decisions = decisions;
+            generatedPlayer.concentration = concentration;
+            generatedPlayer.determination = determination;
+            generatedPlayer.handEyeCoordination = handEyeCoordination;
+            generatedPlayer.gameMechanics = gameMechanics;
+            generatedPlayer.reactionTime = reactionTime;
+            generatedPlayer.teamwork = teamwork;
+            generatedPlayer.leadership = leadership;
+            generatedPlayer.farming = farming;
+            generatedPlayer.supporting = supporting;
+            generatedPlayer.teamfight = teamfight;
+            generatedPlayer.oneOnOne = oneOnOne;
+            generatedPlayer.lastHitting = lastHitting;
+            generatedPlayer.mapAwareness = mapAwareness;
+            generatedPlayer.mindgaming = mindgaming;
+
+            generatedPlayer.gamePlayerIsPlaying = GenerateRandomGameForPlayerCreation();
+            GeneratePotentialsForPlayer();
+            generatedPlayer.logicalThinkingP = logicalThinkingP;
+            generatedPlayer.decisionsP = decisionsP;
+            generatedPlayer.concentrationP = concentrationP;
+            generatedPlayer.determinationP = determinationP;
+            generatedPlayer.handEyeCoordinationP = handEyeCoordinationP;
+            generatedPlayer.gameMechanicsP = gameMechanicsP;
+            generatedPlayer.reactionTimeP = reactionTimeP;
+            generatedPlayer.teamworkP = teamworkP;
+            generatedPlayer.leadershipP = leadershipP;
+            generatedPlayer.farmingP = farmingP;
+            generatedPlayer.supportingP = supportingP;
+            generatedPlayer.teamfightP = teamfightP;
+            generatedPlayer.oneOnOneP = oneOnOneP;
+            generatedPlayer.lastHittingP = lastHittingP;
+            generatedPlayer.mapAwarenessP = mapAwarenessP;
+            generatedPlayer.mindgamingP = mindgamingP;
+
+            GenerateRoleForPlayer();
+            generatedPlayer.role = role;
+
+            return generatedPlayer;
+        }
     }
 
 }

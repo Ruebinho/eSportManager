@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameoverviewUI: {fileID: 0}
   dotaCanvasUI: {fileID: 0}
+  financeUI: {fileID: 0}
   currentSelectedOrg: {fileID: 0}
   currentSelectedTeam: {fileID: 0}
   currentSelectedOrgUI: {fileID: 0}
@@ -138,3 +139,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 312be1edd03b25b4c8351521ff09ea66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  kontostandUI: {fileID: 0}

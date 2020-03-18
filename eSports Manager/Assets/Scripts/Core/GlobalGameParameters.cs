@@ -9,6 +9,8 @@ public class GlobalGameParameters : MonoBehaviour
     public int gameTimeYear = 2019;
 
     public Calendar calendar;
+
+    [SerializeField] public enum Game { DotA2, RocketLeague, Rainbow6Siege, CSGO, FIFA };
     // Start is called before the first frame update
     void Start()
     {

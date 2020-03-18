@@ -24,6 +24,7 @@ public class UIController : MonoBehaviour
     public GameObject teamElementInstatiatePrefab = null;
 
     public GameObject playerUIInstatiateParent = null;
+    public GameObject playerTransferUIInstatiateParent = null;
     public GameObject playerElementInstatiatePrefab = null;
 
     // Start is called before the first frame update
@@ -194,6 +195,23 @@ public class UIController : MonoBehaviour
         currentSelectedPlayerUI = null;
     }
 
+    public void InstantiatePlayerElementsForPotentialTransfer()
+    {
+        foreach (Player player in gamedatabase.playersInGame)
+        {
+            if (player.careerContracts[player.careerContracts.Length] = null)
+            {
+                playerElementInstatiatePrefab.GetComponent<PlayerElementUIController>().playerData = player;
+                Instantiate(playerElementInstatiatePrefab, playerTransferUIInstatiateParent.transform);
+            }
+        }
+    }
+
+    public void ShowTransferOverview()
+    {
+            InstantiatePlayerElementsForPotentialTransfer();
+    }
+
     #endregion
 
     #region OrgOverview
@@ -303,6 +321,9 @@ public class UIController : MonoBehaviour
     public void ShowGameOverview()
     {
         //TODO implement UI display
+        Debug.Log(currentSelectedOrg);
+        gameoverviewUI = FindObjectOfType<GameOverviewUIController>();
+        gameoverviewUI.DisplayGameOverview((Organization)currentSelectedOrg);
     }
 
     #endregion

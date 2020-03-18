@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class GameCoreLogic : MonoBehaviour
 {
-    GlobalGameParameters globalGameParameters;
-    Calendar calendar;
-    UIController uiController;
+    public GlobalGameParameters globalGameParameters;
+    public Calendar calendar;
+    public UIController uiController;
+
+    //customized Game parameters
+    public Organization playerSelectedOrg = null;
 
     // Start is called before the first frame update
     void Start()

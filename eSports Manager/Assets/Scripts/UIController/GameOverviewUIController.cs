@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -44,5 +45,11 @@ public class GameOverviewUIController : MonoBehaviour
         }
 
         return globalGameParameters.gameTimeMonth.ToString() + ".";
+    }
+
+    internal void DisplayGameOverview(Organization organization)
+    {
+        // display selected orgs details in gameoverview
+        throw new NotImplementedException();
     }
 }

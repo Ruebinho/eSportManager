@@ -1,5 +1,78 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1778149504
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1778149505}
+  - component: {fileID: 1778149506}
+  - component: {fileID: 1778149507}
+  - component: {fileID: 5635397036507627514}
+  m_Layer: 0
+  m_Name: CoreGame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1778149505
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778149504}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3206108426710170595}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1778149506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778149504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8cba48c43f8c814b85da6de64951436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  globalGameParameters: {fileID: 0}
+  calendar: {fileID: 0}
+  uiController: {fileID: 0}
+  playerSelectedOrg: {fileID: 0}
+--- !u!114 &1778149507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778149504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd6e3cd93cebb1e4b8ed0f113a679008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5635397036507627514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778149504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 009b30e0819c74d47b0e8064b5c86d52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3206108426710170594
 GameObject:
   m_ObjectHideFlags: 0
@@ -29,6 +102,7 @@ Transform:
   m_Children:
   - {fileID: 3206108428273316125}
   - {fileID: 3206108428183839737}
+  - {fileID: 1778149505}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -42,6 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3206108428183839737}
   - component: {fileID: 3206108428183839686}
+  - component: {fileID: 1945488673}
   m_Layer: 0
   m_Name: Global Game Parameters
   m_TagString: Untagged
@@ -78,6 +153,22 @@ MonoBehaviour:
   gameTimeDay: 1
   gameTimeMonth: 1
   gameTimeYear: 2019
+  calendar: {fileID: 0}
+--- !u!114 &1945488673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3206108428183839736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dff131365bc796a45b450c520def2359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentDay: 1
+  currentMonth: 1
+  currentYear: 2019
 --- !u!1 &3206108428273316127
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,6 +180,7 @@ GameObject:
   - component: {fileID: 3206108428273316125}
   - component: {fileID: 3206108428273316124}
   - component: {fileID: 3206108428273316123}
+  - component: {fileID: 147784663}
   m_Layer: 0
   m_Name: GameDataGenerator
   m_TagString: Untagged
@@ -168,3 +260,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d84a4298330e7c34f82806d468e2adaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &147784663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3206108428273316127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 296ab275be9f67040ab906c23c38061a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerContractInit: {fileID: 0}
+  sponsorContractInit: {fileID: 0}
+  startDay: 0
+  startMonth: 0
+  startYear: 0
+  endDay: 0
+  endMonth: 0
+  endYear: 0
+  gamecoreLogic: {fileID: 0}
+  playerToContract: {fileID: 0}
+  wage: 0

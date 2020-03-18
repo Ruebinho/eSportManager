@@ -16,16 +16,18 @@ MonoBehaviour:
   DatabaseType: 2
   Names:
   - Background
+  - Finanzen
+  - Game Overview
   - Main Menu
+  - Merch
+  - Org Details
+  - Org Overview
   - Org Team Overview
   - Player Overview
   - Quit
   - Settings
-  - Team Overview
-  - Org Overview
-  - Org Details
-  - Finanzen
-  - Merch
-  - Staff
   - Sponsors
-  - Game Overview
+  - SponsorsChoose
+  - Staff
+  - Team Overview
+  - TransferOverview

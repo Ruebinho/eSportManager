@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ESM.Character;
+using System.Threading;
 
 public class GameDatabase : MonoBehaviour
 {
@@ -38,13 +40,16 @@ public class GameDatabase : MonoBehaviour
     public List<Akademie> academiesInGame;
     public List<Merch> merchandisesInGame;
 
+    public int randomCharactersToCreate = 10;
+    public CharacterGenerator charGen;
+
     // Start is called before the first frame update
     void Start()
     {
-        SetupGameData();
+        charGen = FindObjectOfType<CharacterGenerator>();
     }
 
-    private void SetupGameData()
+    public void SetupGameData()
     {
         int contractInitCounter = 0;
         int orgInitCounter = 0;
@@ -77,7 +82,7 @@ public class GameDatabase : MonoBehaviour
         foreach (Finanzen finance in financesToAdd)
         {
             Finanzen financeInGame = Instantiate(finance, financesSpawnerParent.transform);
-            financeInGame.sponsors[0] = sponsorsInGame[financeInitCounter];
+            // TODO fix financeInGame.sponsors[0] = sponsorsInGame[financeInitCounter];
             financesInGame.Add(financeInGame);
 
             financeInitCounter++;
@@ -111,5 +116,17 @@ public class GameDatabase : MonoBehaviour
             orgInitCounter++;
         }
 
+        AddRandomGeneratedPlayers();
+
+    }
+
+    private void AddRandomGeneratedPlayers()
+    {
+        for (int i = 0; i < 14; i++)
+        {
+            Player playerToInstantiate = charGen.GeneratePlayer();
+            Player playerInGame = Instantiate(playerToInstantiate, playerSpawnerParent.transform);
+            playersInGame.Add(playerInGame);
+        }
     }
 }

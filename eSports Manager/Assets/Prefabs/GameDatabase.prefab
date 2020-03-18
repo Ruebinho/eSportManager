@@ -65,6 +65,17 @@ MonoBehaviour:
   sponsorsToAdd:
   - {fileID: 6910901021438400578, guid: 6c0927d42a2cca1498664843a578db3c, type: 3}
   - {fileID: 149004811434176965, guid: 52d1fedc36c0606479df071d743cd858, type: 3}
+  - {fileID: 5037639214608125313, guid: 7dffa74fbe7abc4418ceda908a8552ab, type: 3}
+  - {fileID: 8326435847017005044, guid: 3885257f498c24e4a82fb73b97fc9e82, type: 3}
+  - {fileID: 414262535079172379, guid: a30ff8bb4bc048842abf05ce1df4b9d9, type: 3}
+  - {fileID: 3196913015396620419, guid: 14e67eec7ef644442aaf9008503bbe29, type: 3}
+  - {fileID: 6488542925123123036, guid: f5606f061d4f67e498748b1851b8fa71, type: 3}
+  - {fileID: 4855392642336953847, guid: 48ed4476d0a2c29479b2c8a7e3c78e49, type: 3}
+  - {fileID: 295274396927172266, guid: 6d16b7ec405c51e46945d2a0124a0a58, type: 3}
+  - {fileID: 873127794621486047, guid: 14c09667328523e49bbb954ba39f1ebb, type: 3}
+  - {fileID: 4793135403503014675, guid: 89bae21bb1dbba141a589e7dbdfd850a, type: 3}
+  - {fileID: 7438194718188385404, guid: cbeb1fc3c4449a0458d20564c581041a, type: 3}
+  - {fileID: 7922558856653484348, guid: 0d34fc4b54ed97c4db365df8070b1a8e, type: 3}
   sponsorSpawnerParent: {fileID: 0}
   financesToAdd:
   - {fileID: 7293603934475948718, guid: cd6ba6ab15623904da613bb9f1e10c68, type: 3}

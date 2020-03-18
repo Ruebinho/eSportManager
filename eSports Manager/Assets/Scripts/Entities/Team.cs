@@ -3,14 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-[SerializeField] public enum Game { DotA2, CSGO, FIFA, RocketLeague };
-
 public class Team : MonoBehaviour
 {
     public Organization orgTeamBelongsTo;
     public string teamName;
-    public Game teamGame;
+    public GlobalGameParameters.Game teamGame;
     public List<Player> playersOnTeam = null;
     public GameDatabase gamedatabase;
 

@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Finanzen : MonoBehaviour
+public class PlayerAdvancement : MonoBehaviour
 {
-    public float kontostand = 0f;
-    public Sponsor[] sponsors;
+
+    // Here player attributes get changed depending on training, age, events (illness, injuries etc.)
+
     // Start is called before the first frame update
     void Start()
     {
