@@ -199,11 +199,13 @@ public class UIController : MonoBehaviour
     {
         foreach (Player player in gamedatabase.playersInGame)
         {
-            if (player.careerContracts[player.careerContracts.Length] = null)
-            {
+            //Debug.Log(player.careerContracts[0]);
+            //int contractIndex = player.careerContracts.Length - 1;
+            //if (player.careerContracts[contractIndex] = null)
+            //{
                 playerElementInstatiatePrefab.GetComponent<PlayerElementUIController>().playerData = player;
                 Instantiate(playerElementInstatiatePrefab, playerTransferUIInstatiateParent.transform);
-            }
+
         }
     }
 

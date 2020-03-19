@@ -117,28 +117,126 @@ namespace ESM.Character
             "Shikri",
             "Holuban",
             "Raitur",
-            "Gutmann"
+            "Gutmann",
+            "Boden",
+            "Müller",
+            "Schmidt",
+            "Schneider",
+            "Fischer",
+            "Meyer",
+            "Weber",
+            "Hofmann",
+            "Wagner",
+            "Becker",
+            "Richter",
+            "Bauer",
+            "Klein",
+            "Schröder",
+            "Wolf",
+            "Smith",
+            "Almquist",
+            "Allington",
+            "Albes",
+            "Averbeck",
+            "Bandowski",
+            "Barnes",
+            "Barre",
+            "de Bar",
+            "Bailey",
+            "Baker"
             };
 
             nicknameList = new string[] {
-            "Ruebinho",
-            "MasterMeisi",
-            "TheDetroyer",
+            "f1r3f1ght3r",
+            "s1ck0",
+            "tr0y",
             "a!mb0t",
             "ezpz",
             "cykaSlayer",
             "get0wned",
             "sneakY",
             "R4d!0act!v3",
-            "fly",
+            "gl1de",
             "BigDaddy",
-            "Ceb",
+            "Cebby",
             "Xiao67",
-            "Pussy69",
+            "kennyK",
             "XXX_420NoSc0p3_XXX",
             "Putin's Best Sharpshooter",
             "sneakY",
-            "R4d!0act!v3"
+            "R4d!0act!v3",
+            "ScreaMer",
+            "GuarD",
+            "sashaBiceps",
+            "Zeus",
+            "mei$ter",
+            "s1mplest",
+            "RiGhT",
+            "FalleNDowN",
+            "w4ld",
+            "Tac0",
+            "nothinG",
+            "p0wder",
+            "f0x",
+            "Blad3",
+            "freakazoid",
+            "bUg",
+            "Spid0r",
+            "dream3rino",
+            "Pimp",
+            "Skapadapple",
+            "ComeToKill",
+            "hex0r",
+            "r1sk",
+            "D1l3mm4",
+            "007",
+            "13aby",
+            "dogf!ght",
+            "Jupp",
+            "Chico",
+            "ApeNinja",
+            "Aire",
+            "AlacritY",
+            "mama",
+            "papa",
+            "arr0w",
+            "Ris3n",
+            "Und3ad",
+            "Baisu",
+            "MagnuM",
+            "bliZZard",
+            "blinK",
+            "b0mbsh3ll",
+            "boogi",
+            "b00geym4n",
+            "bubs",
+            "butterflY",
+            "cucumba",
+            "chexy",
+            "luckY",
+            "hrhrhr",
+            "c00ki3",
+            "cook!eM0nst3r",
+            "scr4tch",
+            "crItter",
+            "cr4zY",
+            "Constabl3",
+            "L@rrY",
+            "Cryz0",
+            "cry",
+            "paIn",
+            "crabster",
+            "axa",
+            "d3m0n",
+            "Dongi",
+            "the_Doc",
+            "@nt!",
+            "haWk",
+            "em0",
+            "skillz",
+            "faitH",
+            "f3ar",
+            "fl@sh"
             };
 
             vornameFriends = new string[] {
@@ -204,35 +302,47 @@ namespace ESM.Character
 
         public string GetNickname()
         {
-            do
-            {
-                generatedNickname = GetRandomAttributeStringFromArray(nicknameList);
-            }
-            while (CheckIfNicknameIsInUse(generatedNickname));
+            generatedNickname = GetRandomAttributeStringFromArrayAndDeleteIfIsUsed(nicknameList);
 
-            //generatedNickname = GetRandomAttributeStringFromArray(nicknameList);
             return generatedNickname;
+
         }
 
-        private bool CheckIfNicknameIsInUse(string generatedNickname)
+        //private bool CheckIfNicknameIsInUse(string generatedNickname)
+        //{
+        //    bool isNicknameUsed = false;
+
+        //    foreach (Player player in gameDatabase.playersInGame)
+        //    {
+        //        if (player.nickname.Equals(generatedNickname))
+        //        {
+        //            Debug.Log("nickname in use");
+        //            isNicknameUsed = true;
+        //            break;
+        //        }
+        //        else
+        //        {
+        //            isNicknameUsed = false;
+        //        }
+        //    }
+
+        //    return isNicknameUsed;
+        //}
+
+        private string GetRandomAttributeStringFromArrayAndDeleteIfIsUsed(string[] characterAttributeArray)
         {
-            bool isNicknameUsed = false;
+            if (characterAttributeArray == null) { }
+            float arrayLaenge = characterAttributeArray.Length;
 
-            foreach (Player player in gameDatabase.playersInGame)
-            {
-                if (player.nickname.Equals(generatedNickname))
-                {
-                    Debug.Log("nickname in use");
-                    isNicknameUsed = true;
-                    break;
-                }
-                else
-                {
-                    isNicknameUsed = false;
-                }
-            }
+            int attributeinArray = (Int32)UnityEngine.Random.Range(0, arrayLaenge - 1f);
 
-            return isNicknameUsed;
+            string generatedtempnickname = characterAttributeArray[attributeinArray];
+
+            List<string> tmp = new List<string>(characterAttributeArray);
+            tmp.RemoveAt(attributeinArray);
+            nicknameList = tmp.ToArray();
+
+            return generatedtempnickname;
         }
 
         public int GetAge()
@@ -253,10 +363,11 @@ namespace ESM.Character
             if (characterAttributeArray == null) { }
             float arrayLaenge = characterAttributeArray.Length;
 
-            int attributeinArray = (Int32)UnityEngine.Random.Range(0, arrayLaenge);
+            int attributeinArray = (Int32)UnityEngine.Random.Range(0, arrayLaenge - 1f);
 
             return characterAttributeArray[attributeinArray];
         }
+
 
         public string OutputGeneratedChar()
         {

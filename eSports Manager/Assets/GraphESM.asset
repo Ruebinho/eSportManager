@@ -328,10 +328,16 @@ MonoBehaviour:
   m_id: db131cd2-4c38-4353-af38-b645431ce2b4
   m_name: Transfer Overview
   m_notes: 
-  m_onEnterShowViews: []
+  m_onEnterShowViews:
+  - Category: ESM
+    InstantAction: 0
+    Name: TransferOverview
   m_onEnterHideViews: []
   m_onExitShowViews: []
-  m_onExitHideViews: []
+  m_onExitHideViews:
+  - Category: ESM
+    InstantAction: 0
+    Name: TransferOverview
 --- !u!114 &-6977642948280380021
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -122,7 +122,9 @@ public class GameDatabase : MonoBehaviour
 
     private void AddRandomGeneratedPlayers()
     {
-        for (int i = 0; i < 14; i++)
+        randomCharactersToCreate = charGen.nicknameList.Length - 1;
+
+        for (int i = 0; i < randomCharactersToCreate; i++)
         {
             Player playerToInstantiate = charGen.GeneratePlayer();
             Player playerInGame = Instantiate(playerToInstantiate, playerSpawnerParent.transform);
