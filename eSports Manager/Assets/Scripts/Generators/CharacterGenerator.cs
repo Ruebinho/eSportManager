@@ -7,6 +7,7 @@ namespace ESM.Character
 {
     public class CharacterGenerator : MonoBehaviour
     {
+        #region Player
         public Player playerPrefab;
         #region Variables
         #region v_Names
@@ -70,6 +71,14 @@ namespace ESM.Character
         [Range(1, 100)]
         public float academyLevel = 10f;
         #endregion
+        #endregion
+        #endregion
+
+        #region Staff Member
+
+        public StaffMember staffMemberPrefab;
+        public enum StaffRole { Scout, Doctor, Trainer, PRManager };
+
         #endregion
 
         GameDatabase gameDatabase;

@@ -7,6 +7,7 @@ public class ContractGenerator : MonoBehaviour
 {
     public PlayerContract playerContractInit = null;
     public SponsorContract sponsorContractInit = null;
+    //public StaffContract staffContractInit = null;
 
     public int startDay;
     public int startMonth;
