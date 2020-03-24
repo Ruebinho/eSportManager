@@ -69,7 +69,7 @@ namespace ESM.Character
 
         #region General Generation Attributes
         [Range(1, 100)]
-        public float academyLevel = 10f;
+        public float academyLevel = 100f;
         #endregion
         #endregion
         #endregion
@@ -77,7 +77,23 @@ namespace ESM.Character
         #region Staff Member
 
         public StaffMember staffMemberPrefab;
-        public enum StaffRole { Scout, Doctor, Trainer, PRManager };
+        public enum StaffRole { Scout, Doctor, Trainer, PRManager, DataAnalyst };
+        public StaffRole staffRole;
+
+        public float discipline;
+        public float motivating;
+        // public float concentration;
+        // public float determination;
+        public float adaptability;
+        // public float gameMechanics;
+        public float workingWithYoungsters;
+        public float mental;
+        public float technical;
+        public float tacticalKnowledge;
+        public float judgingPlayerAbility;
+        public float judgingPlayerPotential;
+        public float physioTherapy;
+        public float fitness;
 
         #endregion
 
@@ -114,7 +130,18 @@ namespace ESM.Character
             "James",
             "Rick",
             "Sven",
-            "Hugo"
+            "Hugo",
+            "Fabian",
+            "Richard",
+            "Tom",
+            "Bill",
+            "Kevin",
+            "Steve",
+            "Allen",
+            "Jake",
+            "Ingo",
+            "Michael",
+            "Paul"
                 };
 
             nachnameList = new string[] {
@@ -245,7 +272,8 @@ namespace ESM.Character
             "skillz",
             "faitH",
             "f3ar",
-            "fl@sh"
+            "fl@sh",
+            "Richy"
             };
 
             vornameFriends = new string[] {
@@ -606,6 +634,85 @@ namespace ESM.Character
             generatedPlayer.role = role;
 
             return generatedPlayer;
+        }
+
+        public StaffMember GenerateStaffMember()
+        {
+            StaffMember generatedStaff = staffMemberPrefab;
+            generatedStaff.isGeneratedPlayer = true;
+
+            generatedStaff.vorname = GetVorname();
+            generatedStaff.nachname = GetNachname();
+            generatedStaff.age = GetAge();
+            generatedStaff.nationality = GetNationality();
+
+            GenerateAttributesForStaff();
+            generatedStaff.discipline = discipline;
+            generatedStaff.motivating = motivating;
+            generatedStaff.concentration = concentration;
+            generatedStaff.determination = determination;
+            generatedStaff.adaptability = adaptability;
+            generatedStaff.gameMechanics = gameMechanics;
+            generatedStaff.workingWithYoungsters = workingWithYoungsters;
+            generatedStaff.mental = mental;
+            generatedStaff.technical = technical;
+            generatedStaff.tacticalKnowledge = tacticalKnowledge;
+            generatedStaff.judgingPlayerAbility = judgingPlayerAbility;
+            generatedStaff.judgingPlayerPotential = judgingPlayerPotential;
+            generatedStaff.physioTherapy = physioTherapy;
+            generatedStaff.fitness = fitness;
+
+            GenerateRoleForStaff();
+            generatedStaff.staffRole = staffRole;
+
+            return generatedStaff;
+        }
+
+        private void GenerateRoleForStaff()
+        {
+            int generatedRole = (Int32)UnityEngine.Random.Range(0, 5);
+
+            staffRole = SetStaffRoleWithCorrectEnumValue(generatedRole);
+        }
+
+        private StaffRole SetStaffRoleWithCorrectEnumValue(int generatedRole)
+        {
+            switch (generatedRole)
+            {
+                case 0:
+                    return StaffRole.Trainer;
+                case 1:
+                    return StaffRole.Scout;
+                case 2:
+                    return StaffRole.PRManager;
+                case 3:
+                    return StaffRole.Doctor;
+                case 4:
+                    return StaffRole.DataAnalyst;
+                default:
+                    print("Something went wrong");
+                    return StaffRole.Trainer;
+            }
+        }
+
+        private void GenerateAttributesForStaff()
+        {
+            float randomAcademyValue = (float)UnityEngine.Random.Range(10, 100);
+
+            discipline = GenerateRatingForAttribute(randomAcademyValue);
+            motivating = GenerateRatingForAttribute(randomAcademyValue);
+            concentration = GenerateRatingForAttribute(randomAcademyValue);
+            determination = GenerateRatingForAttribute(randomAcademyValue);
+            adaptability = GenerateRatingForAttribute(randomAcademyValue);
+            gameMechanics = GenerateRatingForAttribute(randomAcademyValue);
+            workingWithYoungsters = GenerateRatingForAttribute(randomAcademyValue);
+            mental = GenerateRatingForAttribute(randomAcademyValue);
+            technical = GenerateRatingForAttribute(randomAcademyValue);
+            tacticalKnowledge = GenerateRatingForAttribute(randomAcademyValue);
+            judgingPlayerAbility = GenerateRatingForAttribute(randomAcademyValue);
+            judgingPlayerPotential = GenerateRatingForAttribute(randomAcademyValue);
+            physioTherapy = GenerateRatingForAttribute(randomAcademyValue);
+            fitness = GenerateRatingForAttribute(randomAcademyValue);
         }
     }
 

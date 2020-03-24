@@ -214,6 +214,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c32612fd20dc1645b9d9903f7462d78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerPrefab: {fileID: 5220906631002418570, guid: 76d1a0db58de21f439b4493fadc455cc,
+    type: 3}
+  vornameList: []
+  nachnameList: []
+  nicknameList: []
+  nationalityList: []
+  vornameFriends: []
+  nachnameFriends: []
+  nicknameFriends: []
+  generatedVorname: 
+  generatedNachname: 
+  generatedNickname: 
+  generatedAge: 0
+  generatedNationality: 
   logicalThinking: 0
   decisions: 0
   concentration: 0
@@ -248,6 +262,20 @@ MonoBehaviour:
   mapAwarenessP: 0
   mindgamingP: 0
   academyLevel: 10
+  staffMemberPrefab: {fileID: 7984344651403792635, guid: faea1821e5ef70645911724ef77ed833,
+    type: 3}
+  staffRole: 0
+  discipline: 0
+  motivating: 0
+  adaptability: 0
+  workingWithYoungsters: 0
+  mental: 0
+  technical: 0
+  tacticalKnowledge: 0
+  judgingPlayerAbility: 0
+  judgingPlayerPotential: 0
+  physioTherapy: 0
+  fitness: 0
 --- !u!114 &3206108428273316123
 MonoBehaviour:
   m_ObjectHideFlags: 0

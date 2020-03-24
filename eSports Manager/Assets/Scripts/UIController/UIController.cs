@@ -214,6 +214,16 @@ public class UIController : MonoBehaviour
             InstantiatePlayerElementsForPotentialTransfer();
     }
 
+    public void ShowContractOfferView()
+    {
+        //TODO implement Contract Offer UI
+    }
+
+    public void OfferContract()
+    {
+
+    }
+
     #endregion
 
     #region OrgOverview

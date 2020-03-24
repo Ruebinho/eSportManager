@@ -31,6 +31,9 @@ public class GameDatabase : MonoBehaviour
     public Merch[] merchandisesToAdd;
     public GameObject merchandiseSpawnerParent;
 
+    public StaffMember[] staffMembersToAdd;
+    public GameObject staffSpawnerParent;
+
     public List<Player> playersInGame;
     public List<Team> teamsInGame;
     public List<PlayerContract> contractsInGame;
@@ -39,6 +42,8 @@ public class GameDatabase : MonoBehaviour
     public List<Sponsor> sponsorsInGame;
     public List<Akademie> academiesInGame;
     public List<Merch> merchandisesInGame;
+    public List<StaffMember> staffMembersInGame;
+    public List<StaffContract> staffMemberContractsInGame;
 
     public int randomCharactersToCreate = 10;
     public CharacterGenerator charGen;
@@ -117,7 +122,20 @@ public class GameDatabase : MonoBehaviour
         }
 
         AddRandomGeneratedPlayers();
+        AddRandomGeneratedStaff();
 
+    }
+
+    private void AddRandomGeneratedStaff()
+    {
+        int randomStaffToCreate = 90;
+
+        for (int i = 0; i < randomStaffToCreate; i++)
+        {
+            StaffMember staffMemberToInstantiate = charGen.GenerateStaffMember();
+            StaffMember staffMemberInGame = Instantiate(staffMemberToInstantiate, staffSpawnerParent.transform);
+            staffMembersInGame.Add(staffMemberInGame);
+        }
     }
 
     private void AddRandomGeneratedPlayers()

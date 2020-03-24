@@ -125,8 +125,46 @@ public class DotaMatch : MonoBehaviour
 
     private float CalculateEarlyGame()
     {
+        float topLaneEGResult = CalculateTopLaneEGResult();
+        float midLaneEGResult = CalculateMidLaneEGResult();
+        float botLaneEGResult = CalculateBotLaneEGResult();
+
+        //calculate lane results
+        float earlyGameResult = 0f;
+
+        return earlyGameResult;
+    }
+
+    #region calculateEG
+    private float CalculateBotLaneEGResult()
+    {
         throw new NotImplementedException();
     }
+
+    private float CalculateMidLaneEGResult()
+    {
+        throw new NotImplementedException();
+    }
+
+    private float CalculateTopLaneEGResult()
+    {
+        throw new NotImplementedException();
+    }
+
+    #endregion
+
+    #region calculateMG
+    private float CalculateTeamfightResult()
+    {
+        throw new NotImplementedException();
+    }
+
+    private float CalculateGankingResult()
+    {
+        throw new NotImplementedException();
+    }
+
+    #endregion
 
     private void ResetGameResults()
     {

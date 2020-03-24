@@ -22,17 +22,26 @@ public class StaffMember : MonoBehaviour
     #endregion
 
     #region v_Attributes
+
+    public CharacterGenerator.StaffRole staffRole;
+
     public float discipline;
     public float motivating;
     public float concentration;
     public float determination;
+    public float adaptability;
     public float workingWithYoungsters;
 
+    public float gameMechanics;
+    public float mental;
+    public float technical;
+    public float tacticalKnowledge;
+    
     public float judgingPlayerAbility;
     public float judgingPlayerPotential;
 
     public float physioTherapy;
-    public float leadership;
+    public float fitness;
 
     #endregion
 
