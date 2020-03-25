@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StaffContract : MonoBehaviour
 {
+    public StaffContract scPrefab;
     public Organization orgStaffMemberIsContractedTo = null;
     public int contractStartDateDay = 1;
     public int contractStartDateMonth = 1;
@@ -14,10 +15,12 @@ public class StaffContract : MonoBehaviour
 
     public float wage = 1f;
 
+    public float contractProbability = 0f;
+
     // Start is called before the first frame update
     public StaffContract GenerateStaffContract(Organization contractOrg, int ds, int ms, int ys, int de, int me, int ye, float wage)
     {
-        StaffContract generatedSC = new StaffContract();
+        StaffContract generatedSC = scPrefab;
 
         #region org and duration data
         generatedSC.orgStaffMemberIsContractedTo = contractOrg;

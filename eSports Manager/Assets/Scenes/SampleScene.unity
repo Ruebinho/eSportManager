@@ -122941,6 +122941,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 147784663, guid: 58209982f5791cd49b67b7b0d8316793, type: 3}
+      propertyPath: staffContractPrefab
+      value: 
+      objectReference: {fileID: 1785580866996646075, guid: 78e8c83b0e61b2d4cbc8b291813b86da,
+        type: 3}
+    - target: {fileID: 147784663, guid: 58209982f5791cd49b67b7b0d8316793, type: 3}
+      propertyPath: playerContractPrefab
+      value: 
+      objectReference: {fileID: 6152540638201564591, guid: c88ea8f2331def948ad52220c5a1c8e7,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58209982f5791cd49b67b7b0d8316793, type: 3}
 --- !u!1001 &6257994775775576405

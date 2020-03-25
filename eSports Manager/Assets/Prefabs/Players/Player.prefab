@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4690018488578463750}
   - component: {fileID: 5220906631002418570}
+  - component: {fileID: -4590611369791673513}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -47,6 +48,7 @@ MonoBehaviour:
   currentAbilityIsScouted: 0
   potentialIsScouted: 0
   careerContracts: []
+  initialContractInt: 0
   vorname: 
   nachname: 
   nickname: 
@@ -70,6 +72,7 @@ MonoBehaviour:
   reactionTimeP: 0
   teamworkP: 0
   leadershipP: 0
+  gamePlayerIsPlaying: 0
   role: 0
   farming: 0
   supporting: 0
@@ -85,3 +88,15 @@ MonoBehaviour:
   lastHittingP: 0
   mapAwarenessP: 0
   mindgamingP: 0
+--- !u!114 &-4590611369791673513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677231099583685118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 009b30e0819c74d47b0e8064b5c86d52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

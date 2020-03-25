@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class ContractGenerator : MonoBehaviour
 {
-    public PlayerContract playerContractInit = null;
-    public SponsorContract sponsorContractInit = null;
-    //public StaffContract staffContractInit = null;
+    public PlayerContract playerContractPrefab;
+    public SponsorContract sponsorContractPrefab;
+    public StaffContract staffContractPrefab;
 
     public int startDay;
     public int startMonth;
@@ -18,35 +18,28 @@ public class ContractGenerator : MonoBehaviour
     public int endYear;
 
     public GameCoreLogic gamecoreLogic = null;
+    public GlobalGameParameters ggp;
+    public Calendar cal;
     public Player playerToContract = null;
     public float wage;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerContractInit = GetComponent<PlayerContract>();
-        sponsorContractInit = GetComponent<SponsorContract>();
         gamecoreLogic = FindObjectOfType<GameCoreLogic>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        ggp = FindObjectOfType<GlobalGameParameters>();
+        cal = FindObjectOfType<Calendar>();
     }
 
     public PlayerContract GeneratePlayerContract()
     {
         if (ChooseCorrectTeam() != null)
         {
-            PlayerContract generatedPlayerContract = playerContractInit.GeneratePlayerContract(ChooseCorrectTeam(), startDay, startMonth, startYear, endDay, endMonth, endYear, wage);
+            PlayerContract generatedPlayerContract = playerContractPrefab.GeneratePlayerContract(ChooseCorrectTeam(), startDay, startMonth, startYear, endDay, endMonth, endYear, wage);
             return generatedPlayerContract;
         }
 
         return null;
-
-
-
 
     }
 
@@ -74,16 +67,22 @@ public class ContractGenerator : MonoBehaviour
 
     }
 
-    public SponsorContract GenerateSponsorContract()
+    public SponsorContract GenerateSponsorContract(Organization org)
     {
         ChooseFittingDates();
-        SponsorContract generatedSponsorContract = sponsorContractInit.GenerateSponsorContract(ChooseCorrectOrg(), startDay, startMonth, startYear, endDay, endMonth, endYear);
+        SponsorContract generatedSponsorContract = sponsorContractPrefab.GenerateSponsorContract(ChooseCorrectOrg(org), startDay, startMonth, startYear, endDay, endMonth, endYear);
 
         return generatedSponsorContract;
     }
 
     private void ChooseFittingDates()
     {
+        //TODO fix adaptive date selection
+
+        int calTodayDateDay = cal.currentDay;
+        int calTodayDateMonth = cal.currentMonth;
+        int calTodayDateYear = cal.currentYear;
+
         startDay = 01;
         startMonth = 01;
         startYear = 2020;
@@ -94,8 +93,34 @@ public class ContractGenerator : MonoBehaviour
 
     }
 
-    private Organization ChooseCorrectOrg()
+    private Organization ChooseCorrectOrg(Organization org)
     {
-        return gamecoreLogic.playerSelectedOrg;
+        //TODO sinnlose methode?
+
+        //if(org.Equals(gamecoreLogic.playerSelectedOrg))
+        //{
+        //    return gamecoreLogic.playerSelectedOrg;
+        //} else
+        //{
+        //    return org;
+        //}
+
+        return org;
+    }
+
+    public StaffContract GenerateStaffMemberContract(Organization org)
+    {
+        ChooseFittingDates();
+        ChooseFittingWage();
+
+        StaffContract generatedStaffContract = staffContractPrefab.GenerateStaffContract(ChooseCorrectOrg(org), startDay, startMonth, startYear, endDay, endMonth, endYear, wage);
+
+        return generatedStaffContract;
+    }
+
+    private void ChooseFittingWage()
+    {
+        //TODO put reasonable amount
+        wage = 10f;
     }
 }

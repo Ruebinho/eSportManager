@@ -105,7 +105,7 @@ public class GameDatabase : MonoBehaviour
         foreach (Player player in playersToAdd)
         {
             Player playerInGame = Instantiate(player, playerSpawnerParent.transform);
-            playerInGame.careerContracts.SetValue(contractsInGame[player.initialContractInt], 0);
+            playerInGame.careerContracts.Add(contractsInGame[player.initialContractInt]);
             playersInGame.Add(playerInGame);
         }
 
@@ -128,7 +128,7 @@ public class GameDatabase : MonoBehaviour
 
     private void AddRandomGeneratedStaff()
     {
-        int randomStaffToCreate = 90;
+        int randomStaffToCreate = 900;
 
         for (int i = 0; i < randomStaffToCreate; i++)
         {

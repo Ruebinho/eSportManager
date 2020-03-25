@@ -49,11 +49,11 @@ public class Team : MonoBehaviour
 
     private bool IsPlayerNowContractedtoTeam(Player player)
     {
-        PlayerContract[] playerContracts = player.careerContracts;
+        List<PlayerContract> playerContracts = player.careerContracts;
 
         foreach (PlayerContract playerContract in playerContracts)
         {
-            if (PlayerContractOnGameDateIsWithCorrectTeam(playerContract))
+            if (playerContract != null && PlayerContractOnGameDateIsWithCorrectTeam(playerContract))
             {
                 return true;
             }

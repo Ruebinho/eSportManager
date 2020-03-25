@@ -11,6 +11,16 @@ public class GlobalGameParameters : MonoBehaviour
     public Calendar calendar;
 
     [SerializeField] public enum Game { DotA2, RocketLeague, Rainbow6Siege, CSGO, FIFA };
+
+    #region staff limits
+    public int maxTrainers = 2;
+    public int maxScouts = 2;
+    public int maxDoctors = 1;
+    public int maxPRManagers = 1;
+    public int maxDataAnalysts = 2;
+
+    #endregion
+
     // Start is called before the first frame update
     void Start()
     {

@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public bool isGeneratedPlayer = true;
     public bool currentAbilityIsScouted = false;
     public bool potentialIsScouted = false;
-    public PlayerContract[] careerContracts = null;
+    public List<PlayerContract> careerContracts = new List<PlayerContract>();
     public int initialContractInt = 0;
     #endregion
 

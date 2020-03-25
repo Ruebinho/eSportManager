@@ -1,4 +1,5 @@
 ﻿using ESM.Character;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,8 +10,9 @@ public class StaffMember : MonoBehaviour
     [Header("Staff Data")]
     #region gameData
     public bool isGeneratedPlayer = true;
-    public StaffContract[] careerContracts = null;
+    public List<StaffContract> careerContracts;
     public int initialContractInt = 0;
+    public TransferEvaluationCalculator tec;
     #endregion
 
     [Header("Staff Personal Data")]
@@ -54,6 +56,7 @@ public class StaffMember : MonoBehaviour
     {
         charGen = FindObjectOfType<CharacterGenerator>();
         dotaCanvasUI = FindObjectOfType<DotACanvasUIController>();
+        tec = GetComponent<TransferEvaluationCalculator>();
     }
 
     // Update is called once per frame
@@ -72,6 +75,13 @@ public class StaffMember : MonoBehaviour
         dotaCanvasUI = FindObjectOfType<DotACanvasUIController>();
         Debug.Log(dotaCanvasUI);
         //dotaCanvasUI.DisplayPlayer(this);
+    }
+
+    internal void SignContract(StaffContract chosenSC)
+    {
+        Debug.Log(chosenSC.orgStaffMemberIsContractedTo);
+        careerContracts.Add(chosenSC);
+        chosenSC.orgStaffMemberIsContractedTo.AddStaffMemberToOrg(this);
     }
 
     //public float GetAverageRating()

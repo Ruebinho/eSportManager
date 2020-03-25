@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6991233290811777090}
   - component: {fileID: 7984344651403792635}
+  - component: {fileID: -4778450982128762127}
   m_Layer: 0
   m_Name: StaffMember
   m_TagString: Untagged
@@ -46,22 +47,39 @@ MonoBehaviour:
   isGeneratedPlayer: 1
   careerContracts: []
   initialContractInt: 0
-  vorname: 
-  nachname: 
-  age: 0
-  nationality: 
-  staffRole: 0
-  discipline: 0
-  motivating: 0
-  concentration: 0
-  determination: 0
-  adaptability: 0
-  workingWithYoungsters: 0
-  gameMechanics: 0
-  mental: 0
-  technical: 0
-  tacticalKnowledge: 0
-  judgingPlayerAbility: 0
-  judgingPlayerPotential: 0
-  physioTherapy: 0
-  fitness: 0
+  tec: {fileID: 0}
+  vorname: Kyle
+  nachname: Wagner
+  age: 25
+  nationality: Spanish
+  staffRole: 3
+  discipline: 49
+  motivating: 53
+  concentration: 54
+  determination: 62
+  adaptability: 50
+  workingWithYoungsters: 52
+  gameMechanics: 52
+  mental: 54
+  technical: 40
+  tacticalKnowledge: 54
+  judgingPlayerAbility: 54
+  judgingPlayerPotential: 61
+  physioTherapy: 47
+  fitness: 48
+--- !u!114 &-4778450982128762127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6189774220753060673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 009b30e0819c74d47b0e8064b5c86d52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potPC: []
+  potSC: []
+  chosenPC: {fileID: 0}
+  chosenSC: {fileID: 0}

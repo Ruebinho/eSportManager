@@ -10,6 +10,9 @@ public class Organization : MonoBehaviour
     public List<Finanzen> orgFinanzen;
     public List<Akademie> orgAkademie;
     public List<Merch> orgMerchandise;
+    public List<StaffMember> staffMembers;
+
+    public bool isAIControlled = true;
 
     // Start is called before the first frame update
     void Start()
@@ -21,5 +24,10 @@ public class Organization : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void AddStaffMemberToOrg(StaffMember sm)
+    {
+        staffMembers.Add(sm);
     }
 }
