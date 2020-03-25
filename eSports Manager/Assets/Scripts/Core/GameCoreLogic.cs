@@ -78,16 +78,19 @@ public class GameCoreLogic : MonoBehaviour
 
         foreach (StaffMember sm in gdb.staffMembersInGame)
         {
-            Debug.Log(sm);
             //if (sm.tec.potSC.Count < 1) { break; }
             //else
             //{
-            Debug.Log("cheko");
             if (sm.tec.potSC != null)
             {
                 foreach (StaffContract sc in sm.tec.potSC)
                 {
-                    if (sc.contractProbability >= sm.tec.chosenSC.contractProbability)
+
+                    if (sm.tec.chosenSC = null)
+                    {
+                        sm.tec.chosenSC = sc;
+                    }
+                    else if (sm.tec.chosenSC != null && sc.contractProbability >= sm.tec.chosenSC.contractProbability)
                     {
                         sm.tec.chosenSC = sc;
                     }
@@ -97,8 +100,9 @@ public class GameCoreLogic : MonoBehaviour
                     }
                 }
             }
-            //}
         }
+        //}
+    
 
         //for (var i = 0; i < gdb.staffMembersInGame.Count; i++)
         //{
