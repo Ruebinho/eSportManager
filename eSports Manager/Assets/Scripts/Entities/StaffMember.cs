@@ -79,7 +79,7 @@ public class StaffMember : MonoBehaviour
 
     internal void SignContract(StaffContract chosenSC)
     {
-        Debug.Log(chosenSC.orgStaffMemberIsContractedTo);
+        //Debug.Log(chosenSC.orgStaffMemberIsContractedTo.ToString());
         careerContracts.Add(chosenSC);
         chosenSC.orgStaffMemberIsContractedTo.AddStaffMemberToOrg(this);
     }

@@ -26,7 +26,7 @@ public class AILogicController : MonoBehaviour
         {
             return offeredContract;
         }
-
+        
         return offeredContract;
     }
 
@@ -55,7 +55,7 @@ public class AILogicController : MonoBehaviour
         int amountDoctors = 0;
         int amountDataAnalysts = 0;
 
-        if (org.staffMembers.Count.Equals(0))
+        if (org.staffMembers.Count < 1)
         {
             return true;
         }
@@ -63,53 +63,65 @@ public class AILogicController : MonoBehaviour
         {
             foreach (StaffMember sm in org.staffMembers)
             {
-                if (sm.staffRole.Equals(CharacterGenerator.StaffRole.Trainer))
-                {
-                    amountTrainers++;
-                }
-                else if (sm.staffRole.Equals(CharacterGenerator.StaffRole.Scout))
-                {
-                    amountScouts++;
-                }
-                else if (sm.staffRole.Equals(CharacterGenerator.StaffRole.Trainer))
-                {
-                    amountPRManagers++;
-                }
-                else if (sm.staffRole.Equals(CharacterGenerator.StaffRole.Trainer))
-                {
-                    amountDoctors++;
-                }
-                else if (sm.staffRole.Equals(CharacterGenerator.StaffRole.Trainer))
-                {
-                    amountDataAnalysts++;
-                }
+                CountExistingStaff(ref amountTrainers, ref amountScouts, ref amountPRManagers, ref amountDoctors, ref amountDataAnalysts, sm);
             }
 
-            if (amountTrainers < ggp.maxTrainers)
-            {
-                return true;
-            }
+            return CheckIfStaffIsRequired(amountTrainers, amountScouts, amountPRManagers, amountDoctors, amountDataAnalysts);
+        }
+    }
 
-            if (amountScouts < ggp.maxScouts)
-            {
-                return true;
-            }
+    private static void CountExistingStaff(ref int amountTrainers, ref int amountScouts, ref int amountPRManagers, ref int amountDoctors, ref int amountDataAnalysts, StaffMember sm)
+    {
+        if (sm.staffRole.Equals(CharacterGenerator.StaffRole.Trainer))
+        {
+            amountTrainers++;
+        }
+        else if (sm.staffRole.Equals(CharacterGenerator.StaffRole.Scout))
+        {
+            amountScouts++;
+        }
+        else if (sm.staffRole.Equals(CharacterGenerator.StaffRole.Trainer))
+        {
+            amountPRManagers++;
+        }
+        else if (sm.staffRole.Equals(CharacterGenerator.StaffRole.Trainer))
+        {
+            amountDoctors++;
+        }
+        else if (sm.staffRole.Equals(CharacterGenerator.StaffRole.Trainer))
+        {
+            amountDataAnalysts++;
+        }
+    }
 
-            if (amountPRManagers < ggp.maxPRManagers)
-            {
-                return true;
-            }
+    private bool CheckIfStaffIsRequired(int amountTrainers, int amountScouts, int amountPRManagers, int amountDoctors, int amountDataAnalysts)
+    {
+        if (amountTrainers < ggp.maxTrainers)
+        {
+            return true;
+        }
 
-            if (amountDoctors < ggp.maxDoctors)
-            {
-                return true;
-            }
+        else if (amountScouts < ggp.maxScouts)
+        {
+            return true;
+        }
 
-            if (amountDataAnalysts < ggp.maxDataAnalysts)
-            {
-                return true;
-            }
+        else if (amountPRManagers < ggp.maxPRManagers)
+        {
+            return true;
+        }
 
+        else if (amountDoctors < ggp.maxDoctors)
+        {
+            return true;
+        }
+
+        else if (amountDataAnalysts < ggp.maxDataAnalysts)
+        {
+            return true;
+        }
+        else
+        {
             return false;
         }
     }

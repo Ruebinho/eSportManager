@@ -128,7 +128,7 @@ public class GameDatabase : MonoBehaviour
 
     private void AddRandomGeneratedStaff()
     {
-        int randomStaffToCreate = 900;
+        int randomStaffToCreate = 20;
 
         for (int i = 0; i < randomStaffToCreate; i++)
         {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class StaffContract : MonoBehaviour
 {
     public StaffContract scPrefab;
-    public Organization orgStaffMemberIsContractedTo = null;
+    public Organization orgStaffMemberIsContractedTo;
     public int contractStartDateDay = 1;
     public int contractStartDateMonth = 1;
     public int contractStartDateYear = 2000;
@@ -13,7 +13,7 @@ public class StaffContract : MonoBehaviour
     public int contractEndDateMonth = 1;
     public int contractEndDateYear = 2099;
 
-    public float wage = 1f;
+    public float wage = 100f;
 
     public float contractProbability = 0f;
 

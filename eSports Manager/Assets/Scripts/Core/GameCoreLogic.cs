@@ -50,21 +50,31 @@ public class GameCoreLogic : MonoBehaviour
 
         foreach (Organization org in gdb.orgsInGame)
         {
+            Debug.Log(aiLogicController.CheckIfStaffIsNeeded(org).ToString());
             if (org.isAIControlled && aiLogicController.CheckIfStaffIsNeeded(org))
             {
                 StaffMember potentialStaff = aiLogicController.FindFittingCandidate(org);
                 StaffContract potentialContract = aiLogicController.OfferContractToStaffMember(org);
                 potentialStaff.tec.ListStaffContractOffer(potentialContract);
+                potentialStaff.tec.chosenSC = potentialContract;
+                potentialStaff.SignContract(potentialStaff.tec.chosenSC);
             }
         }
 
-        Debug.Log(gdb.staffMembersInGame.Count);
+        foreach (StaffMember sm in gdb.staffMembersInGame)
+        {
+            if (sm.tec.potSC.Count > 0)
+            {
+                //Debug.Log(sm.tec.chosenSC.orgStaffMemberIsContractedTo.ToString());
+            }
+        }
+
         // consider ContractOffers
         //TODO make staff think about contracts for a few days
 
         for (var i = 0; i < gdb.staffMembersInGame.Count; i++)
         {
-            if (gdb.staffMembersInGame[i].tec.potSC.Count < 1) { break; }
+            if (gdb.staffMembersInGame[i].tec.potSC.Count < 1) { }
             else
             {
                 foreach (StaffContract sc in gdb.staffMembersInGame[i].tec.potSC)
@@ -85,8 +95,8 @@ public class GameCoreLogic : MonoBehaviour
             {
                 foreach (StaffContract sc in sm.tec.potSC)
                 {
-
-                    if (sm.tec.chosenSC = null)
+                    //Debug.Log(sc.orgStaffMemberIsContractedTo.ToString());
+                    if (sm.tec.chosenSC == null)
                     {
                         sm.tec.chosenSC = sc;
                     }
@@ -102,7 +112,7 @@ public class GameCoreLogic : MonoBehaviour
             }
         }
         //}
-    
+
 
         //for (var i = 0; i < gdb.staffMembersInGame.Count; i++)
         //{
@@ -130,8 +140,7 @@ public class GameCoreLogic : MonoBehaviour
 
         foreach (StaffMember sm in gdb.staffMembersInGame)
         {
-            Debug.Log(sm.tec.chosenSC);
-            if (sm.tec.chosenSC == null) { break; }
+            if (sm.tec.chosenSC == null) { }
             else
             {
                 sm.SignContract(sm.tec.chosenSC);
