@@ -77,7 +77,7 @@ namespace ESM.Character
         #region Staff Member
 
         public StaffMember staffMemberPrefab;
-        public enum StaffRole { Scout, Doctor, Trainer, PRManager, DataAnalyst };
+        public enum StaffRole { Default, Scout, Doctor, Trainer, PRManager, DataAnalyst };
         public StaffRole staffRole;
 
         public float discipline;

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static ESM.Character.CharacterGenerator;
 
 public class GameCoreLogic : MonoBehaviour
 {
@@ -50,14 +51,18 @@ public class GameCoreLogic : MonoBehaviour
 
         foreach (Organization org in gdb.orgsInGame)
         {
-            Debug.Log(aiLogicController.CheckIfStaffIsNeeded(org).ToString());
-            if (org.isAIControlled && aiLogicController.CheckIfStaffIsNeeded(org))
+            //Debug.Log(aiLogicController.CheckIfStaffIsNeeded(org).ToString());
+            if (org.isAIControlled)
             {
-                StaffMember potentialStaff = aiLogicController.FindFittingCandidate(org);
+                StaffRole staffRoleRequired = aiLogicController.CheckWhichStaffRoleIsRequired(org);
+                StaffMember potentialStaff = aiLogicController.FindFittingCandidate(org, staffRoleRequired);
                 StaffContract potentialContract = aiLogicController.OfferContractToStaffMember(org);
-                potentialStaff.tec.ListStaffContractOffer(potentialContract);
-                potentialStaff.tec.chosenSC = potentialContract;
-                potentialStaff.SignContract(potentialStaff.tec.chosenSC);
+                if (potentialStaff != null)
+                {
+                    potentialStaff.tec.ListStaffContractOffer(potentialContract);
+                    potentialStaff.tec.chosenSC = potentialContract;
+                    potentialStaff.SignContract(potentialStaff.tec.chosenSC);
+                }
             }
         }
 

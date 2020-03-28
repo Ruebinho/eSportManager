@@ -24,6 +24,7 @@ public class TransferEvaluationCalculator : MonoBehaviour
 
     public void ListStaffContractOffer(StaffContract sc)
     {
+        //Debug.Log(sc.orgStaffMemberIsContractedTo.ToString());
         potSC.Add(sc);
     }
 
