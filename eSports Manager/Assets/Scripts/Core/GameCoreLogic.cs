@@ -12,6 +12,8 @@ public class GameCoreLogic : MonoBehaviour
     public GameDatabase gdb;
     public AILogicController aiLogicController;
 
+    public DotaMatch dotaMatch;
+
     //customized Game parameters
     public Organization playerSelectedOrg = null;
 
@@ -23,6 +25,8 @@ public class GameCoreLogic : MonoBehaviour
         uiController = FindObjectOfType<UIController>();
         gdb = FindObjectOfType<GameDatabase>();
         aiLogicController = FindObjectOfType<AILogicController>();
+
+        dotaMatch = FindObjectOfType<DotaMatch>();
     }
 
     // Update is called once per frame
@@ -54,15 +58,7 @@ public class GameCoreLogic : MonoBehaviour
             //Debug.Log(aiLogicController.CheckIfStaffIsNeeded(org).ToString());
             if (org.isAIControlled)
             {
-                StaffRole staffRoleRequired = aiLogicController.CheckWhichStaffRoleIsRequired(org);
-                StaffMember potentialStaff = aiLogicController.FindFittingCandidate(org, staffRoleRequired);
-                StaffContract potentialContract = aiLogicController.OfferContractToStaffMember(org);
-                if (potentialStaff != null)
-                {
-                    potentialStaff.tec.ListStaffContractOffer(potentialContract);
-                    potentialStaff.tec.chosenSC = potentialContract;
-                    potentialStaff.SignContract(potentialStaff.tec.chosenSC);
-                }
+                CheckAndSignPotentialStaffMembers(org);
             }
         }
 
@@ -91,31 +87,31 @@ public class GameCoreLogic : MonoBehaviour
 
         // decide on final contract
 
-        foreach (StaffMember sm in gdb.staffMembersInGame)
-        {
-            //if (sm.tec.potSC.Count < 1) { break; }
-            //else
-            //{
-            if (sm.tec.potSC != null)
-            {
-                foreach (StaffContract sc in sm.tec.potSC)
-                {
-                    //Debug.Log(sc.orgStaffMemberIsContractedTo.ToString());
-                    if (sm.tec.chosenSC == null)
-                    {
-                        sm.tec.chosenSC = sc;
-                    }
-                    else if (sm.tec.chosenSC != null && sc.contractProbability >= sm.tec.chosenSC.contractProbability)
-                    {
-                        sm.tec.chosenSC = sc;
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-            }
-        }
+        //foreach (StaffMember sm in gdb.staffMembersInGame)
+        //{
+        //    //if (sm.tec.potSC.Count < 1) { break; }
+        //    //else
+        //    //{
+        //    if (sm.tec.potSC != null)
+        //    {
+        //        foreach (StaffContract sc in sm.tec.potSC)
+        //        {
+        //            //Debug.Log(sc.orgStaffMemberIsContractedTo.ToString());
+        //            if (sm.tec.chosenSC == null)
+        //            {
+        //                sm.tec.chosenSC = sc;
+        //            }
+        //            else if (sm.tec.chosenSC != null && sc.contractProbability >= sm.tec.chosenSC.contractProbability)
+        //            {
+        //                sm.tec.chosenSC = sc;
+        //            }
+        //            else
+        //            {
+        //                continue;
+        //            }
+        //        }
+        //    }
+        //}
         //}
 
 
@@ -134,7 +130,7 @@ public class GameCoreLogic : MonoBehaviour
         //            }
         //            else
         //            {
-        //                break;
+        //                continue;
         //            }
         //        }
         //    }
@@ -143,20 +139,43 @@ public class GameCoreLogic : MonoBehaviour
 
         // sign final contract
 
-        foreach (StaffMember sm in gdb.staffMembersInGame)
-        {
-            if (sm.tec.chosenSC == null) { }
-            else
-            {
-                sm.SignContract(sm.tec.chosenSC);
-            }
-        }
+        //foreach (StaffMember sm in gdb.staffMembersInGame)
+        //{
+        //    if (sm.tec.chosenSC == null) { }
+        //    else
+        //    {
+        //        sm.SignContract(sm.tec.chosenSC);
+        //    }
+        //}
 
         // if contract runs out, remove from List players bzw. staffmembers in team/org
+
+
+        //simulate matches
+
+        if (dotaMatch.matchTeam1 != null && dotaMatch.matchTeam2 != null)
+        {
+            dotaMatch.SimulateDotaMatch();
+        }
+
 
         //etc.
 
 
 
+    }
+
+    private void CheckAndSignPotentialStaffMembers(Organization org)
+    {
+        StaffRole staffRoleRequired = aiLogicController.CheckWhichStaffRoleIsRequired(org);
+        StaffMember potentialStaff = aiLogicController.FindFittingCandidate(org, staffRoleRequired);
+        StaffContract potentialContract = aiLogicController.OfferContractToStaffMember(org);
+        if (potentialStaff != null)
+        {
+            Debug.Log(org.orgName.ToString() + " : " + potentialStaff.staffRole.ToString());
+            potentialStaff.tec.ListStaffContractOffer(potentialContract);
+            potentialStaff.tec.chosenSC = potentialContract;
+            potentialStaff.SignContract(potentialStaff.tec.chosenSC);
+        }
     }
 }

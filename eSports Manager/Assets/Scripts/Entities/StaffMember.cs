@@ -82,6 +82,7 @@ public class StaffMember : MonoBehaviour
         //Debug.Log(chosenSC.orgStaffMemberIsContractedTo.ToString());
         careerContracts.Add(chosenSC);
         chosenSC.orgStaffMemberIsContractedTo.AddStaffMemberToOrg(this);
+        chosenSC = null;
     }
 
     //public float GetAverageRating()

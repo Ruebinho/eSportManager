@@ -173,4 +173,12 @@ public class DotaMatch : MonoBehaviour
         resultLateGame = 0f;
         resultGame = 0f;
     }
+
+    internal void SimulateDotaMatch()
+    {
+        ResetGameResults();
+        StartMatch();
+
+        Debug.Log(resultGame);
+    }
 }

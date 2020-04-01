@@ -31,10 +31,6 @@ public class AILogicController : MonoBehaviour
         bool aiWantMember = DecideIfAIWantsStaffMember();
 
         StaffContract offeredContract = cg.GenerateStaffMemberContract(org);
-        if (aiWantMember)
-        {
-            return offeredContract;
-        }
 
         return offeredContract;
     }
@@ -185,7 +181,7 @@ public class AILogicController : MonoBehaviour
 
         foreach (StaffMember sm in org.staffMembers)
         {
-            Debug.Log(sm.staffRole.ToString());
+            //Debug.Log(sm.staffRole.ToString());
             CountExistingStaff(sm);
         }
 
@@ -198,7 +194,7 @@ public class AILogicController : MonoBehaviour
 
         if (amountTrainers < ggp.maxTrainers)
         {
-            Debug.Log(amountTrainers.ToString());
+            //Debug.Log(amountTrainers.ToString());
             requiredStaffRole = StaffRole.Trainer;
         }
 
@@ -225,7 +221,7 @@ public class AILogicController : MonoBehaviour
         {
             requiredStaffRole = StaffRole.Default;
         }
-        Debug.Log(requiredStaffRole.ToString());
+        //Debug.Log(requiredStaffRole.ToString());
         return requiredStaffRole;
     }
 
