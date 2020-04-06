@@ -108,21 +108,7 @@ public class DotaMatch : MonoBehaviour
         resultGame = CalculateFinalResult(resultLateGame);
     }
 
-    private float CalculateFinalResult(float resultLateGame)
-    {
-        throw new NotImplementedException();
-    }
-
-    private float CalculateEndGame(float resultMidGame)
-    {
-        throw new NotImplementedException();
-    }
-
-    private float CalculateMidGame(float resultEarlyGame)
-    {
-        throw new NotImplementedException();
-    }
-
+    #region calculateEG
     private float CalculateEarlyGame()
     {
         float topLaneEGResult = CalculateTopLaneEGResult();
@@ -135,7 +121,6 @@ public class DotaMatch : MonoBehaviour
         return earlyGameResult;
     }
 
-    #region calculateEG
     private float CalculateBotLaneEGResult()
     {
         throw new NotImplementedException();
@@ -154,6 +139,11 @@ public class DotaMatch : MonoBehaviour
     #endregion
 
     #region calculateMG
+    private float CalculateMidGame(float resultEarlyGame)
+    {
+        throw new NotImplementedException();
+    }
+
     private float CalculateTeamfightResult()
     {
         throw new NotImplementedException();
@@ -165,6 +155,19 @@ public class DotaMatch : MonoBehaviour
     }
 
     #endregion
+
+    #region calculateEG
+
+    private float CalculateEndGame(float resultMidGame)
+    {
+        throw new NotImplementedException();
+    }
+    #endregion
+
+    private float CalculateFinalResult(float resultLateGame)
+    {
+        throw new NotImplementedException();
+    }
 
     private void ResetGameResults()
     {
