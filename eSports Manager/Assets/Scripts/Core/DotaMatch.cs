@@ -123,6 +123,33 @@ public class DotaMatch : MonoBehaviour
 
     private float CalculateBotLaneEGResult()
     {
+        float botLaneEGResult = 0.5f;
+
+        Player rCarry = team1pos1;
+        Player rHardSupport = team1pos5;
+
+        Player dOfflaner = team2pos3;
+        Player dSupport = team2pos4;
+
+        // depends on skill of players and draft abilities of captain
+        CheckWhoHasAdvantage(rCarry,dOfflaner);
+        CheckWhoHasAdvantage(rHardSupport, dSupport);
+        CheckWhoHasAdvantage(rCarry, dSupport);
+        CheckWhoHasAdvantage(rHardSupport, dOfflaner);
+
+        //depends on teamwork skill and team composition/drafting
+        CheckWhoHasTeamAdvantage(rCarry, rHardSupport, dOfflaner, dSupport);
+
+        return botLaneEGResult;
+    }
+
+    private void CheckWhoHasTeamAdvantage(Player rCarry, Player rHardSupport, Player dOfflaner, Player dSupport)
+    {
+        throw new NotImplementedException();
+    }
+
+    private void CheckWhoHasAdvantage(Player rCarry, Player dOfflaner)
+    {
         throw new NotImplementedException();
     }
 
