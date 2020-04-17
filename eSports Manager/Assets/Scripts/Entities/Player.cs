@@ -122,6 +122,15 @@ public class Player : MonoBehaviour
         return Mathf.Round((averagePotentialRatingPersonalAttributes + averagePotentialRatingGameAttributes) / 2);
     }
 
+    internal float getDraftingSkill()
+    {
+        //Drafting Skill calculates out of leadership, logical thinking, decisions, game mechanics, leadership and 25% of mindgaming
+
+        float draftingSkill = (leadership + logicalThinking + decisions + gameMechanics + leadership + (mindgaming / 4))/6;
+
+        return draftingSkill;
+    }
+
     //private void PrintCreatedPlayer()
     //{
     //    Debug.Log(vorname + " " + "'" + nickname + "'" + " " + nachname);

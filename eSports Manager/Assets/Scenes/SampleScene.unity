@@ -123040,6 +123040,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 94033298826563028, guid: c70286e2b023aa84faebf9cd63167bc5,
         type: 3}
+      propertyPath: playersToAdd.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 94033298826563028, guid: c70286e2b023aa84faebf9cd63167bc5,
+        type: 3}
       propertyPath: playerSpawnerParent
       value: 
       objectReference: {fileID: 858158129}
@@ -123083,6 +123088,36 @@ PrefabInstance:
       propertyPath: staffSpawnerParent
       value: 
       objectReference: {fileID: 658912047280029781}
+    - target: {fileID: 94033298826563028, guid: c70286e2b023aa84faebf9cd63167bc5,
+        type: 3}
+      propertyPath: playersToAdd.Array.data[5]
+      value: 
+      objectReference: {fileID: 5220906631002418570, guid: 6a28c05ab9bcc244b90cc6c609d014ad,
+        type: 3}
+    - target: {fileID: 94033298826563028, guid: c70286e2b023aa84faebf9cd63167bc5,
+        type: 3}
+      propertyPath: playersToAdd.Array.data[6]
+      value: 
+      objectReference: {fileID: 5220906631002418570, guid: 73748c8c5892bd14bbcd17684048177c,
+        type: 3}
+    - target: {fileID: 94033298826563028, guid: c70286e2b023aa84faebf9cd63167bc5,
+        type: 3}
+      propertyPath: playersToAdd.Array.data[7]
+      value: 
+      objectReference: {fileID: 5220906631002418570, guid: 1647d0f54fe6e1a458ae3cdfbbe6d1d9,
+        type: 3}
+    - target: {fileID: 94033298826563028, guid: c70286e2b023aa84faebf9cd63167bc5,
+        type: 3}
+      propertyPath: playersToAdd.Array.data[8]
+      value: 
+      objectReference: {fileID: 5220906631002418570, guid: e3a3ac5c91182154a8350ca8c0b1c291,
+        type: 3}
+    - target: {fileID: 94033298826563028, guid: c70286e2b023aa84faebf9cd63167bc5,
+        type: 3}
+      propertyPath: playersToAdd.Array.data[9]
+      value: 
+      objectReference: {fileID: 5220906631002418570, guid: 1a1b59fc411b34e4b88325e8768b5f42,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c70286e2b023aa84faebf9cd63167bc5, type: 3}
 --- !u!1001 &7781271214309486786

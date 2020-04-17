@@ -9,6 +9,7 @@ public class Team : MonoBehaviour
     public string teamName;
     public GlobalGameParameters.Game teamGame;
     public List<Player> playersOnTeam = null;
+    public Player teamCaptain = null;
     public GameDatabase gamedatabase;
 
     // Start is called before the first frame update

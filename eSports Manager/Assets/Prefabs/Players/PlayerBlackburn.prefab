@@ -48,7 +48,7 @@ MonoBehaviour:
   potentialIsScouted: 0
   careerContracts:
   - {fileID: 0}
-  initialContractInt: 0
+  initialContractInt: 1
   vorname: Bernhard
   nachname: Hahn
   nickname: Blackburn
