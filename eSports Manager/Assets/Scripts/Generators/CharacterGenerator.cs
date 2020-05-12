@@ -22,6 +22,9 @@ namespace ESM.Character
         public string generatedVorname = "";
         public string generatedNachname = "";
         public string generatedNickname = "";
+        public int generatedBirthYear = 0;
+        public int generatedBirthMonth = 0;
+        public int generatedBirthDay = 0;
         public int generatedAge = 0;
         public string generatedNationality = "";
 
@@ -98,11 +101,13 @@ namespace ESM.Character
         #endregion
 
         GameDatabase gameDatabase;
+        Calendar calendar;
 
         private void Start()
         {
             InitializeNameDatabase();
             gameDatabase = FindObjectOfType<GameDatabase>();
+            calendar = FindObjectOfType<Calendar>();
 
             startSetup();
         }
@@ -243,7 +248,7 @@ namespace ESM.Character
             "bliZZard",
             "blinK",
             "b0mbsh3ll",
-            "boogi",
+            "boulgi",
             "b00geym4n",
             "bubs",
             "butterflY",
@@ -263,7 +268,7 @@ namespace ESM.Character
             "paIn",
             "crabster",
             "axa",
-            "d3m0n",
+            "d3mon",
             "Dongi",
             "the_Doc",
             "@nt!",
@@ -273,7 +278,23 @@ namespace ESM.Character
             "faitH",
             "f3ar",
             "fl@sh",
-            "Richy"
+            "Richy",
+            "MasterBlaster",
+            "gUn",
+            "rattata",
+            "moldivi",
+            "ATG",
+            "ATP",
+            "micr0",
+            "reZor",
+            "Rocketman",
+            "VD",
+            "PokChamp",
+            "jinji",
+            "pettar",
+            "h0pe",
+            "kris",
+            "s4iL"
             };
 
             vornameFriends = new string[] {
@@ -313,15 +334,43 @@ namespace ESM.Character
                 };
 
             nationalityList = new string[] {
-            "German",
-            "French",
-            "British",
-            "Spanish",
-            "Portuguese",
-            "Swedish",
-            "Chinese",
+            "Germany",
+            "France",
+            "United Kingdom",
+            "Spain",
+            "Portugal",
+            "Sweden",
+            "China",
             "USA",
-            "Canadian"
+            "Canada",
+            "Slovakia",
+            "Philippines",
+            "Denmark",
+            "Israel",
+            "Russia",
+            "Peru",
+            "Argentina",
+            "Bolivia",
+            "Bulgaria",
+            "Belarus",
+            "Czech Republic",
+            "Pakistan",
+            "Malaysia",
+            "Finland",
+            "North Macedonia",
+            "Norway",
+            "Jordan",
+            "Romania",
+            "Lebanon",
+            "Poland",
+            "Estonia",
+            "Kyrgyzstan",
+            "Kazakhstan",
+            "Ukraine",
+            "Thailand",
+            "Singapore",
+            "Australia",
+            "South Korea"
                 };
         }
 
@@ -384,7 +433,15 @@ namespace ESM.Character
 
         public int GetAge()
         {
-            generatedAge = UnityEngine.Random.Range(14, 40);
+            bool hadBirthdayThisYear = calendar.CheckIfBirthdayHasPassedThisYear(generatedBirthMonth, generatedBirthDay);
+            if (hadBirthdayThisYear)
+            {
+                generatedAge = calendar.currentYear - generatedBirthYear;
+            } else
+            {
+                generatedAge = calendar.currentYear - generatedBirthYear - 1;
+            }
+            
             return generatedAge;
         }
 
@@ -590,6 +647,9 @@ namespace ESM.Character
             generatedPlayer.vorname = GetVorname();
             generatedPlayer.nachname = GetNachname();
             generatedPlayer.nickname = GetNickname();
+            generatedPlayer.birthyear = GetBirthYear();
+            generatedPlayer.birthmonth = GetBirthMonth();
+            generatedPlayer.birthday = GetBirthDay();
             generatedPlayer.age = GetAge();
             generatedPlayer.nationality = GetNationality();
 
@@ -634,6 +694,29 @@ namespace ESM.Character
             generatedPlayer.role = role;
 
             return generatedPlayer;
+        }
+
+        private int GetBirthDay()
+        {
+            int birthMonthDayAmount = calendar.returnAmountDaysOfMonth(generatedBirthMonth);
+
+            generatedBirthDay = (Int32)UnityEngine.Random.Range(1, birthMonthDayAmount);
+
+            return generatedBirthDay;
+        }
+
+        private int GetBirthMonth()
+        {
+            generatedBirthMonth = (Int32)UnityEngine.Random.Range(1, 13);
+
+            return generatedBirthMonth;
+        }
+
+        private int GetBirthYear()
+        {
+            generatedBirthYear = (Int32)UnityEngine.Random.Range(1980, 2005);
+
+            return generatedBirthYear;
         }
 
         public StaffMember GenerateStaffMember()

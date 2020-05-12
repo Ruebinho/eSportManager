@@ -139,4 +139,57 @@ public class Calendar : MonoBehaviour
         }
 
     }
+
+    public bool CheckIfBirthdayHasPassedThisYear(int generatedBirthMonth, int generatedBirthDay)
+    {
+        int ingameD = currentDay;
+        int ingameM = currentMonth;
+
+        if (ingameM < generatedBirthMonth)
+        {
+            return false;
+        }
+        else
+        {
+            if (ingameM > generatedBirthMonth)
+            {
+                return true;
+            }
+            else
+            {
+                if (ingameM == generatedBirthMonth)
+                {
+                    if (ingameD < generatedBirthDay)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return true;
+        }
+    }
+
+    public int GetPlayerAge(int birthmonth, int birthday, int birthyear)
+    {
+        int playerage = 0;
+
+        bool hadBirthdayThisYear = CheckIfBirthdayHasPassedThisYear(birthmonth, birthday);
+        if (hadBirthdayThisYear)
+        {
+            playerage = currentYear - birthyear;
+        }
+        else
+        {
+            playerage = currentYear - birthyear - 1;
+        }
+
+        return playerage;
+    }
+
+
 }

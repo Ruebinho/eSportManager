@@ -52,8 +52,11 @@ MonoBehaviour:
   vorname: Dennis
   nachname: "R\xFCbner"
   nickname: Ruebinho
-  age: 30
-  nationality: German
+  birthday: 15
+  birthmonth: 3
+  birthyear: 1989
+  age: 31
+  nationality: Germany
   logicalThinking: 99
   decisions: 99
   concentration: 99
@@ -72,6 +75,7 @@ MonoBehaviour:
   reactionTimeP: 99
   teamworkP: 99
   leadershipP: 99
+  gamePlayerIsPlaying: 0
   role: 0
   farming: 99
   supporting: 99

@@ -20,6 +20,9 @@ public class Player : MonoBehaviour
     public string vorname;
     public string nachname;
     public string nickname;
+    public int birthday;
+    public int birthmonth;
+    public int birthyear;
     public int age;
     public string nationality;
     #endregion
@@ -68,12 +71,20 @@ public class Player : MonoBehaviour
     [Header("Technical Links")]
     CharacterGenerator charGen;
     DotACanvasUIController dotaCanvasUI;
+    Calendar calendar;
 
     // Start is called before the first frame update
     void Start()
     {
         charGen = FindObjectOfType<CharacterGenerator>();
         dotaCanvasUI = FindObjectOfType<DotACanvasUIController>();
+        calendar = FindObjectOfType<Calendar>();
+        SetupPlayerDetails();
+    }
+
+    private void SetupPlayerDetails()
+    {
+        age = calendar.GetPlayerAge(birthmonth, birthday, birthyear);
     }
 
     // Update is called once per frame

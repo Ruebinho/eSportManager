@@ -53,7 +53,7 @@ MonoBehaviour:
   nachname: Philipp
   nickname: TheDetroyer
   age: 30
-  nationality: German
+  nationality: Germany
   logicalThinking: 30
   decisions: 30
   concentration: 30
@@ -72,6 +72,7 @@ MonoBehaviour:
   reactionTimeP: 50
   teamworkP: 50
   leadershipP: 50
+  gamePlayerIsPlaying: 0
   role: 2
   farming: 40
   supporting: 40

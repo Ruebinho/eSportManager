@@ -12,6 +12,9 @@ public class GlobalGameParameters : MonoBehaviour
 
     [SerializeField] public enum Game { DotA2, RocketLeague, Rainbow6Siege, CSGO, FIFA };
 
+    [SerializeField] public enum TeamRegion { Europe, China, CIS, SouthEastAsia, NorthAmerica, SouthAmerica };
+
+
     #region staff limits
     public int maxTrainers = 2;
     public int maxScouts = 2;

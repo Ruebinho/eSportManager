@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &677231099583685118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4690018488578463750}
+  - component: {fileID: 5220906631002418570}
+  m_Layer: 0
+  m_Name: PlayerMinD_ContRoL
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4690018488578463750
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677231099583685118}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5220906631002418570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677231099583685118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91463fd348d554444abaf714c9e82011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGeneratedPlayer: 1
+  currentAbilityIsScouted: 1
+  potentialIsScouted: 1
+  careerContracts:
+  - {fileID: 0}
+  initialContractInt: 2
+  vorname: Ivan
+  nachname: Borislavov Ivanov
+  nickname: MinD_ContRoL
+  birthday: 20
+  birthmonth: 1
+  birthyear: 1995
+  age: 25
+  nationality: Bulgaria
+  logicalThinking: 99
+  decisions: 99
+  concentration: 99
+  determination: 99
+  handEyeCoordination: 99
+  gameMechanics: 99
+  reactionTime: 99
+  teamwork: 99
+  leadership: 99
+  logicalThinkingP: 99
+  decisionsP: 99
+  concentrationP: 99
+  determinationP: 99
+  handEyeCoordinationP: 99
+  gameMechanicsP: 99
+  reactionTimeP: 99
+  teamworkP: 99
+  leadershipP: 99
+  gamePlayerIsPlaying: 0
+  role: 2
+  farming: 99
+  supporting: 99
+  teamfight: 99
+  oneOnOne: 99
+  lastHitting: 99
+  mapAwareness: 99
+  mindgaming: 99
+  farmingP: 99
+  supportingP: 99
+  teamfightP: 99
+  oneOnOneP: 99
+  lastHittingP: 99
+  mapAwarenessP: 99
+  mindgamingP: 99

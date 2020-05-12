@@ -8,6 +8,7 @@ public class Team : MonoBehaviour
     public Organization orgTeamBelongsTo;
     public string teamName;
     public GlobalGameParameters.Game teamGame;
+    public GlobalGameParameters.TeamRegion teamRegion;
     public List<Player> playersOnTeam = null;
     public Player teamCaptain = null;
     public GameDatabase gamedatabase;

@@ -53,7 +53,7 @@ MonoBehaviour:
   nachname: Meisenberg
   nickname: MasterMeisi
   age: 30
-  nationality: German
+  nationality: Germany
   logicalThinking: 70
   decisions: 70
   concentration: 70
@@ -72,6 +72,7 @@ MonoBehaviour:
   reactionTimeP: 80
   teamworkP: 80
   leadershipP: 80
+  gamePlayerIsPlaying: 0
   role: 4
   farming: 60
   supporting: 90
