@@ -10,7 +10,12 @@ PrefabInstance:
     - target: {fileID: 6990985823055419020, guid: 9c4137bd7284aea48aa3e40bad49cf6b,
         type: 3}
       propertyPath: m_Name
-      value: Team
+      value: Newbee Team Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 720366184522322047, guid: 9c4137bd7284aea48aa3e40bad49cf6b,
+        type: 3}
+      propertyPath: teamName
+      value: Newbee.Dota
       objectReference: {fileID: 0}
     - target: {fileID: 8701625138408972349, guid: 9c4137bd7284aea48aa3e40bad49cf6b,
         type: 3}
