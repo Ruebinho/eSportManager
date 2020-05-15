@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &677231099583685118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4690018488578463750}
+  - component: {fileID: 5220906631002418570}
+  m_Layer: 0
+  m_Name: PlayerBigFoot 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4690018488578463750
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677231099583685118}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5220906631002418570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677231099583685118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91463fd348d554444abaf714c9e82011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGeneratedPlayer: 1
+  currentAbilityIsScouted: 1
+  potentialIsScouted: 1
+  careerContracts:
+  - {fileID: 0}
+  initialContractInt: 4
+  vorname: Maurice
+  nachname: Gutmann
+  nickname: KheZu
+  birthday: 27
+  birthmonth: 4
+  birthyear: 1995
+  age: 30
+  nationality: Germany
+  logicalThinking: 90
+  decisions: 80
+  concentration: 90
+  determination: 80
+  handEyeCoordination: 90
+  gameMechanics: 80
+  reactionTime: 90
+  teamwork: 80
+  leadership: 90
+  logicalThinkingP: 80
+  decisionsP: 95
+  concentrationP: 90
+  determinationP: 90
+  handEyeCoordinationP: 90
+  gameMechanicsP: 90
+  reactionTimeP: 90
+  teamworkP: 90
+  leadershipP: 90
+  gamePlayerIsPlaying: 0
+  role: 1
+  farming: 80
+  supporting: 80
+  teamfight: 80
+  oneOnOne: 80
+  lastHitting: 80
+  mapAwareness: 80
+  mindgaming: 80
+  farmingP: 90
+  supportingP: 80
+  teamfightP: 80
+  oneOnOneP: 80
+  lastHittingP: 80
+  mapAwarenessP: 80
+  mindgamingP: 80
