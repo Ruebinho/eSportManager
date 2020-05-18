@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &677231099583685118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4690018488578463750}
+  - component: {fileID: 5220906631002418570}
+  m_Layer: 0
+  m_Name: PlayerGabbi 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4690018488578463750
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677231099583685118}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5220906631002418570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677231099583685118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91463fd348d554444abaf714c9e82011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGeneratedPlayer: 1
+  currentAbilityIsScouted: 1
+  potentialIsScouted: 1
+  careerContracts:
+  - {fileID: 0}
+  initialContractInt: 18
+  vorname: Timothy John
+  nachname: Randrup
+  nickname: Tims
+  birthday: 4
+  birthmonth: 7
+  birthyear: 1997
+  age: 30
+  nationality: Philippines
+  logicalThinking: 70
+  decisions: 70
+  concentration: 70
+  determination: 70
+  handEyeCoordination: 70
+  gameMechanics: 70
+  reactionTime: 70
+  teamwork: 70
+  leadership: 70
+  logicalThinkingP: 77
+  decisionsP: 77
+  concentrationP: 77
+  determinationP: 77
+  handEyeCoordinationP: 77
+  gameMechanicsP: 77
+  reactionTimeP: 77
+  teamworkP: 77
+  leadershipP: 77
+  gamePlayerIsPlaying: 0
+  role: 0
+  farming: 55
+  supporting: 55
+  teamfight: 55
+  oneOnOne: 55
+  lastHitting: 55
+  mapAwareness: 55
+  mindgaming: 55
+  farmingP: 77
+  supportingP: 77
+  teamfightP: 77
+  oneOnOneP: 77
+  lastHittingP: 77
+  mapAwarenessP: 77
+  mindgamingP: 77
