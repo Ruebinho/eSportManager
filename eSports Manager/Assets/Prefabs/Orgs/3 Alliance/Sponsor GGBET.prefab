@@ -10,12 +10,12 @@ PrefabInstance:
     - target: {fileID: 7145348785968833370, guid: 1a6c4c8eccedf494b9b387793c6f3ea0,
         type: 3}
       propertyPath: m_Name
-      value: CR4ZY Sponsor Variant
+      value: Alliance Sponsor Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8002894515437644449, guid: 1a6c4c8eccedf494b9b387793c6f3ea0,
         type: 3}
       propertyPath: sponsorName
-      value: krezy
+      value: GG.BET
       objectReference: {fileID: 0}
     - target: {fileID: 8002894515437644449, guid: 1a6c4c8eccedf494b9b387793c6f3ea0,
         type: 3}
@@ -25,7 +25,7 @@ PrefabInstance:
     - target: {fileID: 8002894515437644449, guid: 1a6c4c8eccedf494b9b387793c6f3ea0,
         type: 3}
       propertyPath: sponsorRuhm
-      value: 62
+      value: 99
       objectReference: {fileID: 0}
     - target: {fileID: 7227586884049328532, guid: 1a6c4c8eccedf494b9b387793c6f3ea0,
         type: 3}
