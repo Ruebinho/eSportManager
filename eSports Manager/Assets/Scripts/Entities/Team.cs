@@ -6,6 +6,7 @@ using UnityEngine;
 public class Team : MonoBehaviour
 {
     public Organization orgTeamBelongsTo;
+    public bool teamIsActive = true;
     public string teamName;
     public GlobalGameParameters.Game teamGame;
     public GlobalGameParameters.TeamRegion teamRegion;

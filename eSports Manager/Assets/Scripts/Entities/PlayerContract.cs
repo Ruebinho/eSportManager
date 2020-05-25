@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerContract : MonoBehaviour
 {
+    public bool playerContractIsActive = true;
     public Team teamPlayerIsContractedTo = null;
     public int contractStartDateDay = 1;
     public int contractStartDateMonth = 1;

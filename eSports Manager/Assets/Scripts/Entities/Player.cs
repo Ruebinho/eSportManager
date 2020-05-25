@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 {
     [Header("Player Game Data")]
     #region gameData
+    public bool playerIsActive = true;
     public bool isGeneratedPlayer = true;
     public bool currentAbilityIsScouted = false;
     public bool potentialIsScouted = false;

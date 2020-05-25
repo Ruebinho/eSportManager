@@ -7,27 +7,36 @@ using System.Threading;
 
 public class GameDatabase : MonoBehaviour
 {
+    public bool addCustomTeams = true;
+
+    public int minimumPlayerSpawnerFriends = 0;
     public Player[] playersToAdd;
     public GameObject playerSpawnerParent;
 
+    public int minimumTeamSpawnerFriends = 0;
     public Team[] teamsToAdd;
     public GameObject teamSpawnerParent;
 
+    public int minimumPlayerContractSpawnerFriends = 0;
     public PlayerContract[] contractsToAdd;
     public GameObject contractSpawnerParent;
 
+    public int minimumOrgSpawnerFriends = 0;
     public Organization[] orgsToAdd;
     public GameObject orgSpawnerParent;
 
     public Sponsor[] sponsorsToAdd;
     public GameObject sponsorSpawnerParent;
 
+    public int minimumFinanceSpawnerFriends = 0;
     public Finanzen[] financesToAdd;
     public GameObject financesSpawnerParent;
 
+    public int minimumAcademySpawnerFriends = 0;
     public Akademie[] academiesToAdd;
     public GameObject academySpawnerParent;
 
+    public int minimumMerchSpawnerFriends = 0;
     public Merch[] merchandisesToAdd;
     public GameObject merchandiseSpawnerParent;
 
@@ -56,20 +65,28 @@ public class GameDatabase : MonoBehaviour
 
     public void SetupGameData()
     {
+        SetupCustomFriendsGameData();
+
         int contractInitCounter = 0;
         int orgInitCounter = 0;
         int financeInitCounter = 0;
 
         foreach (Team team in teamsToAdd)
         {
-            Team teamInGame = Instantiate(team, teamSpawnerParent.transform);
-            teamsInGame.Add(teamInGame);
+            if (team.teamIsActive)
+            {
+                Team teamInGame = Instantiate(team, teamSpawnerParent.transform);
+                teamsInGame.Add(teamInGame);
+            }
         }
 
         foreach (Merch merch in merchandisesToAdd)
         {
-            Merch merchInGame = Instantiate(merch, merchandiseSpawnerParent.transform);
-            merchandisesInGame.Add(merchInGame);
+            if (merch.merchIsActive)
+            {
+                Merch merchInGame = Instantiate(merch, merchandiseSpawnerParent.transform);
+                merchandisesInGame.Add(merchInGame);
+            }
         }
 
         foreach (Sponsor sponsor in sponsorsToAdd)
@@ -80,43 +97,58 @@ public class GameDatabase : MonoBehaviour
 
         foreach (Akademie academy in academiesToAdd)
         {
-            Akademie academyInGame = Instantiate(academy, academySpawnerParent.transform);
-            academiesInGame.Add(academyInGame);
+            if (academy.akademieIsActive)
+            {
+                Akademie academyInGame = Instantiate(academy, academySpawnerParent.transform);
+                academiesInGame.Add(academyInGame);
+            }
         }
 
         foreach (Finanzen finance in financesToAdd)
         {
-            Finanzen financeInGame = Instantiate(finance, financesSpawnerParent.transform);
-            // TODO fix financeInGame.sponsors[0] = sponsorsInGame[financeInitCounter];
-            financesInGame.Add(financeInGame);
+            if (finance.finanzenIsActive)
+            {
+                Finanzen financeInGame = Instantiate(finance, financesSpawnerParent.transform);
+                // TODO fix financeInGame.sponsors[0] = sponsorsInGame[financeInitCounter];
+                financesInGame.Add(financeInGame);
+            }
 
             financeInitCounter++;
         }
 
         foreach (PlayerContract contract in contractsToAdd)
         {
-            PlayerContract contractInGame = Instantiate(contract, contractSpawnerParent.transform);
-            contractInGame.teamPlayerIsContractedTo = teamsInGame[contractInitCounter];
-            contractsInGame.Add(contractInGame);
+            if (contract.playerContractIsActive)
+            {
+                PlayerContract contractInGame = Instantiate(contract, contractSpawnerParent.transform);
+                contractInGame.teamPlayerIsContractedTo = teamsInGame[contractInitCounter];
+                contractsInGame.Add(contractInGame);
+            }
 
             contractInitCounter++;
         }
 
         foreach (Player player in playersToAdd)
         {
-            Player playerInGame = Instantiate(player, playerSpawnerParent.transform);
-            playerInGame.careerContracts.Add(contractsInGame[player.initialContractInt]);
-            playersInGame.Add(playerInGame);
+            if (player.playerIsActive)
+            {
+                Player playerInGame = Instantiate(player, playerSpawnerParent.transform);
+                playerInGame.careerContracts.Add(contractsInGame[player.initialContractInt]);
+                playersInGame.Add(playerInGame);
+            }
         }
 
         foreach (Organization org in orgsToAdd)
         {
-            Organization orgInGame = Instantiate(org, orgSpawnerParent.transform);
-            orgInGame.orgTeams.Add(teamsInGame[orgInitCounter]);
-            orgInGame.orgFinanzen.Add(financesInGame[orgInitCounter]);
-            orgInGame.orgAkademie.Add(academiesInGame[orgInitCounter]);
-            orgInGame.orgMerchandise.Add(merchandisesInGame[orgInitCounter]);
-            orgsInGame.Add(orgInGame);
+            if (org.orgIsActive)
+            {
+                Organization orgInGame = Instantiate(org, orgSpawnerParent.transform);
+                orgInGame.orgTeams.Add(teamsInGame[orgInitCounter]);
+                orgInGame.orgFinanzen.Add(financesInGame[orgInitCounter]);
+                orgInGame.orgAkademie.Add(academiesInGame[orgInitCounter]);
+                orgInGame.orgMerchandise.Add(merchandisesInGame[orgInitCounter]);
+                orgsInGame.Add(orgInGame);
+            }
 
             orgInitCounter++;
         }
@@ -124,6 +156,40 @@ public class GameDatabase : MonoBehaviour
         AddRandomGeneratedPlayers();
         AddRandomGeneratedStaff();
 
+    }
+
+    private void SetupCustomFriendsGameData()
+    {
+        if (addCustomTeams)
+        {
+            return;
+        }
+        else
+        {
+            SetOrgInactive(0);
+            SetOrgInactive(1);
+        }
+
+    }
+
+    private void SetOrgInactive(int instantiationArrayNumber)
+    {
+        orgsToAdd[instantiationArrayNumber].orgIsActive = false;
+        teamsToAdd[instantiationArrayNumber].teamIsActive = false;
+        merchandisesToAdd[instantiationArrayNumber].merchIsActive = false;
+        financesToAdd[instantiationArrayNumber].finanzenIsActive = false;
+        contractsToAdd[instantiationArrayNumber].playerContractIsActive = false;
+        academiesToAdd[instantiationArrayNumber].akademieIsActive = false;
+        playersToAdd[0].playerIsActive = false;
+        playersToAdd[1].playerIsActive = false;
+        playersToAdd[2].playerIsActive = false;
+        playersToAdd[3].playerIsActive = false;
+        playersToAdd[4].playerIsActive = false;
+        playersToAdd[5].playerIsActive = false;
+        playersToAdd[6].playerIsActive = false;
+        playersToAdd[7].playerIsActive = false;
+        playersToAdd[8].playerIsActive = false;
+        playersToAdd[9].playerIsActive = false;
     }
 
     private void AddRandomGeneratedStaff()

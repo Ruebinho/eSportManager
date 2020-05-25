@@ -5,6 +5,7 @@ using UnityEngine;
 public class Akademie : MonoBehaviour
 {
     public float akademieLevel = 0;
+    public bool akademieIsActive = true;
 
     // Start is called before the first frame update
     void Start()

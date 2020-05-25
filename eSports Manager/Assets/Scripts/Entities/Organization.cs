@@ -5,6 +5,7 @@ using UnityEngine;
 public class Organization : MonoBehaviour
 {
     public string orgName;
+    public bool orgIsActive = true;
     public float orgRuhm;
     public List<Team> orgTeams;
     public List<Finanzen> orgFinanzen;
