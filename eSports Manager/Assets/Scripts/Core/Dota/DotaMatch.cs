@@ -185,6 +185,7 @@ public class DotaMatch : MonoBehaviour
 
         bool resultIsPositive = CalculateResultPositiveNegative(resultCalculation);
 
+        // 0.005f is factor to put value from 0 to 1
         // teamFactorMultiplicator if teamplay should be rewarded more (standard: 1f)
         if (resultIsPositive)
         {
@@ -261,7 +262,17 @@ public class DotaMatch : MonoBehaviour
     #region calculateMG
     private float CalculateMidGame(float resultEarlyGame)
     {
-        // compare teamfights and ganking, regarding the EGResult -> giving advantage multiplicator to better EGTeam
+        float resultMidGame = 0.5f;
+
+        float gankingResult = CalculateGankingResult();
+        float farmingResult = CalculateMidGameFarming();
+        float teamfightResult = CalculateTeamfightResult();
+
+        return (resultEarlyGame + resultMidGame) / 2f;
+    }
+
+    private float CalculateMidGameFarming()
+    {
         throw new NotImplementedException();
     }
 
@@ -272,7 +283,76 @@ public class DotaMatch : MonoBehaviour
 
     private float CalculateGankingResult()
     {
-        throw new NotImplementedException();
+        float gankingResult = 0.5f;
+
+        Player rMid = team1pos2;
+        Player rSupport = team1pos4;
+        Player rHardSupport = team1pos5;
+
+        Player rCarry= team1pos1;
+        Player rOfflaner= team1pos3;
+
+        Player dMid = team2pos2;
+        Player dSupport = team2pos4;
+        Player dHardSupport = team2pos5;
+
+        Player dCarry = team2pos1;
+        Player dOfflaner = team2pos3;
+
+        // depends on skill of players: Gankers - Mind gaming, determination, teamwork / Victims - Map Awareness, Mindgaming, concentration, reaction time
+        float rGankdMid = CheckWhoHasGankingAdvantage3v1(rMid, rSupport, rHardSupport, dMid);
+        float rGankdCarry = CheckWhoHasGankingAdvantage3v2(rMid, rSupport, rOfflaner, dCarry, dHardSupport);
+        float rGankdOfflaner = CheckWhoHasGankingAdvantage3v2(rMid, rHardSupport, rCarry, dOfflaner, dSupport);
+
+        float dGankrMid = CheckWhoHasGankingAdvantage3v1(dMid, dSupport, dHardSupport, rMid);
+        float dGankrCarry = CheckWhoHasGankingAdvantage3v2(dMid, dSupport, dOfflaner, rCarry, rHardSupport);
+        float dGankrOfflaner = CheckWhoHasGankingAdvantage3v2(dMid, dHardSupport, dCarry, rOfflaner, rSupport);
+
+        float gankingResultTeam1 = (rGankdMid + rGankdCarry + rGankdOfflaner) / 3;
+        float gankingResultTeam2 = (dGankrMid + dGankrCarry + dGankrOfflaner) / 3;
+
+        gankingResult = CalculateFloatResultOfAdvantages(gankingResultTeam1, gankingResultTeam2);
+
+        return gankingResult;
+    }
+
+    private float CheckWhoHasGankingAdvantage3v2(Player rMid, Player rSupport, Player rOfflaner, Player dCarry, Player dHardSupport)
+    {
+        float gankingResult = 0.5f;
+
+        float radiant1score = (rMid.determination + rMid.mindgaming + rMid.teamwork) / 3;
+        float radiant2score = (rSupport.determination + rSupport.mindgaming + rSupport.teamwork) / 3;
+        float radiant3score = (rOfflaner.determination + rOfflaner.mindgaming + rOfflaner.teamwork) / 3;
+
+        // TODO: add factor that checks bonus if laning phase was good or bad against hero
+        float radiantScoreTotal = (radiant1score + radiant2score + radiant3score) / 3;
+
+        float dire1score = (dCarry.mapAwareness + dCarry.concentration + dCarry.reactionTime + dCarry.mindgaming) / 4;
+        float dire2score = (dHardSupport.mapAwareness + dHardSupport.concentration + dHardSupport.reactionTime + dHardSupport.mindgaming) / 4;
+
+        float direScoreTotal = (dire1score + dire2score) / 2;
+
+        CalculateFloatResultOfAdvantages(radiantScoreTotal, direScoreTotal);
+
+        return gankingResult;
+    }
+
+    private float CheckWhoHasGankingAdvantage3v1(Player rCore, Player rSupport, Player rHardSupport, Player dCore)
+    {
+        float gankingResult = 0.5f;
+
+        float radiant1score = (rCore.determination + rCore.mindgaming + rCore.teamwork) / 3;
+        float radiant2score = (rSupport.determination + rSupport.mindgaming + rSupport.teamwork) / 3;
+        float radiant3score = (rHardSupport.determination + rHardSupport.mindgaming + rHardSupport.teamwork) / 3;
+
+        // TODO: add factor that checks bonus if laning phase was good or bad against hero
+        float radiantScoreTotal = (radiant1score + radiant2score + radiant3score) / 3;
+
+        float direscore = (dCore.mapAwareness + dCore.concentration + dCore.reactionTime + dCore.mindgaming) / 4;
+
+        CalculateFloatResultOfAdvantages(radiantScoreTotal, direscore);
+
+        return gankingResult;
     }
 
     #endregion
