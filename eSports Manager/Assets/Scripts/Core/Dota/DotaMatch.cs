@@ -148,7 +148,7 @@ public class DotaMatch : MonoBehaviour
         getDotaMatchGameData();
         resultEarlyGame = CalculateEarlyGame();
         resultMidGame = CalculateMidGame(resultEarlyGame);
-        resultLateGame = CalculateEndGame(resultMidGame);
+        resultLateGame = CalculateLateGame(resultMidGame);
 
         resultGame = CalculateFinalResult(resultLateGame);
 
@@ -281,13 +281,15 @@ public class DotaMatch : MonoBehaviour
     {
         float resultMidGame = 0.5f;
 
-        float gankingResult = CalculateGankingResult();
+        float gankingResult = CalculateMidGameGankingResult();
         float farmingResult = CalculateMidGameFarming();
-        float teamfightResult = CalculateTeamfightResult();
+        float teamfightResult = CalculateMidGameTeamfightResult();
 
         resultMidGame = resultMidGame + gankingResult + farmingResult + teamfightResult;
 
-        return (resultEarlyGame + resultMidGame) / 2f;
+        float finalResultMidGame = (resultEarlyGame + resultMidGame) / 2f;
+
+        return finalResultMidGame;
     }
 
     private float CalculateMidGameFarming()
@@ -303,7 +305,7 @@ public class DotaMatch : MonoBehaviour
         return midGameFarmingResult;
     }
 
-    private float CalculateTeamfightResult()
+    private float CalculateMidGameTeamfightResult()
     {
         float resultTeamfightsMG;
 
@@ -324,7 +326,7 @@ public class DotaMatch : MonoBehaviour
         return resultTeamfightsMG;
     }
 
-    private float CalculateGankingResult()
+    private float CalculateMidGameGankingResult()
     {
         float gankingResult = 0.5f;
 
@@ -386,11 +388,21 @@ public class DotaMatch : MonoBehaviour
 
     #endregion
 
-    #region calculateEG
+    #region calculateLG
 
-    private float CalculateEndGame(float resultMidGame)
+    private float CalculateLateGame(float resultMidGame)
     {
-        throw new NotImplementedException();
+        float resultLateGame = 0.5f;
+
+        float gankingResult = CalculateMidGameGankingResult();
+        float farmingResult = CalculateMidGameFarming();
+        float teamfightResult = CalculateMidGameTeamfightResult();
+
+        resultLateGame = resultMidGame + gankingResult + farmingResult + teamfightResult;
+
+        float finalResultLateGame = (resultEarlyGame + resultMidGame + resultLateGame) / 2f;
+
+        return finalResultLateGame;
     }
     #endregion
 
