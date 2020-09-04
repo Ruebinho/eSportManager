@@ -10,9 +10,9 @@ public class GlobalGameParameters : MonoBehaviour
 
     public Calendar calendar;
 
-    [SerializeField] public enum Game { DotA2, RocketLeague, Rainbow6Siege, CSGO, FIFA };
+    [SerializeField] public enum Game { DotA2, RocketLeague, Rainbow6Siege, CSGO, FIFA, PUBG, LeagueOfLegends, Starcraft2 };
 
-    [SerializeField] public enum TeamRegion { Europe, China, CIS, SouthEastAsia, NorthAmerica, SouthAmerica };
+    [SerializeField] public enum Region { Europe, China, CIS, SouthEastAsia, NorthAmerica, SouthAmerica };
 
 
     #region staff limits

@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameDataInit : MonoBehaviour
+public class PlayersInGame : MonoBehaviour
 {
-    public bool isGDBsetup = false;
-    
-
     // Start is called before the first frame update
     void Start()
     {
@@ -18,10 +14,5 @@ public class GameDataInit : MonoBehaviour
     void Update()
     {
         
-    }
-
-    public void setGDBsetup()
-    {
-        isGDBsetup = true;
     }
 }

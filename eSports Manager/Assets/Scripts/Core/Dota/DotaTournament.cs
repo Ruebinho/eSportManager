@@ -9,6 +9,14 @@ public class DotaTournament : MonoBehaviour
     public TournamentType tournamentType;
     public string tournamentLocation;
 
+    public int startDay;
+    public int startMonth;
+    public int startYear;
+
+    public int endDay;
+    public int endMonth;
+    public int endYear;
+
     public int amountTeamsInTournament;
     public Team[] teamsInTournament;
 

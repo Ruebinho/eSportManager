@@ -56,11 +56,13 @@ public class GameDatabase : MonoBehaviour
 
     public int randomCharactersToCreate = 10;
     public CharacterGenerator charGen;
+    public GameDataInit gdinit;
 
     // Start is called before the first frame update
     void Start()
     {
         charGen = FindObjectOfType<CharacterGenerator>();
+        gdinit = FindObjectOfType<GameDataInit>();
     }
 
     public void SetupGameData()
@@ -156,6 +158,7 @@ public class GameDatabase : MonoBehaviour
         AddRandomGeneratedPlayers();
         AddRandomGeneratedStaff();
 
+        gdinit.setGDBsetup();
     }
 
     private void SetupCustomFriendsGameData()

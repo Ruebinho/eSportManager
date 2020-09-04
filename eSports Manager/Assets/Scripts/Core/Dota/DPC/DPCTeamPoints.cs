@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameDataInit : MonoBehaviour
+public class DPCTeamPoints : MonoBehaviour
 {
-    public bool isGDBsetup = false;
-    
+
+    public Team team = null;
+    public float points = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -18,10 +18,5 @@ public class GameDataInit : MonoBehaviour
     void Update()
     {
         
-    }
-
-    public void setGDBsetup()
-    {
-        isGDBsetup = true;
     }
 }
