@@ -1,10 +1,11 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+using System.Runtime.Remoting.Messaging;
 using UnityEngine;
 
 public class DotaMatch : MonoBehaviour
 {
+    UtilityPlayers utilityPlayers;
+
     public Team matchTeam1 = null;
     public Team matchTeam2 = null;
 
@@ -22,6 +23,18 @@ public class DotaMatch : MonoBehaviour
     public Player team2pos4 = null;
     public Player team2pos5 = null;
 
+    public Player rCarry = null;
+    public Player rMid = null;
+    public Player rOfflaner = null;
+    public Player rSupport = null;
+    public Player rHardSupport = null;
+
+    public Player dCarry = null;
+    public Player dMid = null;
+    public Player dOfflaner = null;
+    public Player dSupport = null;
+    public Player dHardSupport = null;
+
     public float resultEarlyGame = 0f;
     public float resultMidGame = 0f;
     public float resultLateGame = 0f;
@@ -34,7 +47,7 @@ public class DotaMatch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        utilityPlayers = GetComponent<UtilityPlayers>();
     }
 
     // Update is called once per frame
@@ -57,7 +70,24 @@ public class DotaMatch : MonoBehaviour
         {
             FillCorrectPlayerMatchDataTeam2(player);
         }
+
+        TranslateTeamsIntoRoles();
     }
+
+    private void TranslateTeamsIntoRoles()
+    {
+        rCarry = team1pos1;
+        rMid = team1pos2;
+        rOfflaner = team1pos3;
+        rSupport = team1pos4;
+        rHardSupport = team1pos5;
+
+        dCarry = team2pos1;
+        dMid = team2pos2;
+        dOfflaner = team2pos3;
+        dSupport = team2pos4;
+        dHardSupport = team2pos5;
+}
 
     private void SetCorrectTeam2Captain(Team matchTeam2)
     {
@@ -118,9 +148,11 @@ public class DotaMatch : MonoBehaviour
         getDotaMatchGameData();
         resultEarlyGame = CalculateEarlyGame();
         resultMidGame = CalculateMidGame(resultEarlyGame);
-        resultLateGame = CalculateEndGame(resultMidGame);
+        resultLateGame = CalculateLateGame(resultMidGame);
 
         resultGame = CalculateFinalResult(resultLateGame);
+
+        Debug.Log("resultEG: " + resultEarlyGame + ":::: result MG: " + resultMidGame + ":::: result LG: " + resultLateGame + ":::: final result: " + resultGame);
     }
 
     #region calculateEG
@@ -139,12 +171,6 @@ public class DotaMatch : MonoBehaviour
     private float CalculateBotLaneEGResult()
     {
         float botLaneEGResult = 0.5f;
-
-        Player rCarry = team1pos1;
-        Player rHardSupport = team1pos5;
-
-        Player dOfflaner = team2pos3;
-        Player dSupport = team2pos4;
 
         // depends on skill of players and draft abilities of captain
         float rcVSdo = CheckWhoHasAdvantage(rCarry, dOfflaner);
@@ -181,15 +207,17 @@ public class DotaMatch : MonoBehaviour
         float result = 0.5f;
         float endResult = 0.5f;
         //get result of -100 to 100
-        float resultCalculation = (team1advantage - team2advantage);
+        float resultCalculation = team1advantage - team2advantage;
 
         bool resultIsPositive = CalculateResultPositiveNegative(resultCalculation);
 
+        // 0.005f is factor to put value from 0 to 1
         // teamFactorMultiplicator if teamplay should be rewarded more (standard: 1f)
         if (resultIsPositive)
         {
             endResult = result - (resultCalculation * 0.005f * teamFactorMultiplicator);
-        } else
+        }
+        else
         {
             endResult = result + (resultCalculation * 0.005f * teamFactorMultiplicator);
         }
@@ -218,10 +246,6 @@ public class DotaMatch : MonoBehaviour
     {
         float midLaneEGResult = 0.5f;
 
-        Player rMid = team1pos2;
-
-        Player dMid = team2pos2;
-
         // depends on skill of players and draft abilities of captain
         float rmVSdm = CheckWhoHasAdvantage(rMid, dMid);
 
@@ -235,12 +259,6 @@ public class DotaMatch : MonoBehaviour
     private float CalculateTopLaneEGResult()
     {
         float topLaneEGResult = 0.5f;
-
-        Player dCarry = team2pos1;
-        Player dHardSupport = team2pos5;
-
-        Player rOfflaner = team1pos3;
-        Player rSupport = team1pos4;
 
         // depends on skill of players and draft abilities of captain
         float roVSdc = CheckWhoHasAdvantage(rOfflaner, dCarry);
@@ -261,34 +279,141 @@ public class DotaMatch : MonoBehaviour
     #region calculateMG
     private float CalculateMidGame(float resultEarlyGame)
     {
-        // compare teamfights and ganking, regarding the EGResult -> giving advantage multiplicator to better EGTeam
-        throw new NotImplementedException();
+        float resultMidGame = 0.5f;
+
+        float gankingResult = CalculateMidGameGankingResult();
+        float farmingResult = CalculateMidGameFarming();
+        float teamfightResult = CalculateMidGameTeamfightResult();
+
+        resultMidGame = resultMidGame + gankingResult + farmingResult + teamfightResult;
+
+        float finalResultMidGame = (resultEarlyGame + resultMidGame) / 2f;
+
+        return finalResultMidGame;
     }
 
-    private float CalculateTeamfightResult()
+    private float CalculateMidGameFarming()
     {
-        throw new NotImplementedException();
+        float midGameFarmingResult = 0.5f;
+
+        // depends on farmingabilities of core players in each team
+        float farmingTeam1 = utilityPlayers.GetAverageAmountFarmingThreePlayers(rCarry, rMid, rOfflaner);
+        float farmingTeam2 = utilityPlayers.GetAverageAmountFarmingThreePlayers(dCarry, dMid, dOfflaner);
+
+        midGameFarmingResult = CalculateFloatResultOfAdvantages(farmingTeam1, farmingTeam2);
+
+        return midGameFarmingResult;
     }
 
-    private float CalculateGankingResult()
+    private float CalculateMidGameTeamfightResult()
     {
-        throw new NotImplementedException();
+        float resultTeamfightsMG;
+
+        float team1teamfight = utilityPlayers.GetTeamAmountTeamfight(rCarry, rMid, rOfflaner, rSupport, rHardSupport);
+        float team2teamfight = utilityPlayers.GetTeamAmountTeamfight(dCarry, dMid, dOfflaner, dSupport, dHardSupport);
+
+        float team1draft = team1captain.getDraftingSkill();
+        float team2draft = team2captain.getDraftingSkill();
+
+        float team1farm = utilityPlayers.getTeamAmountFarming(rCarry, rMid, rOfflaner, rSupport, rHardSupport);
+        float team2farm = utilityPlayers.getTeamAmountFarming(dCarry, dMid, dOfflaner, dSupport, dHardSupport);
+
+        float team1values = (team1teamfight + team1draft + team1farm) / 3;
+        float team2values = (team2teamfight + team2draft + team2farm) / 3;
+
+        resultTeamfightsMG = CalculateFloatResultOfAdvantages(team1values, team2values);
+
+        return resultTeamfightsMG;
+    }
+
+    private float CalculateMidGameGankingResult()
+    {
+        float gankingResult = 0.5f;
+
+        // depends on skill of players: Gankers - Mind gaming, determination, teamwork / Victims - Map Awareness, Mindgaming, concentration, reaction time
+        float rGankdMid = CheckWhoHasGankingAdvantage3v1(rMid, rSupport, rHardSupport, dMid);
+        float rGankdCarry = CheckWhoHasGankingAdvantage3v2(rMid, rSupport, rOfflaner, dCarry, dHardSupport);
+        float rGankdOfflaner = CheckWhoHasGankingAdvantage3v2(rMid, rHardSupport, rCarry, dOfflaner, dSupport);
+
+        float dGankrMid = CheckWhoHasGankingAdvantage3v1(dMid, dSupport, dHardSupport, rMid);
+        float dGankrCarry = CheckWhoHasGankingAdvantage3v2(dMid, dSupport, dOfflaner, rCarry, rHardSupport);
+        float dGankrOfflaner = CheckWhoHasGankingAdvantage3v2(dMid, dHardSupport, dCarry, rOfflaner, rSupport);
+
+        float gankingResultTeam1 = (rGankdMid + rGankdCarry + rGankdOfflaner) / 3;
+        float gankingResultTeam2 = (dGankrMid + dGankrCarry + dGankrOfflaner) / 3;
+
+        gankingResult = CalculateFloatResultOfAdvantages(gankingResultTeam1, gankingResultTeam2);
+
+        return gankingResult;
+    }
+
+    private float CheckWhoHasGankingAdvantage3v2(Player rMid, Player rSupport, Player rOfflaner, Player dCarry, Player dHardSupport)
+    {
+        float gankingResult = 0.5f;
+
+        float radiant1score = (rMid.determination + rMid.mindgaming + rMid.teamwork) / 3;
+        float radiant2score = (rSupport.determination + rSupport.mindgaming + rSupport.teamwork) / 3;
+        float radiant3score = (rOfflaner.determination + rOfflaner.mindgaming + rOfflaner.teamwork) / 3;
+
+        // TODO: add factor that checks bonus if laning phase was good or bad against hero
+        float radiantScoreTotal = (radiant1score + radiant2score + radiant3score) / 3;
+
+        float dire1score = (dCarry.mapAwareness + dCarry.concentration + dCarry.reactionTime + dCarry.mindgaming) / 4;
+        float dire2score = (dHardSupport.mapAwareness + dHardSupport.concentration + dHardSupport.reactionTime + dHardSupport.mindgaming) / 4;
+
+        float direScoreTotal = (dire1score + dire2score) / 2;
+
+        CalculateFloatResultOfAdvantages(radiantScoreTotal, direScoreTotal);
+
+        return gankingResult;
+    }
+
+    private float CheckWhoHasGankingAdvantage3v1(Player rCore, Player rSupport, Player rHardSupport, Player dCore)
+    {
+        float gankingResult = 0.5f;
+
+        float radiant1score = (rCore.determination + rCore.mindgaming + rCore.teamwork) / 3;
+        float radiant2score = (rSupport.determination + rSupport.mindgaming + rSupport.teamwork) / 3;
+        float radiant3score = (rHardSupport.determination + rHardSupport.mindgaming + rHardSupport.teamwork) / 3;
+
+        // TODO: add factor that checks bonus if laning phase was good or bad against hero
+        float radiantScoreTotal = (radiant1score + radiant2score + radiant3score) / 3;
+
+        float direscore = (dCore.mapAwareness + dCore.concentration + dCore.reactionTime + dCore.mindgaming) / 4;
+
+        CalculateFloatResultOfAdvantages(radiantScoreTotal, direscore);
+
+        return gankingResult;
     }
 
     #endregion
 
-    #region calculateEG
+    #region calculateLG
 
-    private float CalculateEndGame(float resultMidGame)
+    private float CalculateLateGame(float resultMidGame)
     {
-        throw new NotImplementedException();
+        float resultLateGame = 0.5f;
+
+        float gankingResult = CalculateMidGameGankingResult();
+        float farmingResult = CalculateMidGameFarming();
+        float teamfightResult = CalculateMidGameTeamfightResult();
+
+        resultLateGame = resultMidGame + gankingResult + farmingResult + teamfightResult;
+
+        float finalResultLateGame = (resultEarlyGame + resultMidGame + resultLateGame) / 2f;
+
+        return finalResultLateGame;
     }
     #endregion
+
+    #region calculateResult
 
     private float CalculateFinalResult(float resultLateGame)
     {
         throw new NotImplementedException();
     }
+
+    #endregion
 
     private void ResetGameResults()
     {

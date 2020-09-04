@@ -60,7 +60,10 @@ GameObject:
   - component: {fileID: 1778149507}
   - component: {fileID: 1605874213}
   - component: {fileID: 1055317613}
+<<<<<<< HEAD
   - component: {fileID: 3206108426329222890}
+=======
+>>>>>>> master
   m_Layer: 0
   m_Name: CoreGame
   m_TagString: Untagged
@@ -140,6 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e58cf6d33c38484db739ef907e9d8b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
 --- !u!114 &3206108426329222890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,6 +156,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e581aa4c79f02174ea195777d15259c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+=======
+>>>>>>> master
 --- !u!1 &1914862022800081429
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,11 +215,22 @@ MonoBehaviour:
   team2pos3: {fileID: 0}
   team2pos4: {fileID: 0}
   team2pos5: {fileID: 0}
+  rCarry: {fileID: 0}
+  rMid: {fileID: 0}
+  rOfflaner: {fileID: 0}
+  rSupport: {fileID: 0}
+  rHardSupport: {fileID: 0}
+  dCarry: {fileID: 0}
+  dMid: {fileID: 0}
+  dOfflaner: {fileID: 0}
+  dSupport: {fileID: 0}
+  dHardSupport: {fileID: 0}
   resultEarlyGame: 0
   resultMidGame: 0
   resultLateGame: 0
   resultGame: 0
   teamFactorMultiplicator: 1
+<<<<<<< HEAD
 --- !u!1 &2204105347940067360
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,6 +261,8 @@ Transform:
   m_Father: {fileID: 3206108426710170595}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> master
 --- !u!1 &3206108426710170594
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,9 +295,13 @@ Transform:
   - {fileID: 3206108428273316125}
   - {fileID: 1778149505}
   - {fileID: 3306816358020675002}
+<<<<<<< HEAD
   - {fileID: 2462156881379972634}
   - {fileID: 3206108427857665733}
   - {fileID: 907656430}
+=======
+  - {fileID: 1605721592054669371}
+>>>>>>> master
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -563,6 +586,7 @@ MonoBehaviour:
   cal: {fileID: 0}
   playerToContract: {fileID: 0}
   wage: 0
+<<<<<<< HEAD
 --- !u!114 &3206108426329222888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -586,6 +610,9 @@ MonoBehaviour:
   cal: {fileID: 0}
   gdb: {fileID: 0}
 --- !u!1 &3772936296901196848
+=======
+--- !u!1 &4677193146213956306
+>>>>>>> master
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -593,27 +620,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD
   - component: {fileID: 5505352058932222115}
   - component: {fileID: 4169062266889752508}
   m_Layer: 0
   m_Name: GameDataSetup
+=======
+  - component: {fileID: 1605721592054669371}
+  - component: {fileID: 3206108426329222888}
+  m_Layer: 0
+  m_Name: Utility
+>>>>>>> master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 --- !u!4 &5505352058932222115
+=======
+--- !u!4 &1605721592054669371
+>>>>>>> master
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 3772936296901196848}
+=======
+  m_GameObject: {fileID: 4677193146213956306}
+>>>>>>> master
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3206108426710170595}
+<<<<<<< HEAD
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4169062266889752508
@@ -661,11 +704,17 @@ Transform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &403432302688416346
+=======
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3206108426329222888
+>>>>>>> master
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 3917691493987968590}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -677,3 +726,11 @@ MonoBehaviour:
   dpcTeamPointsArray: []
   util: {fileID: 0}
   listInGameTeams: []
+=======
+  m_GameObject: {fileID: 4677193146213956306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14117cc32d53ca54bb7954a08248c65c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+>>>>>>> master
