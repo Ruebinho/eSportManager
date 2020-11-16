@@ -100,8 +100,8 @@ namespace ESM.Character
 
         #endregion
 
-        GameDatabase gameDatabase;
-        Calendar calendar;
+        [SerializeField] GameDatabase gameDatabase;
+        [SerializeField] Calendar calendar;
 
         private void Start()
         {

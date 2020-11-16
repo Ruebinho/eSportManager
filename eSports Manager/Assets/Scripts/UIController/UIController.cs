@@ -1,14 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data.OleDb;
 using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
     GameDatabase gamedatabase;
+    UIViewSwitcher uiviews = null;
 
     public GameOverviewUIController gameoverviewUI = null;
     public DotACanvasUIController dotaCanvasUI = null;
     public FinanceUIController financeUI = null;
+
+    [SerializeField] public GameObject currentSelectedCanvas = null;
+    [SerializeField] public GameObject lastSelectedCanvas = null;
 
     public Organization currentSelectedOrg = null;
     public Team currentSelectedTeam = null;
@@ -27,11 +33,213 @@ public class UIController : MonoBehaviour
     public GameObject playerTransferUIInstatiateParent = null;
     public GameObject playerElementInstatiatePrefab = null;
 
+    public GameObject[] UIViewsArray = null;
+
     // Start is called before the first frame update
     void Start()
     {
         gamedatabase = FindObjectOfType<GameDatabase>();
+        uiviews = FindObjectOfType<UIViewSwitcher>();
         currentSelectedOrg = gamedatabase.orgsInGame[1];
+    }
+
+    public void AdvanceGameTime()
+    {
+        GameCoreLogic gcl = FindObjectOfType<GameCoreLogic>();
+        gcl.AdvanceGameTime();
+    }
+
+    public void SwitchUIView(GameObject neu)
+    {
+        lastSelectedCanvas = currentSelectedCanvas;
+        currentSelectedCanvas = uiviews.SwitchView(currentSelectedCanvas, neu);
+
+        executeAdditionalUICommands(neu);
+    }
+
+    private void executeAdditionalUICommands(GameObject neu)
+    {
+        GameObject uiViewsArray0 = UIViewsArray[0];
+        GameObject uiViewsArray1 = UIViewsArray[1];
+        GameObject uiViewsArray2 = UIViewsArray[2];
+        GameObject uiViewsArray3 = UIViewsArray[3];
+        GameObject uiViewsArray4 = UIViewsArray[4];
+        GameObject uiViewsArray5 = UIViewsArray[5];
+        GameObject uiViewsArray6 = UIViewsArray[6];
+        GameObject uiViewsArray7 = UIViewsArray[7];
+        GameObject uiViewsArray8 = UIViewsArray[8];
+        GameObject uiViewsArray9 = UIViewsArray[9];
+        GameObject uiViewsArray10 = UIViewsArray[10];
+        GameObject uiViewsArray11 = UIViewsArray[11];
+        GameObject uiViewsArray12 = UIViewsArray[12];
+        GameObject uiViewsArray13 = UIViewsArray[13];
+        GameObject uiViewsArray14 = UIViewsArray[14];
+        GameObject uiViewsArray15 = UIViewsArray[15];
+
+        if (neu.Equals(uiViewsArray0))
+        {
+            return;
+        }
+
+        if (neu.Equals(uiViewsArray1))
+        {
+            Debug.Log("im here");
+            ShowAllOrgs();
+        }
+        if (neu.Equals(uiViewsArray2))
+        {
+            return;
+        }
+        if (neu.Equals(uiViewsArray3))
+        {
+            return;
+        }
+        if (neu.Equals(uiViewsArray4))
+        {
+            return;
+        }
+        if (neu.Equals(uiViewsArray5))
+        {
+            return;
+        }
+        if (neu.Equals(uiViewsArray6))
+        {
+            return;
+        }
+        if (neu.Equals(uiViewsArray7))
+        {
+            return;
+        }
+        if (neu.Equals(uiViewsArray8))
+        {
+            return;
+        }
+        if (neu.Equals(uiViewsArray9))
+        {
+            return;
+        }
+        if (neu.Equals(uiViewsArray10))
+        {
+            ShowPlayerSelectedOrgTeams();
+
+            return;
+        }
+
+        if (neu.Equals(uiViewsArray11))
+        {
+            return;
+        }
+        if (neu.Equals(uiViewsArray12))
+        {
+            return;
+        }
+        if (neu.Equals(uiViewsArray13))
+        {
+            return;
+        }
+        if (neu.Equals(uiViewsArray14))
+        {
+            return;
+        }
+        if (neu.Equals(uiViewsArray15))
+        {
+            return;
+        }
+    }
+
+    public void SwitchUIViewToLastView()
+    {
+        currentSelectedCanvas = uiviews.SwitchView(currentSelectedCanvas, lastSelectedCanvas);
+        lastSelectedCanvas = currentSelectedCanvas;
+
+        executeAdditionalUIBackCommands(currentSelectedCanvas);
+    }
+
+    private void executeAdditionalUIBackCommands(GameObject currentSelectedCanvas)
+    {
+        GameObject uiViewsArray0 = UIViewsArray[0];
+        GameObject uiViewsArray1 = UIViewsArray[1];
+        GameObject uiViewsArray2 = UIViewsArray[2];
+        GameObject uiViewsArray3 = UIViewsArray[3];
+        GameObject uiViewsArray4 = UIViewsArray[4];
+        GameObject uiViewsArray5 = UIViewsArray[5];
+        GameObject uiViewsArray6 = UIViewsArray[6];
+        GameObject uiViewsArray7 = UIViewsArray[7];
+        GameObject uiViewsArray8 = UIViewsArray[8];
+        GameObject uiViewsArray9 = UIViewsArray[9];
+        GameObject uiViewsArray10 = UIViewsArray[10];
+        GameObject uiViewsArray11 = UIViewsArray[11];
+        GameObject uiViewsArray12 = UIViewsArray[12];
+        GameObject uiViewsArray13 = UIViewsArray[13];
+        GameObject uiViewsArray14 = UIViewsArray[14];
+        GameObject uiViewsArray15 = UIViewsArray[15];
+
+        if (currentSelectedCanvas.Equals(uiViewsArray0))
+        {
+            return;
+        }
+
+        if (currentSelectedCanvas.Equals(uiViewsArray1))
+        {
+            return;
+        }
+        if (currentSelectedCanvas.Equals(uiViewsArray2))
+        {
+            return;
+        }
+        if (currentSelectedCanvas.Equals(uiViewsArray3))
+        {
+            return;
+        }
+        if (currentSelectedCanvas.Equals(uiViewsArray4))
+        {
+            return;
+        }
+        if (currentSelectedCanvas.Equals(uiViewsArray5))
+        {
+            return;
+        }
+        if (currentSelectedCanvas.Equals(uiViewsArray6))
+        {
+            return;
+        }
+        if (currentSelectedCanvas.Equals(uiViewsArray7))
+        {
+            return;
+        }
+        if (currentSelectedCanvas.Equals(uiViewsArray8))
+        {
+            return;
+        }
+        if (currentSelectedCanvas.Equals(uiViewsArray9))
+        {
+            return;
+        }
+        if (currentSelectedCanvas.Equals(uiViewsArray10))
+        {
+            return;
+        }
+
+        if (currentSelectedCanvas.Equals(uiViewsArray11))
+        {
+            return;
+        }
+        if (currentSelectedCanvas.Equals(uiViewsArray12))
+        {
+            return;
+        }
+        if (currentSelectedCanvas.Equals(uiViewsArray13))
+        {
+            return;
+        }
+        if (currentSelectedCanvas.Equals(uiViewsArray14))
+        {
+            return;
+        }
+        if (currentSelectedCanvas.Equals(uiViewsArray15))
+        {
+            return;
+        }
     }
 
     public void ShowAllOrgs()
@@ -269,6 +477,19 @@ public class UIController : MonoBehaviour
         if (currentSelectedOrgUI != null)
         {
             Debug.Log(currentSelectedOrgUI);
+            InstantiateTeamElements(currentSelectedOrg);
+        }
+        else
+        {
+            Debug.Log("No Org selected!");
+        }
+    }
+
+    public void ShowPlayerSelectedOrgTeams()
+    {
+        if (currentSelectedOrg != null)
+        {
+            Debug.Log(currentSelectedOrg);
             InstantiateTeamElements(currentSelectedOrg);
         }
         else

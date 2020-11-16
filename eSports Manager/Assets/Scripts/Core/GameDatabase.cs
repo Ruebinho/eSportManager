@@ -75,6 +75,7 @@ public class GameDatabase : MonoBehaviour
 
         foreach (Team team in teamsToAdd)
         {
+            //Debug.Log(team.teamName);
             if (team.teamIsActive)
             {
                 Team teamInGame = Instantiate(team, teamSpawnerParent.transform);
@@ -112,6 +113,7 @@ public class GameDatabase : MonoBehaviour
             {
                 Finanzen financeInGame = Instantiate(finance, financesSpawnerParent.transform);
                 // TODO fix financeInGame.sponsors[0] = sponsorsInGame[financeInitCounter];
+                //Debug.Log(financeInGame.name);
                 financesInGame.Add(financeInGame);
             }
 
@@ -158,6 +160,7 @@ public class GameDatabase : MonoBehaviour
         AddRandomGeneratedPlayers();
         AddRandomGeneratedStaff();
 
+        gdinit = FindObjectOfType<GameDataInit>();
         gdinit.setGDBsetup();
     }
 
@@ -209,6 +212,13 @@ public class GameDatabase : MonoBehaviour
 
     private void AddRandomGeneratedPlayers()
     {
+        if(charGen == null)
+        {
+            charGen = FindObjectOfType<CharacterGenerator>();
+        }
+
+        //Debug.Log("Rnadom player get createsd");
+        //Debug.Log(charGen);
         randomCharactersToCreate = charGen.nicknameList.Length - 1;
 
         for (int i = 0; i < randomCharactersToCreate; i++)
