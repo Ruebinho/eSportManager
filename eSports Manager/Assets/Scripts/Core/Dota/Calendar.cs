@@ -191,5 +191,11 @@ public class Calendar : MonoBehaviour
         return playerage;
     }
 
+    public int CheckWeekDayFromFirstOfAUGNextYear()
+    {
+        DateTime dateValue = new DateTime(currentYear+1, 8, 1);
+        return ((int)dateValue.DayOfWeek);
+    }
+
 
 }

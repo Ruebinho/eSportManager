@@ -55,6 +55,7 @@ public class GameDatabase : MonoBehaviour
     public List<StaffContract> staffMemberContractsInGame;
 
     public int randomCharactersToCreate = 10;
+    public int randomStaffToCreate = 60;
     public CharacterGenerator charGen;
     public GameDataInit gdinit;
 
@@ -200,8 +201,6 @@ public class GameDatabase : MonoBehaviour
 
     private void AddRandomGeneratedStaff()
     {
-        int randomStaffToCreate = 20;
-
         for (int i = 0; i < randomStaffToCreate; i++)
         {
             StaffMember staffMemberToInstantiate = charGen.GenerateStaffMember();

@@ -29,7 +29,7 @@ public class DotaTournamentGenerator : MonoBehaviour
         gdb = FindObjectOfType<GameDatabase>();
     }
 
-    public DotaTournament GenerateDotaTorunament()
+    public DotaTournament GenerateDotaTournament()
     {
 
         FindTournamentDate();

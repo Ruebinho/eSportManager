@@ -127,6 +127,8 @@ public class UIController : MonoBehaviour
 
         if (neu.Equals(uiViewsArray11))
         {
+            ShowSelectedPlayerDetails();
+
             return;
         }
         if (neu.Equals(uiViewsArray12))
@@ -135,6 +137,8 @@ public class UIController : MonoBehaviour
         }
         if (neu.Equals(uiViewsArray13))
         {
+            ShowSelectedTeamDetails();
+
             return;
         }
         if (neu.Equals(uiViewsArray14))

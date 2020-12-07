@@ -20,7 +20,7 @@ public class DotaTournament : MonoBehaviour
     public int amountTeamsInTournament;
     public Team[] teamsInTournament;
 
-    public enum TournamentType { International , Major , Minor , Charity};
+    public enum TournamentType { International , Major , Minor , Qualifier, Charity};
 
     // Start is called before the first frame update
     void Start()

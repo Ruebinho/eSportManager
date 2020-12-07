@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91463fd348d554444abaf714c9e82011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerIsActive: 1
   isGeneratedPlayer: 1
   currentAbilityIsScouted: 1
   potentialIsScouted: 1
@@ -52,6 +53,9 @@ MonoBehaviour:
   vorname: Stefan
   nachname: Meisenberg
   nickname: MasterMeisi
+  birthday: 22
+  birthmonth: 2
+  birthyear: 1989
   age: 30
   nationality: Germany
   logicalThinking: 70

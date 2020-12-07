@@ -146,7 +146,7 @@ public class AILogicController : MonoBehaviour
                 float arrayLaenge = potentialCandidates.Count - 1f;
                 int attributeinArray = (Int32)UnityEngine.Random.Range(0, arrayLaenge);
                 staffSearchResult = potentialCandidates[attributeinArray];
-                Debug.Log(staffSearchResult.ToString());
+                //Debug.Log(staffSearchResult.ToString());
             }
         }
         return staffSearchResult;
@@ -178,7 +178,7 @@ public class AILogicController : MonoBehaviour
     {
         ResetStaffCounter();
         StaffRole requiredStaffRole = StaffRole.Default;
-        Debug.Log(org.ToString());
+        //Debug.Log(org.ToString());
         foreach (StaffMember sm in org.staffMembers)
         {
             //Debug.Log(sm.staffRole.ToString());

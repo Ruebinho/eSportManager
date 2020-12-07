@@ -42,13 +42,20 @@ public class GameCoreLogic : MonoBehaviour
         calendar.AdvanceTime();
         uiController.UpdateDateUI();
 
+        // prepare Tournament Schedule for the year at the beginning of the season (different for every game)
+
+
+
         // continue development of players
 
 
 
         // continue transfers
+        
+
 
         // continue contracts
+
 
 
         //fill up Staff Slots
@@ -153,12 +160,14 @@ public class GameCoreLogic : MonoBehaviour
 
         //simulate matches
 
-        if (dotaMatch.matchTeam1 != null && dotaMatch.matchTeam2 != null)
+        if (dotaMatch != null)
         {
-            dotaMatch.SimulateDotaMatch();
+            if (dotaMatch.matchTeam1 != null && dotaMatch.matchTeam2 != null)
+            {
+                dotaMatch.SimulateDotaMatch();
+            }
         }
-
-
+        
         //etc.
 
 
@@ -167,12 +176,23 @@ public class GameCoreLogic : MonoBehaviour
 
     private void CheckAndSignPotentialStaffMembers(Organization org)
     {
+        Debug.Log($"ORG: {org.name} ::: Checking Req Staff Role");
         StaffRole staffRoleRequired = aiLogicController.CheckWhichStaffRoleIsRequired(org);
+        Debug.Log($"ORG: {org.name} ::: Req Staff Role is: {staffRoleRequired}");
+
+        // if no staff is needed, return
+        if (staffRoleRequired.Equals(StaffRole.Default)) { return; }
+
+        Debug.Log($"ORG: {org.name} ::: Find Fitting Candidate");
         StaffMember potentialStaff = aiLogicController.FindFittingCandidate(org, staffRoleRequired);
+        Debug.Log($"ORG: {org.name} ::: Fitting Candidate is: {potentialStaff}");
+
+
         StaffContract potentialContract = aiLogicController.OfferContractToStaffMember(org);
+
+
         if (potentialStaff != null)
         {
-            Debug.Log(org.orgName.ToString() + " : " + potentialStaff.staffRole.ToString());
             potentialStaff.tec.ListStaffContractOffer(potentialContract);
             potentialStaff.tec.chosenSC = potentialContract;
             potentialStaff.SignContract(potentialStaff.tec.chosenSC);
