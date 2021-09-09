@@ -53,7 +53,7 @@ public class DotaTournamentGenerator : MonoBehaviour
         dotaTournament.endMonth = 1;
         dotaTournament.endYear = 1;
         */
-        return dotaTournamentPrefab;
+        return Instantiate(dotaTournamentPrefab);
     }
 
     private void AddDeservingTeamsToTournamentPool(DotaTournament dotaTournament)

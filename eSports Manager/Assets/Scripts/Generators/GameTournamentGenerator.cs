@@ -46,7 +46,7 @@ public class GameTournamentGenerator : MonoBehaviour
         return dotaTournamentHull;
         */
 
-        DotaTournament dotaTournament = dotaTournamentPrefab;
+        DotaTournament dotaTournament = Instantiate(dotaTournamentPrefab);
 
         return dotaTournament;
     }
@@ -73,7 +73,7 @@ public class GameTournamentGenerator : MonoBehaviour
         dotaTournament.tournamentType = tType;
 
         dotaTournament.amountTeamsInTournament = tAmountTeams;
-
+        
         //FindTeamAmountFromTournamentType(dotaTournament.tournamentType);
         //AddDeservingTeamsToTournamentPool(dotaTournament); 
     }
