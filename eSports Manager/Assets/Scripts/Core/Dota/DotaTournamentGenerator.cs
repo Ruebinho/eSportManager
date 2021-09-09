@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DotaTournamentGenerator : MonoBehaviour
 {
-    DotaTournament dotaTournamentPrefab = null;
+    public DotaTournament dotaTournamentPrefab;
 
     public int startDay;
     public int startMonth;
@@ -32,9 +32,11 @@ public class DotaTournamentGenerator : MonoBehaviour
     public DotaTournament GenerateDotaTournament()
     {
 
-        FindTournamentDate();
+        // FindTournamentDate();
+        /*
+        DotaTournament dotaTournament = dotaTournamentPrefab;
 
-        DotaTournament dotaTournament = Instantiate(dotaTournamentPrefab);
+        Debug.Log(dotaTournament);
 
         dotaTournament.tournamentName = "ESL One Cologne";
         dotaTournament.tournamentLocation = "Cologne";
@@ -43,15 +45,15 @@ public class DotaTournamentGenerator : MonoBehaviour
         dotaTournament.amountTeamsInTournament = FindTeamAmountFromTournamentType(dotaTournament.tournamentType);
         AddDeservingTeamsToTournamentPool(dotaTournament);
 
-        dotaTournament.startDay = startDay;
-        dotaTournament.startMonth = startMonth;
-        dotaTournament.startYear = startYear;
+        dotaTournament.startDay = 1;
+        dotaTournament.startMonth = 1;
+        dotaTournament.startYear = 1;
 
-        dotaTournament.endDay = endDay;
-        dotaTournament.endMonth = endMonth;
-        dotaTournament.endYear = endYear;
-
-        return dotaTournament;
+        dotaTournament.endDay = 1;
+        dotaTournament.endMonth = 1;
+        dotaTournament.endYear = 1;
+        */
+        return dotaTournamentPrefab;
     }
 
     private void AddDeservingTeamsToTournamentPool(DotaTournament dotaTournament)

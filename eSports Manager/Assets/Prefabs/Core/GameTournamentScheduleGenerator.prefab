@@ -9,7 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1170162051692548100}
+  - component: {fileID: 1170162051521150331}
   - component: {fileID: 1170162051692548099}
+  - component: {fileID: 1170162051521150329}
   m_Layer: 0
   m_Name: GameTournamentScheduleGenerator
   m_TagString: Untagged
@@ -31,6 +33,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1170162051521150331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170162051692548101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3506b2cbf063e8043ba41f7d5dffe2db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startDay: 1
+  startMonth: 1
+  startYear: 1111
+  endDay: 1
+  endMonth: 1
+  endYear: 1111
+  gamecoreLogic: {fileID: 0}
+  ggp: {fileID: 0}
+  cal: {fileID: 0}
+  gdb: {fileID: 0}
 --- !u!114 &1170162051692548099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43,14 +67,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd01bbd42cb3876458a2a2e2e012eca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  game: {fileID: 0}
+  game: {fileID: 3527470549121807591, guid: 176454190e1abd645955c9d89278a3ab, type: 3}
+  gtg: {fileID: 0}
   seasonStartDay: 0
   seasonStartMonth: 0
   calendar: {fileID: 0}
   amountMajors: 5
   amountMinors: 5
-  amountQualifiers: 10
   amountCharity: 2
   amountInternational: 1
-  dotaTournamentPrefab: {fileID: 0}
+  amountTournamentDPC: 1
   dpcCalendarSchedule: []
+--- !u!114 &1170162051521150329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170162051692548101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d8282bbd458534a963b739e1887eb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dtg: {fileID: 1170162051521150331}
+  dotaTournamentPrefab: {fileID: 5151218284734975130, guid: 5329b646a50ed594ebf9080ea78d7ed4,
+    type: 3}
+  tName: xxx
+  tType: 0
+  tLocation: xxx
+  tStartDay: 1
+  tStartMonth: 12
+  tStartYear: 2000
+  tEndDay: 31
+  tEndMonth: 12
+  tEndYear: 2000
+  tAmountTeamsInTournament: 2

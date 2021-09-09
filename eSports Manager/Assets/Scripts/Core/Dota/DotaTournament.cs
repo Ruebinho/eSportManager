@@ -17,10 +17,12 @@ public class DotaTournament : MonoBehaviour
     public int endMonth;
     public int endYear;
 
+    public DotaTournament dotaTournamentQualifier;
+
     public int amountTeamsInTournament;
     public Team[] teamsInTournament;
 
-    public enum TournamentType { International , Major , Minor , Qualifier, Charity};
+    public enum TournamentType { International , Major , Minor , Qualifier, Charity };
 
     // Start is called before the first frame update
     void Start()

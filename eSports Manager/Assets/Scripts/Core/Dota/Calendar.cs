@@ -197,5 +197,9 @@ public class Calendar : MonoBehaviour
         return ((int)dateValue.DayOfWeek);
     }
 
+    public bool CheckIfNumberOfDaysSubstractedIsMoreThanDaysInMonthLeft(int startDay, int daysToSubstract)
+    {
+        return daysToSubstract > startDay;
+    }
 
 }

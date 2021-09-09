@@ -642,6 +642,7 @@ namespace ESM.Character
         public Player GeneratePlayer()
         {
             Player generatedPlayer = playerPrefab;
+
             generatedPlayer.isGeneratedPlayer = true;
 
             generatedPlayer.vorname = GetVorname();

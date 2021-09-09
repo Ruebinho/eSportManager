@@ -26231,11 +26231,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1828269649}
     m_Modifications:
-    - target: {fileID: 1170162051692548099, guid: 883abe615ec2e854f9d321d8bdb4e4b6,
+    - target: {fileID: 1170162051521150329, guid: 883abe615ec2e854f9d321d8bdb4e4b6,
         type: 3}
       propertyPath: dotaTournamentPrefab
       value: 
-      objectReference: {fileID: 5151218284734975130, guid: 5329b646a50ed594ebf9080ea78d7ed4,
+      objectReference: {fileID: 2302632911266630288, guid: 5329b646a50ed594ebf9080ea78d7ed4,
         type: 3}
     - target: {fileID: 1170162051692548100, guid: 883abe615ec2e854f9d321d8bdb4e4b6,
         type: 3}
@@ -26299,36 +26299,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 883abe615ec2e854f9d321d8bdb4e4b6, type: 3}
---- !u!1 &1170162051521150328 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1170162051692548101, guid: 883abe615ec2e854f9d321d8bdb4e4b6,
-    type: 3}
-  m_PrefabInstance: {fileID: 1170162051521150327}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1170162051521150329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1170162051521150328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79d8282bbd458534a963b739e1887eb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dotaTournamentPrefab: {fileID: 5151218284734975130, guid: 5329b646a50ed594ebf9080ea78d7ed4,
-    type: 3}
-  tName: xxx
-  tType: 0
-  tLocation: xxx
-  tStartDay: 1
-  tStartMonth: 12
-  tStartYear: 2000
-  tEndDay: 31
-  tEndMonth: 12
-  tEndYear: 2000
-  tAmountTeamsInTorunament: 2
 --- !u!1001 &1243320349024803005
 PrefabInstance:
   m_ObjectHideFlags: 0
