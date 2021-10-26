@@ -191,7 +191,7 @@ public class Calendar : MonoBehaviour
         return playerage;
     }
 
-    public int CheckWeekDayFromFirstOfAUGNextYear()
+    public int CheckWeekDayOfFirstOfAUGNextYear()
     {
         DateTime dateValue = new DateTime(currentYear+1, 8, 1);
         return ((int)dateValue.DayOfWeek);
@@ -202,4 +202,39 @@ public class Calendar : MonoBehaviour
         return daysToSubstract > startDay;
     }
 
+    public int CalculateYearSubtractingDays(int startYear, int startMonth, int startDay, int daysToSubtract)
+    {
+        if(startMonth > 1 && daysToSubtract <= 31)
+        {
+            return startYear;
+        } else
+        {
+            return CalculateNewDateYear(startYear, startMonth, startDay, daysToSubtract);
+        }
+
+    }
+
+    private int CalculateNewDateYear(int startYear, int startMonth, int startDay, int daysToSubtract)
+    {
+        int remainderDaysForCalculation = startDay;
+
+        // if day of month is bigger than daysToSubstract
+        if(startDay > daysToSubtract)
+        {
+            return startYear;
+        } else
+        {
+            remainderDaysForCalculation -= daysToSubtract;
+            int smAmountofDays = returnAmountDaysOfMonth(startMonth-1);
+
+            if (smAmountofDays > daysToSubtract)
+            {
+                DateTime dt = new DateTime(startYear, startMonth, startDay);
+            }
+        }
+
+        return 0;
+
+        
+    }
 }

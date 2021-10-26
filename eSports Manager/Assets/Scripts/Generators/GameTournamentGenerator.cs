@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -78,5 +79,12 @@ public class GameTournamentGenerator : MonoBehaviour
         //AddDeservingTeamsToTournamentPool(dotaTournament); 
     }
 
+    internal DotaTournament GenerateDotaTournamentQualifier()
+    {
+        DotaTournament dotaTournament = Instantiate(dotaTournamentPrefab);
 
+        dotaTournament.tournamentType = DotaTournament.TournamentType.Qualifier;
+
+        return dotaTournament;
+    }
 }

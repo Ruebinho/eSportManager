@@ -5,7 +5,7 @@ using UnityEngine;
 public class Country : MonoBehaviour
 {
     [SerializeField] string countryName;
-    [SerializeField] Location[] locations;
+    [SerializeField] public Location[] locations;
 
     // Start is called before the first frame update
     void Start()

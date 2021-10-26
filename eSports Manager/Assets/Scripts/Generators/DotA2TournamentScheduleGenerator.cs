@@ -27,17 +27,38 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
     int AmountInternationalRegionalQualifiers = 6;
     public DotaTournament[] internationalOpenQualifiers = new DotaTournament[6];
     public DotaTournament[] internationalRegionalQualifiers = new DotaTournament[6];
-    DotaTournament xy = null;
+
+    public GeographicalDefinition geodef = null;
+
+    public Region[] regionMajors = new Region[5];
+    public Region[] regionMinors = new Region[5];
 
     // Start is called before the first frame update
     void Start()
     {
         gtg = FindObjectOfType<GameTournamentGenerator>();
         calendar = FindObjectOfType<Calendar>();
+        geodef = FindObjectOfType<GeographicalDefinition>();
 
 
         //TODO: implement in calendar for every year generation
+        InitiateRegionArrays();
         StartDotaTournamentScheduleGeneratorSetup();
+    }
+
+    private void InitiateRegionArrays()
+    {
+        regionMajors[0] = geodef.regionsInGame[0];
+        regionMajors[1] = geodef.regionsInGame[1];
+        regionMajors[2] = geodef.regionsInGame[2];
+        regionMajors[3] = geodef.regionsInGame[3];
+        regionMajors[4] = geodef.regionsInGame[5];
+
+        regionMinors[0] = geodef.regionsInGame[0];
+        regionMinors[1] = geodef.regionsInGame[1];
+        regionMinors[2] = geodef.regionsInGame[2];
+        regionMinors[3] = geodef.regionsInGame[3];
+        regionMinors[4] = geodef.regionsInGame[4];
     }
 
     public void StartDotaTournamentScheduleGeneratorSetup()
@@ -69,7 +90,7 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
 
     private int DecideInternationalEndDate()
     {
-        int weekdayFirstOfAUGNextYear = calendar.CheckWeekDayFromFirstOfAUGNextYear();
+        int weekdayFirstOfAUGNextYear = calendar.CheckWeekDayOfFirstOfAUGNextYear();
 
         // result should be a sunday
         int additionCalculation = 28 - weekdayFirstOfAUGNextYear;
@@ -85,6 +106,7 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
 
         SetupTournamentInternational(internationalEndDate);
         CreateRegionalQualsForTI();
+        CreateMajorMinorSchedule();
     }
 
     private void SetupTournamentInternational(int internationalEndDate)
@@ -417,5 +439,400 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
         gtg.SetupTournamentDateData(internationalOpenQualifiers[5], tSEAQStartDay, tSEAQStartMonth, tSEAQStartYear, tSEAQEndDay, tSEAQEndMonth, tSEAQEndYear);
 
         #endregion
+    }
+
+    private void CreateMajorMinorSchedule()
+    {
+        
+        Debug.Log("i is: 10");
+        for (int i = dpcCalendarSchedule.Length-2; i > 0; i--)
+        {
+            Debug.Log("DPC Cal i is:" + i);
+            GenerateDPCCalendarScheduleTournamentInPosition(i);
+        }
+
+    }
+
+    private void GenerateDPCCalendarScheduleTournamentInPosition(int i)
+    {
+        int earliestOpenQualDay = 0;
+
+        if (i == 10)
+        {
+            earliestOpenQualDay = GetEarliestOpenQualsStartDate();
+        }
+
+        //TODO: Randomize Locations and be fair in distribution
+
+        DotaTournament dotaTempTourney = gtg.GenerateDotaTournament();
+
+        // TODO: build two arrays Major/minor with every region
+        string tLocation = DecideDPCCalendarTourneyLocation(i);
+        
+        //decide name after region to match possible partners/sponsor
+        string tName = DecideDPCCalendarTourneyName(i);
+        DotaTournament.TournamentType tType = DecideDPCCalendarTourneyType(i);
+
+        int tAmountTeams = DecideDPCCalendarTourneyAmountTeams(i);
+
+        int tEndDay = DecideDPCCalendarTourneyEndDay(i);
+        int tEndMonth = DecideDPCCalendarTourneyEndMonth(i);
+        int tEndYear = DecideDPCCalendarTourneyEndYear(i);
+
+        int tStartDay = DecideDPCCalendarTourneyStartDay(i);
+        int tStartMonth = DecideDPCCalendarTourneyStartMonth(i);
+        int tStartYear = DecideDPCCalendarTourneyStartYear(i);
+
+        gtg.SetupTournamentData(dotaTempTourney, tName, tLocation, tType, tAmountTeams);
+        gtg.SetupTournamentDateData(dotaTempTourney, tStartDay, tStartMonth, tStartYear, tEndDay, tEndMonth, tEndYear);
+
+        DotaTournament dotaTempTourneyQualifier = gtg.GenerateDotaTournamentQualifier();
+
+        dotaTempTourney.dotaTournamentQualifier = dotaTempTourneyQualifier;
+
+        dpcCalendarSchedule[i] = dotaTempTourney;
+    }
+
+    private int DecideDPCCalendarTourneyStartYear(int i)
+    {
+        switch (i)
+        {
+            case 1:
+                return 0;
+            case 2:
+                return 0;
+            case 3:
+                return 0;
+            case 4:
+                return 0;
+            case 5:
+                return 0;
+            case 6:
+                return 0;
+            case 7:
+                return 0;
+            case 8:
+                return 0;
+            case 9:
+                return 0;
+            case 10:
+                return 0;
+
+            default:
+                return 0;
+        }
+    }
+
+    private int DecideDPCCalendarTourneyStartMonth(int i)
+    {
+        switch (i)
+        {
+            case 1:
+                return 0;
+            case 2:
+                return 0;
+            case 3:
+                return 0;
+            case 4:
+                return 0;
+            case 5:
+                return 0;
+            case 6:
+                return 0;
+            case 7:
+                return 0;
+            case 8:
+                return 0;
+            case 9:
+                return 0;
+            case 10:
+                return 0;
+
+            default:
+                return 0;
+        }
+    }
+
+    private int DecideDPCCalendarTourneyStartDay(int i)
+    {
+        switch (i)
+        {
+            case 1:
+                return 0;
+            case 2:
+                return 0;
+            case 3:
+                return 0;
+            case 4:
+                return 0;
+            case 5:
+                return 0;
+            case 6:
+                return 0;
+            case 7:
+                return 0;
+            case 8:
+                return 0;
+            case 9:
+                return 0;
+            case 10:
+                return 0;
+
+            default:
+                return 0;
+        }
+    }
+
+    private int DecideDPCCalendarTourneyEndYear(int i)
+    {
+        switch (i)
+        {
+            case 1:
+                return 0;
+            case 2:
+                return 0;
+            case 3:
+                return 0;
+            case 4:
+                return 0;
+            case 5:
+                return 0;
+            case 6:
+                return 0;
+            case 7:
+                return 0;
+            case 8:
+                return 0;
+            case 9:
+                return 0;
+            case 10:
+                return 0;
+
+            default:
+                return 0;
+        }
+    }
+
+    private int DecideDPCCalendarTourneyEndMonth(int i)
+    {
+        switch (i)
+        {
+            case 1:
+                return 0;
+            case 2:
+                return 0;
+            case 3:
+                return 0;
+            case 4:
+                return 0;
+            case 5:
+                return 0;
+            case 6:
+                return 0;
+            case 7:
+                return 0;
+            case 8:
+                return 0;
+            case 9:
+                return 0;
+            case 10:
+                return 0;
+
+            default:
+                return 0;
+        }
+    }
+
+    private int DecideDPCCalendarTourneyEndDay(int i)
+    {
+        switch (i)
+        {
+            case 1:
+                return 0;
+            case 2:
+                return 0;
+            case 3:
+                return 0;
+            case 4:
+                return 0;
+            case 5:
+                return 0;
+            case 6:
+                return 0;
+            case 7:
+                return 0;
+            case 8:
+                return 0;
+            case 9:
+                return 0;
+            case 10:
+                return 0;
+
+            default:
+                return 0;
+        }
+    }
+
+    private int DecideDPCCalendarTourneyAmountTeams(int i)
+    {
+        switch (i)
+        {
+            case 1:
+                return 0;
+            case 2:
+                return 0;
+            case 3:
+                return 0;
+            case 4:
+                return 0;
+            case 5:
+                return 0;
+            case 6:
+                return 0;
+            case 7:
+                return 0;
+            case 8:
+                return 0;
+            case 9:
+                return 0;
+            case 10:
+                return 0;
+
+            default:
+                return 0;
+        }
+    }
+
+    private string DecideDPCCalendarTourneyName(int i)
+    {
+        switch (i)
+        {
+            case 1:
+                return "EU Minor";
+            case 2:
+                return "SEA Major";
+            case 3:
+                return "Europe Minor";
+            case 4:
+                return "Asia Major";
+            case 5:
+                return "Starladder Minor";
+            case 6:
+                return "Dreamleague Major";
+            case 7:
+                return "OGA DotaPit Minor";
+            case 8:
+                return "MDL Major";
+            case 9:
+                return "Starladder Minor";
+            case 10:
+                return "Epicenter Major";
+
+            default:
+                return "";
+        }
+    }
+
+    private string DecideDPCCalendarTourneyLocation(int i)
+    {
+        switch (i)
+        {
+            case 1:
+                return "";
+            case 2:
+                return "";
+            case 3:
+                return "";
+            case 4:
+                return "";
+            case 5:
+                return "";
+            case 6:
+                return "";
+            case 7:
+                return "";
+            case 8:
+                return "";
+            case 9:
+                return "";
+            case 10:
+                return "";
+
+            default:
+                return "";
+        }
+    }
+
+    private DotaTournament.TournamentType DecideDPCCalendarTourneyType(int i)
+    {
+        switch (i)
+        {
+            case 1:
+                return DotaTournament.TournamentType.Minor;
+            case 2:
+                return DotaTournament.TournamentType.Major;
+            case 3:
+                return DotaTournament.TournamentType.Minor;
+            case 4:
+                return DotaTournament.TournamentType.Major;
+            case 5:
+                return DotaTournament.TournamentType.Minor;
+            case 6:
+                return DotaTournament.TournamentType.Major;
+            case 7:
+                return DotaTournament.TournamentType.Minor;
+            case 8:
+                return DotaTournament.TournamentType.Major;
+            case 9:
+                return DotaTournament.TournamentType.Minor;
+            case 10:
+                return DotaTournament.TournamentType.Major;
+
+            default:
+                return DotaTournament.TournamentType.International;
+        }
+    }
+
+    private int GetEarliestOpenQualsStartDate()
+    {
+        int controlDay = 31;
+
+        for (int i = 0; i < internationalOpenQualifiers.Length; i++)
+        {
+            if (internationalOpenQualifiers[i].startDay < controlDay)
+            {
+                controlDay = internationalOpenQualifiers[i].startDay;
+            }
+        }
+
+        return controlDay;
+    }
+
+    private void CreateMajorTournament()
+    {
+        dotaTournamentinternational = gtg.GenerateDotaTournament();
+
+        string tName = "The International";
+        string tLocation = "Cologne";
+        DotaTournament.TournamentType tType = DotaTournament.TournamentType.International;
+
+        int tAmountTeams = 18;
+        // AddDeservingTeamsToTournamentPool(dotaTournament);
+
+        int tEndDay = 5;
+        int tEndMonth = 8;
+        int tEndYear = calendar.currentYear;
+
+        int tStartDay = tEndDay - 1;
+        int tStartMonth = tEndMonth;
+        int tStartYear = tEndYear;
+
+        gtg.SetupTournamentData(dotaTournamentinternational, tName, tLocation, tType, tAmountTeams);
+        gtg.SetupTournamentDateData(dotaTournamentinternational, tStartDay, tStartMonth, tStartYear, tEndDay, tEndMonth, tEndYear);
+        SetupQualifiersForTournament(dotaTournamentinternational);
+
+        DotaTournament theInternational = dotaTournamentinternational;
+
+        dpcCalendarSchedule[amountTournamentDPC - 1] = theInternational;
     }
 }

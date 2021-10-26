@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Location : MonoBehaviour
 {
-    [SerializeField] string locationName = null;
+    [SerializeField] public string locationName = null;
     [SerializeField] int locationPopulation = 1;
 
 
