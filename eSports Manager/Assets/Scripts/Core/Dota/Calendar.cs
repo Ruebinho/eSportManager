@@ -6,8 +6,8 @@ using UnityEngine;
 public class Calendar : MonoBehaviour
 {
     public int currentDay = 1;
-    public int currentMonth = 1;
-    public int currentYear = 2019;
+    public int currentMonth = 9;
+    public int currentYear = 2018;
 
     public int returncurrentDay()
     {
@@ -58,7 +58,8 @@ public class Calendar : MonoBehaviour
             {
                 currentDay += 1;
             }
-        }else
+        }
+        else
         {
             currentDay += 1;
         }
@@ -193,7 +194,7 @@ public class Calendar : MonoBehaviour
 
     public int CheckWeekDayOfFirstOfAUGNextYear()
     {
-        DateTime dateValue = new DateTime(currentYear+1, 8, 1);
+        DateTime dateValue = new DateTime(currentYear + 1, 8, 1);
         return ((int)dateValue.DayOfWeek);
     }
 
@@ -204,37 +205,163 @@ public class Calendar : MonoBehaviour
 
     public int CalculateYearSubtractingDays(int startYear, int startMonth, int startDay, int daysToSubtract)
     {
-        if(startMonth > 1 && daysToSubtract <= 31)
+        if (startMonth > 1 && daysToSubtract <= 31)
         {
             return startYear;
-        } else
+        }
+        else
         {
             return CalculateNewDateYear(startYear, startMonth, startDay, daysToSubtract);
         }
 
     }
 
-    private int CalculateNewDateYear(int startYear, int startMonth, int startDay, int daysToSubtract)
+    public int CalculateMonthSubtractingDays(int startYear, int startMonth, int startDay, int daysToSubtract)
     {
-        int remainderDaysForCalculation = startDay;
-
-        // if day of month is bigger than daysToSubstract
-        if(startDay > daysToSubtract)
+        if (startMonth > 1 && daysToSubtract <= 31)
         {
             return startYear;
-        } else
+        }
+        else
         {
-            remainderDaysForCalculation -= daysToSubtract;
-            int smAmountofDays = returnAmountDaysOfMonth(startMonth-1);
+            return CalculateNewDateMonth(startMonth, startDay, daysToSubtract);
+        }
 
-            if (smAmountofDays > daysToSubtract)
+    }
+
+    public int CalculateDaySubtractingDays(int startYear, int startMonth, int startDay, int daysToSubtract)
+    {
+        if (startMonth > 1 && daysToSubtract <= 31)
+        {
+            return startYear;
+        }
+        else
+        {
+            return CalculateNewDateDay(startMonth, startDay, daysToSubtract);
+        }
+
+    }
+
+    //TODO revise calculations
+    private int CalculateNewDateYear(int startYear, int startMonth, int startDay, int daysToSubtract)
+    {
+        int remainderDaysForCalculation = daysToSubtract;
+
+        // if day of month is bigger than daysToSubstract
+        if (startDay > daysToSubtract)
+        {
+            return startYear;
+        }
+        else
+        {
+            if (isDaysToSubstractBiggerThanDaysInYearLeft(startMonth, startDay, daysToSubtract))
             {
-                DateTime dt = new DateTime(startYear, startMonth, startDay);
+                return startYear - 1;
             }
         }
 
         return 0;
+    }
 
-        
+    private bool isDaysToSubstractBiggerThanDaysInYearLeft(int startMonth, int startDay, int daysToSubtract)
+    {
+        int daysLeftInYear = CalculateDateToDays(startMonth, startDay);
+
+        return daysLeftInYear < daysToSubtract;
+    }
+
+    private int CalculateDateToDays(int startMonth, int startDay)
+    {
+        int daysFromDate = CountDaysFromMonths(startMonth);
+        daysFromDate += startDay;
+
+        return daysFromDate;
+    }
+
+    private int CountDaysFromMonths(int startMonth)
+    {
+        int daysCounted = 0;
+
+        for (int i = 0; i < startMonth; i++)
+        {
+            daysCounted += returnAmountDaysOfMonth(i);
+        }
+
+        return daysCounted;
+    }
+
+    private int CalculateNewDateMonth(int startMonth, int startDay, int daysToSubtract)
+    {
+        int remainderDaysForCalculation = startDay;
+        int remainderMonthsForCalculation = startMonth;
+
+        // if day of month is bigger than daysToSubstract
+        if (startDay > daysToSubtract)
+        {
+            return startMonth;
+        }
+        else
+        {
+            int newMonth = CalculateNewMonthSubtractingDays(startDay, startMonth, daysToSubtract);
+            return newMonth;
+        }
+    }
+
+    private int CalculateNewMonthSubtractingDays(int startDay, int startMonth, int daysToSubtract)
+    {
+        int calcDaysToSubstract = daysToSubtract;
+        int calcToNewMonth = startMonth;
+
+        while (calcDaysToSubstract > 0)
+        {
+            if (calcToNewMonth == startMonth)
+            {
+                calcDaysToSubstract -= startDay;
+                calcToNewMonth -= 1;
+            }
+            else
+            {
+                if (calcDaysToSubstract > returnAmountDaysOfMonth(calcToNewMonth))
+                {
+                    calcDaysToSubstract -= returnAmountDaysOfMonth(calcToNewMonth);
+                    calcToNewMonth -= 1;
+                }
+                else
+                {
+                    return calcToNewMonth;
+                }
+            }
+        }
+
+        return 0;
+    }
+
+    private int CalculateNewDateDay(int startMonth, int startDay, int daysToSubtract)
+    {
+        int calcDaysToSubstract = daysToSubtract;
+        int calcToNewMonth = startMonth;
+
+        while (calcDaysToSubstract > 0)
+        {
+            if (calcToNewMonth == startMonth)
+            {
+                calcDaysToSubstract -= startDay;
+                calcToNewMonth -= 1;
+            }
+            else
+            {
+                if (calcDaysToSubstract > returnAmountDaysOfMonth(calcToNewMonth))
+                {
+                    calcDaysToSubstract -= returnAmountDaysOfMonth(calcToNewMonth);
+                    calcToNewMonth -= 1;
+                }
+                else
+                {
+                    return returnAmountDaysOfMonth(calcToNewMonth)-calcDaysToSubstract;
+                }
+            }
+        }
+
+        return 0;
     }
 }

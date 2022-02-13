@@ -5,8 +5,8 @@ using UnityEngine;
 public class GlobalGameParameters : MonoBehaviour
 {
     public int gameTimeDay = 1;
-    public int gameTimeMonth = 1;
-    public int gameTimeYear = 2019;
+    public int gameTimeMonth = 9;
+    public int gameTimeYear = 2018;
 
     public Calendar calendar;
 

@@ -178,7 +178,10 @@ public class GameCoreLogic : MonoBehaviour
     {
         Debug.Log($"ORG: {org.name} ::: Checking Req Staff Role");
         StaffRole staffRoleRequired = aiLogicController.CheckWhichStaffRoleIsRequired(org);
-        Debug.Log($"ORG: {org.name} ::: Req Staff Role is: {staffRoleRequired}");
+        if(staffRoleRequired != StaffRole.Default)
+        {
+            Debug.Log($"ORG: {org.name} ::: Req Staff Role is: {staffRoleRequired}");
+        }
 
         // if no staff is needed, return
         if (staffRoleRequired.Equals(StaffRole.Default)) { return; }

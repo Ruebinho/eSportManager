@@ -122,7 +122,7 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
 
         int tEndDay = internationalEndDate;
         int tEndMonth = 8;
-        int tEndYear = calendar.currentYear;
+        int tEndYear = calendar.currentYear+1;
 
         int tStartDay = tEndDay - 11;
         int tStartMonth = tEndMonth;
@@ -134,7 +134,7 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
 
         DotaTournament theInternational = dotaTournamentinternational;
 
-        dpcCalendarSchedule[amountTournamentDPC-1] = theInternational;
+        dpcCalendarSchedule[amountTournamentDPC - 1] = theInternational;
     }
 
     private void SetupQualifiersForTournament(DotaTournament dotaTournamentinternational)
@@ -296,7 +296,7 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
             default:
                 return dotaTournamentinternational.endDay;
         }
-            
+
     }
 
     private void CreateRegionalQualsForTI()
@@ -317,7 +317,7 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
         // AddDeservingTeamsToTournamentPool(dotaTournament);
 
         int tEUQEndDay = internationalRegionalQualifiers[0].endDay - 1;
-        int tEUQEndMonth = internationalRegionalQualifiers[0].endDay - 1;
+        int tEUQEndMonth = internationalRegionalQualifiers[0].endMonth - 1;
         int tEUQEndYear = internationalRegionalQualifiers[0].endYear;
 
         int tEUQStartDay = tEUQEndDay - 11;
@@ -339,9 +339,9 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
         int tAQAmountTeams = 18;
         // AddDeservingTeamsToTournamentPool(dotaTournament);
 
-        int tAQEndDay = GenerateTIQualsStartDates(dotaTournamentinternational, "CH");
-        int tAQEndMonth = 8;
-        int tAQEndYear = calendar.currentYear;
+        int tAQEndDay = internationalRegionalQualifiers[1].endDay - 1;
+        int tAQEndMonth = internationalRegionalQualifiers[1].endMonth - 1;
+        int tAQEndYear = internationalRegionalQualifiers[1].endYear;
 
         int tAQStartDay = tEUQEndDay - 11;
         int tAQStartMonth = tEUQEndMonth;
@@ -361,9 +361,9 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
         int tNAAmountTeams = 18;
         // AddDeservingTeamsToTournamentPool(dotaTournament);
 
-        int tNAEndDay = GenerateTIQualsStartDates(dotaTournamentinternational, "NA");
-        int tNAEndMonth = 8;
-        int tNAEndYear = calendar.currentYear;
+        int tNAEndDay = internationalRegionalQualifiers[2].endDay - 1;
+        int tNAEndMonth = internationalRegionalQualifiers[2].endMonth - 1;
+        int tNAEndYear = internationalRegionalQualifiers[2].endYear;
 
         int tNAStartDay = tEUQEndDay - 11;
         int tNAStartMonth = tEUQEndMonth;
@@ -383,9 +383,9 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
         int tSAAmountTeams = 18;
         // AddDeservingTeamsToTournamentPool(dotaTournament);
 
-        int tSAEndDay = GenerateTIQualsStartDates(dotaTournamentinternational, "SA");
-        int tSAEndMonth = 8;
-        int tSAEndYear = calendar.currentYear;
+        int tSAEndDay = internationalRegionalQualifiers[3].endDay - 1;
+        int tSAEndMonth = internationalRegionalQualifiers[3].endMonth - 1;
+        int tSAEndYear = internationalRegionalQualifiers[3].endYear;
 
         int tSAStartDay = tEUQEndDay - 11;
         int tSAStartMonth = tEUQEndMonth;
@@ -405,9 +405,9 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
         int tCISQAmountTeams = 18;
         // AddDeservingTeamsToTournamentPool(dotaTournament);
 
-        int tCISQEndDay = GenerateTIQualsStartDates(dotaTournamentinternational, "CIS");
-        int tCISQEndMonth = 8;
-        int tCISQEndYear = calendar.currentYear;
+        int tCISQEndDay = internationalRegionalQualifiers[4].endDay - 1;
+        int tCISQEndMonth = internationalRegionalQualifiers[4].endMonth - 1;
+        int tCISQEndYear = internationalRegionalQualifiers[4].endYear;
 
         int tCISQStartDay = tEUQEndDay - 11;
         int tCISQStartMonth = tEUQEndMonth;
@@ -427,9 +427,9 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
         int tSEAQAmountTeams = 18;
         // AddDeservingTeamsToTournamentPool(dotaTournament);
 
-        int tSEAQEndDay = GenerateTIQualsStartDates(dotaTournamentinternational, "SEA");
-        int tSEAQEndMonth = 8;
-        int tSEAQEndYear = calendar.currentYear;
+        int tSEAQEndDay = internationalRegionalQualifiers[5].endDay - 1;
+        int tSEAQEndMonth = internationalRegionalQualifiers[5].endMonth - 1;
+        int tSEAQEndYear = internationalRegionalQualifiers[5].endYear;
 
         int tSEAQStartDay = tEUQEndDay - 11;
         int tSEAQStartMonth = tEUQEndMonth;
@@ -443,9 +443,9 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
 
     private void CreateMajorMinorSchedule()
     {
-        
+
         Debug.Log("i is: 10");
-        for (int i = dpcCalendarSchedule.Length-2; i > 0; i--)
+        for (int i = dpcCalendarSchedule.Length - 2; i > -1; i--)
         {
             Debug.Log("DPC Cal i is:" + i);
             GenerateDPCCalendarScheduleTournamentInPosition(i);
@@ -455,33 +455,25 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
 
     private void GenerateDPCCalendarScheduleTournamentInPosition(int i)
     {
-        int earliestOpenQualDay = 0;
-
-        if (i == 10)
-        {
-            earliestOpenQualDay = GetEarliestOpenQualsStartDate();
-        }
-
         //TODO: Randomize Locations and be fair in distribution
 
         DotaTournament dotaTempTourney = gtg.GenerateDotaTournament();
 
-        // TODO: build two arrays Major/minor with every region
         string tLocation = DecideDPCCalendarTourneyLocation(i);
-        
+
         //decide name after region to match possible partners/sponsor
         string tName = DecideDPCCalendarTourneyName(i);
         DotaTournament.TournamentType tType = DecideDPCCalendarTourneyType(i);
 
-        int tAmountTeams = DecideDPCCalendarTourneyAmountTeams(i);
+        int tAmountTeams = DecideDPCCalendarTourneyAmountTeams(i, tType);
 
-        int tEndDay = DecideDPCCalendarTourneyEndDay(i);
-        int tEndMonth = DecideDPCCalendarTourneyEndMonth(i);
         int tEndYear = DecideDPCCalendarTourneyEndYear(i);
+        int tEndMonth = DecideDPCCalendarTourneyEndMonth(i);
+        int tEndDay = DecideDPCCalendarTourneyEndDay(i);
 
-        int tStartDay = DecideDPCCalendarTourneyStartDay(i);
-        int tStartMonth = DecideDPCCalendarTourneyStartMonth(i);
         int tStartYear = DecideDPCCalendarTourneyStartYear(i);
+        int tStartMonth = DecideDPCCalendarTourneyStartMonth(i);
+        int tStartDay = DecideDPCCalendarTourneyStartDay(i);
 
         gtg.SetupTournamentData(dotaTempTourney, tName, tLocation, tType, tAmountTeams);
         gtg.SetupTournamentDateData(dotaTempTourney, tStartDay, tStartMonth, tStartYear, tEndDay, tEndMonth, tEndYear);
@@ -497,26 +489,26 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
     {
         switch (i)
         {
+            case 0:
+                return calendar.currentYear;
             case 1:
-                return 0;
+                return calendar.currentYear;
             case 2:
-                return 0;
+                return calendar.currentYear + 1;
             case 3:
-                return 0;
+                return calendar.currentYear + 1;
             case 4:
-                return 0;
+                return calendar.currentYear + 1;
             case 5:
-                return 0;
+                return calendar.currentYear + 1;
             case 6:
-                return 0;
+                return calendar.currentYear + 1;
             case 7:
-                return 0;
+                return calendar.currentYear + 1;
             case 8:
-                return 0;
+                return calendar.currentYear + 1;
             case 9:
-                return 0;
-            case 10:
-                return 0;
+                return calendar.currentYear + 1;
 
             default:
                 return 0;
@@ -527,6 +519,8 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
     {
         switch (i)
         {
+            case 0:
+                return 0;
             case 1:
                 return 0;
             case 2:
@@ -544,8 +538,6 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
             case 8:
                 return 0;
             case 9:
-                return 0;
-            case 10:
                 return 0;
 
             default:
@@ -557,6 +549,8 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
     {
         switch (i)
         {
+            case 0:
+                return 0;
             case 1:
                 return 0;
             case 2:
@@ -574,8 +568,6 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
             case 8:
                 return 0;
             case 9:
-                return 0;
-            case 10:
                 return 0;
 
             default:
@@ -585,8 +577,36 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
 
     private int DecideDPCCalendarTourneyEndYear(int i)
     {
+        int nextTourneyEndYear = 0;
+        int nextTourneyEndMonth = 0;
+        int nextTourneyEndDay = 0;
+
+        if (i < 10)
+        {
+            nextTourneyEndYear = GetNextTourneyStartYear(i);
+            nextTourneyEndMonth = GetNextTourneyStartMonth(i);
+            nextTourneyEndDay = GetNextTourneyStartDay(i);
+        }
+        else
+        {
+            int earliestOpenQualDay = 0;
+
+            if (i == 10)
+            {
+                //get tournament Qual instead of day
+                earliestOpenQualDay = GetEarliestOpenQualsStartDate();
+            }
+
+            nextTourneyEndYear = GetNextTourneyStartYear(i);
+            nextTourneyEndMonth = GetNextTourneyStartMonth(i);
+            nextTourneyEndDay = GetNextTourneyStartDay(i);
+        }
+
+
         switch (i)
         {
+            case 0:
+                return 0;
             case 1:
                 return 0;
             case 2:
@@ -604,8 +624,6 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
             case 8:
                 return 0;
             case 9:
-                return 0;
-            case 10:
                 return 0;
 
             default:
@@ -613,10 +631,30 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
         }
     }
 
+    private int GetNextTourneyStartDay(int i)
+    {
+        int nextTeY = dpcCalendarSchedule[i + 1].startDay;
+        return nextTeY;
+    }
+
+    private int GetNextTourneyStartMonth(int i)
+    {
+        int nextTeY = dpcCalendarSchedule[i + 1].startMonth;
+        return nextTeY;
+    }
+
+    private int GetNextTourneyStartYear(int i)
+    {
+        int nextTeY = dpcCalendarSchedule[i + 1].startYear;
+        return nextTeY;
+    }
+
     private int DecideDPCCalendarTourneyEndMonth(int i)
     {
         switch (i)
         {
+            case 0:
+                return 0;
             case 1:
                 return 0;
             case 2:
@@ -634,8 +672,6 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
             case 8:
                 return 0;
             case 9:
-                return 0;
-            case 10:
                 return 0;
 
             default:
@@ -647,6 +683,8 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
     {
         switch (i)
         {
+            case 0:
+                return 0;
             case 1:
                 return 0;
             case 2:
@@ -664,8 +702,6 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
             case 8:
                 return 0;
             case 9:
-                return 0;
-            case 10:
                 return 0;
 
             default:
@@ -673,33 +709,19 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
         }
     }
 
-    private int DecideDPCCalendarTourneyAmountTeams(int i)
+    private int DecideDPCCalendarTourneyAmountTeams(int i, DotaTournament.TournamentType tType)
     {
-        switch (i)
+        if (tType.Equals(DotaTournament.TournamentType.Major))
         {
-            case 1:
-                return 0;
-            case 2:
-                return 0;
-            case 3:
-                return 0;
-            case 4:
-                return 0;
-            case 5:
-                return 0;
-            case 6:
-                return 0;
-            case 7:
-                return 0;
-            case 8:
-                return 0;
-            case 9:
-                return 0;
-            case 10:
-                return 0;
-
-            default:
-                return 0;
+            return 16;
+        }
+        else if (tType.Equals(DotaTournament.TournamentType.Minor))
+        {
+            return 12;
+        }
+        else
+        {
+            return 6;
         }
     }
 
@@ -707,25 +729,25 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
     {
         switch (i)
         {
-            case 1:
+            case 0:
                 return "EU Minor";
-            case 2:
+            case 1:
                 return "SEA Major";
-            case 3:
+            case 2:
                 return "Europe Minor";
-            case 4:
+            case 3:
                 return "Asia Major";
+            case 4:
+                return "Starladder Minor";
             case 5:
-                return "Starladder Minor";
-            case 6:
                 return "Dreamleague Major";
-            case 7:
+            case 6:
                 return "OGA DotaPit Minor";
-            case 8:
+            case 7:
                 return "MDL Major";
-            case 9:
+            case 8:
                 return "Starladder Minor";
-            case 10:
+            case 9:
                 return "Epicenter Major";
 
             default:
@@ -737,26 +759,26 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
     {
         switch (i)
         {
+            case 0:
+                return "Köln";
             case 1:
-                return "";
+                return "Singapur";
             case 2:
-                return "";
+                return "Paris";
             case 3:
-                return "";
+                return "Shanghai";
             case 4:
-                return "";
+                return "Kiew";
             case 5:
-                return "";
+                return "Stockholm";
             case 6:
-                return "";
+                return "Athen";
             case 7:
-                return "";
+                return "Shenzhen";
             case 8:
-                return "";
+                return "Warschau";
             case 9:
-                return "";
-            case 10:
-                return "";
+                return "London";
 
             default:
                 return "";
@@ -767,25 +789,25 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
     {
         switch (i)
         {
+            case 0:
+                return DotaTournament.TournamentType.Minor;
             case 1:
-                return DotaTournament.TournamentType.Minor;
+                return DotaTournament.TournamentType.Major;
             case 2:
-                return DotaTournament.TournamentType.Major;
+                return DotaTournament.TournamentType.Minor;
             case 3:
-                return DotaTournament.TournamentType.Minor;
+                return DotaTournament.TournamentType.Major;
             case 4:
-                return DotaTournament.TournamentType.Major;
+                return DotaTournament.TournamentType.Minor;
             case 5:
-                return DotaTournament.TournamentType.Minor;
+                return DotaTournament.TournamentType.Major;
             case 6:
-                return DotaTournament.TournamentType.Major;
+                return DotaTournament.TournamentType.Minor;
             case 7:
-                return DotaTournament.TournamentType.Minor;
-            case 8:
                 return DotaTournament.TournamentType.Major;
-            case 9:
+            case 8:
                 return DotaTournament.TournamentType.Minor;
-            case 10:
+            case 9:
                 return DotaTournament.TournamentType.Major;
 
             default:
