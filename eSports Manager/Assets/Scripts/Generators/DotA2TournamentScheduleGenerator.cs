@@ -122,9 +122,9 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
 
         int tEndDay = internationalEndDate;
         int tEndMonth = 8;
-        int tEndYear = calendar.currentYear+1;
+        int tEndYear = calendar.currentYear + 1;
 
-        int tStartDay = tEndDay - 11;
+        int tStartDay = tEndDay - 10;
         int tStartMonth = tEndMonth;
         int tStartYear = tEndYear;
 
@@ -154,10 +154,10 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
         // AddDeservingTeamsToTournamentPool(dotaTournament);
 
         int tEUQEndDay = GenerateTIQualsStartDates(dotaTournamentinternational, "EU");
-        int tEUQEndMonth = 8;
-        int tEUQEndYear = calendar.currentYear;
+        int tEUQEndMonth = 7;
+        int tEUQEndYear = calendar.currentYear+1;
 
-        int tEUQStartDay = tEUQEndDay - 11;
+        int tEUQStartDay = tEUQEndDay - 3;
         int tEUQStartMonth = tEUQEndMonth;
         int tEUQStartYear = tEUQEndYear;
 
@@ -176,12 +176,12 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
         // AddDeservingTeamsToTournamentPool(dotaTournament);
 
         int tAQEndDay = GenerateTIQualsStartDates(dotaTournamentinternational, "CH");
-        int tAQEndMonth = 8;
-        int tAQEndYear = calendar.currentYear;
+        int tAQEndMonth = 7;
+        int tAQEndYear = calendar.currentYear+1;
 
-        int tAQStartDay = tEUQEndDay - 11;
-        int tAQStartMonth = tEUQEndMonth;
-        int tAQStartYear = tEUQEndYear;
+        int tAQStartDay = tAQEndDay - 3;
+        int tAQStartMonth = tAQEndMonth;
+        int tAQStartYear = tAQEndYear;
 
         gtg.SetupTournamentData(internationalRegionalQualifiers[1], tAQName, tAQLocation, tAQType, tAQAmountTeams);
         gtg.SetupTournamentDateData(internationalRegionalQualifiers[1], tAQStartDay, tAQStartMonth, tAQStartYear, tAQEndDay, tAQEndMonth, tAQEndYear);
@@ -198,12 +198,12 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
         // AddDeservingTeamsToTournamentPool(dotaTournament);
 
         int tNAEndDay = GenerateTIQualsStartDates(dotaTournamentinternational, "NA");
-        int tNAEndMonth = 8;
-        int tNAEndYear = calendar.currentYear;
+        int tNAEndMonth = 7;
+        int tNAEndYear = calendar.currentYear+1;
 
-        int tNAStartDay = tEUQEndDay - 11;
-        int tNAStartMonth = tEUQEndMonth;
-        int tNAStartYear = tEUQEndYear;
+        int tNAStartDay = tNAEndDay - 3;
+        int tNAStartMonth = tNAEndMonth;
+        int tNAStartYear = tNAEndYear;
 
         gtg.SetupTournamentData(internationalRegionalQualifiers[2], tNAName, tNALocation, tNAType, tNAAmountTeams);
         gtg.SetupTournamentDateData(internationalRegionalQualifiers[2], tNAStartDay, tNAStartMonth, tNAStartYear, tNAEndDay, tNAEndMonth, tNAEndYear);
@@ -220,12 +220,12 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
         // AddDeservingTeamsToTournamentPool(dotaTournament);
 
         int tSAEndDay = GenerateTIQualsStartDates(dotaTournamentinternational, "SA");
-        int tSAEndMonth = 8;
-        int tSAEndYear = calendar.currentYear;
+        int tSAEndMonth = 7;
+        int tSAEndYear = calendar.currentYear+1;
 
-        int tSAStartDay = tEUQEndDay - 11;
-        int tSAStartMonth = tEUQEndMonth;
-        int tSAStartYear = tEUQEndYear;
+        int tSAStartDay = tSAEndDay - 3;
+        int tSAStartMonth = tSAEndMonth;
+        int tSAStartYear = tSAEndYear;
 
         gtg.SetupTournamentData(internationalRegionalQualifiers[3], tSAName, tSALocation, tSAType, tSAAmountTeams);
         gtg.SetupTournamentDateData(internationalRegionalQualifiers[3], tSAStartDay, tSAStartMonth, tSAStartYear, tSAEndDay, tSAEndMonth, tSAEndYear);
@@ -242,12 +242,12 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
         // AddDeservingTeamsToTournamentPool(dotaTournament);
 
         int tCISQEndDay = GenerateTIQualsStartDates(dotaTournamentinternational, "CIS");
-        int tCISQEndMonth = 8;
-        int tCISQEndYear = calendar.currentYear;
+        int tCISQEndMonth = 7;
+        int tCISQEndYear = calendar.currentYear+1;
 
-        int tCISQStartDay = tEUQEndDay - 11;
-        int tCISQStartMonth = tEUQEndMonth;
-        int tCISQStartYear = tEUQEndYear;
+        int tCISQStartDay = tCISQEndDay - 3;
+        int tCISQStartMonth = tCISQEndMonth;
+        int tCISQStartYear = tCISQEndYear;
 
         gtg.SetupTournamentData(internationalRegionalQualifiers[4], tCISQName, tCISQLocation, tCISQType, tCISQAmountTeams);
         gtg.SetupTournamentDateData(internationalRegionalQualifiers[4], tCISQStartDay, tCISQStartMonth, tCISQStartYear, tCISQEndDay, tCISQEndMonth, tCISQEndYear);
@@ -264,12 +264,12 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
         // AddDeservingTeamsToTournamentPool(dotaTournament);
 
         int tSEAQEndDay = GenerateTIQualsStartDates(dotaTournamentinternational, "SEA");
-        int tSEAQEndMonth = 8;
-        int tSEAQEndYear = calendar.currentYear;
+        int tSEAQEndMonth = 7;
+        int tSEAQEndYear = calendar.currentYear+1;
 
-        int tSEAQStartDay = tEUQEndDay - 11;
-        int tSEAQStartMonth = tEUQEndMonth;
-        int tSEAQStartYear = tEUQEndYear;
+        int tSEAQStartDay = tSEAQEndDay - 3;
+        int tSEAQStartMonth = tSEAQEndMonth;
+        int tSEAQStartYear = tSEAQEndYear;
 
         gtg.SetupTournamentData(internationalRegionalQualifiers[5], tSEAQName, tSEAQLocation, tSEAQType, tSEAQAmountTeams);
         gtg.SetupTournamentDateData(internationalRegionalQualifiers[5], tSEAQStartDay, tSEAQStartMonth, tSEAQStartYear, tSEAQEndDay, tSEAQEndMonth, tSEAQEndYear);
@@ -282,17 +282,23 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
         switch (Region)
         {
             case "EU":
-                return dotaTournamentinternational.endDay - 11;
+                return calendar.CalculateDaySubtractingDays(dotaTournamentinternational.startYear, dotaTournamentinternational.startMonth, dotaTournamentinternational.startDay, 32);
+                //return dotaTournamentinternational.startDay - 32;
             case "CH":
-                return dotaTournamentinternational.endDay - 11;
+                return calendar.CalculateDaySubtractingDays(dotaTournamentinternational.startYear, dotaTournamentinternational.startMonth, dotaTournamentinternational.startDay, 32);
+                //return dotaTournamentinternational.startDay - 32;
             case "NA":
-                return dotaTournamentinternational.endDay - 11;
+                return calendar.CalculateDaySubtractingDays(dotaTournamentinternational.startYear, dotaTournamentinternational.startMonth, dotaTournamentinternational.startDay, 32);
+                //return dotaTournamentinternational.startDay - 32;
             case "SA":
-                return dotaTournamentinternational.endDay - 15;
+                return calendar.CalculateDaySubtractingDays(dotaTournamentinternational.startYear, dotaTournamentinternational.startMonth, dotaTournamentinternational.startDay, 36);
+                //return dotaTournamentinternational.startDay - 36;
             case "SEA":
-                return dotaTournamentinternational.endDay - 15;
+                return calendar.CalculateDaySubtractingDays(dotaTournamentinternational.startYear, dotaTournamentinternational.startMonth, dotaTournamentinternational.startDay, 36);
+                //return dotaTournamentinternational.startDay - 36;
             case "CIS":
-                return dotaTournamentinternational.endDay - 15;
+                return calendar.CalculateDaySubtractingDays(dotaTournamentinternational.startYear, dotaTournamentinternational.startMonth, dotaTournamentinternational.startDay, 36);
+                //return dotaTournamentinternational.startDay - 36;
             default:
                 return dotaTournamentinternational.endDay;
         }
@@ -316,11 +322,11 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
         int tEUQAmountTeams = 18;
         // AddDeservingTeamsToTournamentPool(dotaTournament);
 
-        int tEUQEndDay = internationalRegionalQualifiers[0].endDay - 1;
-        int tEUQEndMonth = internationalRegionalQualifiers[0].endMonth - 1;
+        int tEUQEndDay = internationalRegionalQualifiers[3].startDay - 1;
+        int tEUQEndMonth = internationalRegionalQualifiers[3].endMonth;
         int tEUQEndYear = internationalRegionalQualifiers[0].endYear;
 
-        int tEUQStartDay = tEUQEndDay - 11;
+        int tEUQStartDay = tEUQEndDay - 3;
         int tEUQStartMonth = tEUQEndMonth;
         int tEUQStartYear = tEUQEndYear;
 
@@ -339,11 +345,11 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
         int tAQAmountTeams = 18;
         // AddDeservingTeamsToTournamentPool(dotaTournament);
 
-        int tAQEndDay = internationalRegionalQualifiers[1].endDay - 1;
-        int tAQEndMonth = internationalRegionalQualifiers[1].endMonth - 1;
+        int tAQEndDay = internationalRegionalQualifiers[3].startDay - 1;
+        int tAQEndMonth = internationalRegionalQualifiers[3].endMonth;
         int tAQEndYear = internationalRegionalQualifiers[1].endYear;
 
-        int tAQStartDay = tEUQEndDay - 11;
+        int tAQStartDay = tEUQEndDay - 3;
         int tAQStartMonth = tEUQEndMonth;
         int tAQStartYear = tEUQEndYear;
 
@@ -361,11 +367,11 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
         int tNAAmountTeams = 18;
         // AddDeservingTeamsToTournamentPool(dotaTournament);
 
-        int tNAEndDay = internationalRegionalQualifiers[2].endDay - 1;
-        int tNAEndMonth = internationalRegionalQualifiers[2].endMonth - 1;
+        int tNAEndDay = internationalRegionalQualifiers[3].startDay - 1;
+        int tNAEndMonth = internationalRegionalQualifiers[3].endMonth;
         int tNAEndYear = internationalRegionalQualifiers[2].endYear;
 
-        int tNAStartDay = tEUQEndDay - 11;
+        int tNAStartDay = tEUQEndDay - 3;
         int tNAStartMonth = tEUQEndMonth;
         int tNAStartYear = tEUQEndYear;
 
@@ -383,11 +389,11 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
         int tSAAmountTeams = 18;
         // AddDeservingTeamsToTournamentPool(dotaTournament);
 
-        int tSAEndDay = internationalRegionalQualifiers[3].endDay - 1;
-        int tSAEndMonth = internationalRegionalQualifiers[3].endMonth - 1;
+        int tSAEndDay = internationalRegionalQualifiers[3].startDay - 1;
+        int tSAEndMonth = internationalRegionalQualifiers[3].endMonth;
         int tSAEndYear = internationalRegionalQualifiers[3].endYear;
 
-        int tSAStartDay = tEUQEndDay - 11;
+        int tSAStartDay = tEUQEndDay - 3;
         int tSAStartMonth = tEUQEndMonth;
         int tSAStartYear = tEUQEndYear;
 
@@ -405,11 +411,11 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
         int tCISQAmountTeams = 18;
         // AddDeservingTeamsToTournamentPool(dotaTournament);
 
-        int tCISQEndDay = internationalRegionalQualifiers[4].endDay - 1;
-        int tCISQEndMonth = internationalRegionalQualifiers[4].endMonth - 1;
+        int tCISQEndDay = internationalRegionalQualifiers[3].startDay - 1;
+        int tCISQEndMonth = internationalRegionalQualifiers[3].endMonth;
         int tCISQEndYear = internationalRegionalQualifiers[4].endYear;
 
-        int tCISQStartDay = tEUQEndDay - 11;
+        int tCISQStartDay = tEUQEndDay - 3;
         int tCISQStartMonth = tEUQEndMonth;
         int tCISQStartYear = tEUQEndYear;
 
@@ -427,11 +433,11 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
         int tSEAQAmountTeams = 18;
         // AddDeservingTeamsToTournamentPool(dotaTournament);
 
-        int tSEAQEndDay = internationalRegionalQualifiers[5].endDay - 1;
-        int tSEAQEndMonth = internationalRegionalQualifiers[5].endMonth - 1;
+        int tSEAQEndDay = internationalRegionalQualifiers[3].startDay - 1;
+        int tSEAQEndMonth = internationalRegionalQualifiers[3].endMonth;
         int tSEAQEndYear = internationalRegionalQualifiers[5].endYear;
 
-        int tSEAQStartDay = tEUQEndDay - 11;
+        int tSEAQStartDay = tEUQEndDay - 3;
         int tSEAQStartMonth = tEUQEndMonth;
         int tSEAQStartYear = tEUQEndYear;
 
@@ -463,6 +469,9 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
 
         //decide name after region to match possible partners/sponsor
         string tName = DecideDPCCalendarTourneyName(i);
+
+        Debug.Log(tName);
+
         DotaTournament.TournamentType tType = DecideDPCCalendarTourneyType(i);
 
         int tAmountTeams = DecideDPCCalendarTourneyAmountTeams(i, tType);
@@ -471,9 +480,12 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
         int tEndMonth = DecideDPCCalendarTourneyEndMonth(i);
         int tEndDay = DecideDPCCalendarTourneyEndDay(i);
 
-        int tStartYear = DecideDPCCalendarTourneyStartYear(i);
-        int tStartMonth = DecideDPCCalendarTourneyStartMonth(i);
-        int tStartDay = DecideDPCCalendarTourneyStartDay(i);
+        int tStartYear = DecideDPCCalendarTourneyStartYear(i, tEndYear);
+        int tStartMonth = DecideDPCCalendarTourneyStartMonth(i, tStartYear, tEndMonth, tEndDay);
+        int tStartDay = DecideDPCCalendarTourneyStartDay(i, tStartYear, tStartMonth, tEndDay);
+
+        Debug.Log("StartDate: " + tStartYear + "/" + tStartMonth + "/" + tStartDay);
+        Debug.Log("EndDate: " + tEndYear + "/" + tEndMonth + "/" + tEndDay);
 
         gtg.SetupTournamentData(dotaTempTourney, tName, tLocation, tType, tAmountTeams);
         gtg.SetupTournamentDateData(dotaTempTourney, tStartDay, tStartMonth, tStartYear, tEndDay, tEndMonth, tEndYear);
@@ -485,7 +497,7 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
         dpcCalendarSchedule[i] = dotaTempTourney;
     }
 
-    private int DecideDPCCalendarTourneyStartYear(int i)
+    private int DecideDPCCalendarTourneyStartYear(int i, int tEndYear)
     {
         switch (i)
         {
@@ -515,60 +527,97 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
         }
     }
 
-    private int DecideDPCCalendarTourneyStartMonth(int i)
+    private int DecideDPCCalendarTourneyStartMonth(int i, int tEndYear, int tEndMonth, int tEndDay)
     {
+        Debug.Log("Deicde Start month");
+
+        int nextTourneyEndYear = 0;
+        int nextTourneyEndMonth = 0;
+        int nextTourneyEndDay = 0;
+
+        nextTourneyEndYear = tEndYear;
+        nextTourneyEndMonth = tEndMonth;
+        nextTourneyEndDay = tEndDay;
+
+
         switch (i)
         {
             case 0:
-                return 0;
+                return calendar.CalculateMonthSubtractingDays(nextTourneyEndYear, nextTourneyEndMonth, nextTourneyEndDay, 7);
             case 1:
-                return 0;
+                return calendar.CalculateMonthSubtractingDays(nextTourneyEndYear, nextTourneyEndMonth, nextTourneyEndDay, 10);
             case 2:
-                return 0;
+                return calendar.CalculateMonthSubtractingDays(nextTourneyEndYear, nextTourneyEndMonth, nextTourneyEndDay, 5);
             case 3:
-                return 0;
+                return calendar.CalculateMonthSubtractingDays(nextTourneyEndYear, nextTourneyEndMonth, nextTourneyEndDay, 9);
             case 4:
-                return 0;
+                return calendar.CalculateMonthSubtractingDays(nextTourneyEndYear, nextTourneyEndMonth, nextTourneyEndDay, 4);
             case 5:
-                return 0;
+                return calendar.CalculateMonthSubtractingDays(nextTourneyEndYear, nextTourneyEndMonth, nextTourneyEndDay, 11);
             case 6:
-                return 0;
+                return calendar.CalculateMonthSubtractingDays(nextTourneyEndYear, nextTourneyEndMonth, nextTourneyEndDay, 7);
             case 7:
-                return 0;
+                return calendar.CalculateMonthSubtractingDays(nextTourneyEndYear, nextTourneyEndMonth, nextTourneyEndDay, 9);
             case 8:
-                return 0;
+                return calendar.CalculateMonthSubtractingDays(nextTourneyEndYear, nextTourneyEndMonth, nextTourneyEndDay, 5);
             case 9:
-                return 0;
+                return calendar.CalculateMonthSubtractingDays(nextTourneyEndYear, nextTourneyEndMonth, nextTourneyEndDay, 9);
 
             default:
                 return 0;
         }
     }
 
-    private int DecideDPCCalendarTourneyStartDay(int i)
+    //private int GetThisTourneyEndDay(int i)
+    //{
+    //    int nextTeY = dpcCalendarSchedule[i].endDay;
+    //    return nextTeY;
+    //}
+
+    //private int GetThisTourneyEndMonth(int i)
+    //{
+    //    int nextTeY = dpcCalendarSchedule[i].endMonth;
+    //    return nextTeY;
+    //}
+
+    //private int GetThisTourneyEndYear(int i)
+    //{
+    //    int nextTeY = dpcCalendarSchedule[i].endYear;
+    //    return nextTeY;
+    //}
+
+    private int DecideDPCCalendarTourneyStartDay(int i, int tStartYear, int tStartMonth, int tEndDay)
     {
+        int nextTourneyEndYear = 0;
+        int nextTourneyEndMonth = 0;
+        int nextTourneyEndDay = 0;
+
+        nextTourneyEndYear = tStartYear;
+        nextTourneyEndMonth = tStartMonth;
+        nextTourneyEndDay = tEndDay;
+
         switch (i)
         {
             case 0:
-                return 0;
+                return calendar.CalculateDaySubtractingDays(nextTourneyEndYear, nextTourneyEndMonth, nextTourneyEndDay, 5);
             case 1:
-                return 0;
+                return calendar.CalculateDaySubtractingDays(nextTourneyEndYear, nextTourneyEndMonth, nextTourneyEndDay, 9);
             case 2:
-                return 0;
+                return calendar.CalculateDaySubtractingDays(nextTourneyEndYear, nextTourneyEndMonth, nextTourneyEndDay, 4);
             case 3:
-                return 0;
+                return calendar.CalculateDaySubtractingDays(nextTourneyEndYear, nextTourneyEndMonth, nextTourneyEndDay, 8);
             case 4:
-                return 0;
+                return calendar.CalculateDaySubtractingDays(nextTourneyEndYear, nextTourneyEndMonth, nextTourneyEndDay, 3);
             case 5:
-                return 0;
+                return calendar.CalculateDaySubtractingDays(nextTourneyEndYear, nextTourneyEndMonth, nextTourneyEndDay, 10);
             case 6:
-                return 0;
+                return calendar.CalculateDaySubtractingDays(nextTourneyEndYear, nextTourneyEndMonth, nextTourneyEndDay, 6);
             case 7:
-                return 0;
+                return calendar.CalculateDaySubtractingDays(nextTourneyEndYear, nextTourneyEndMonth, nextTourneyEndDay, 8);
             case 8:
-                return 0;
+                return calendar.CalculateDaySubtractingDays(nextTourneyEndYear, nextTourneyEndMonth, nextTourneyEndDay, 4);
             case 9:
-                return 0;
+                return calendar.CalculateDaySubtractingDays(nextTourneyEndYear, nextTourneyEndMonth, nextTourneyEndDay, 8);
 
             default:
                 return 0;
@@ -577,54 +626,28 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
 
     private int DecideDPCCalendarTourneyEndYear(int i)
     {
-        int nextTourneyEndYear = 0;
-        int nextTourneyEndMonth = 0;
-        int nextTourneyEndDay = 0;
-
-        if (i < 10)
-        {
-            nextTourneyEndYear = GetNextTourneyStartYear(i);
-            nextTourneyEndMonth = GetNextTourneyStartMonth(i);
-            nextTourneyEndDay = GetNextTourneyStartDay(i);
-        }
-        else
-        {
-            int earliestOpenQualDay = 0;
-
-            if (i == 10)
-            {
-                //get tournament Qual instead of day
-                earliestOpenQualDay = GetEarliestOpenQualsStartDate();
-            }
-
-            nextTourneyEndYear = GetNextTourneyStartYear(i);
-            nextTourneyEndMonth = GetNextTourneyStartMonth(i);
-            nextTourneyEndDay = GetNextTourneyStartDay(i);
-        }
-
-
         switch (i)
         {
             case 0:
-                return 0;
+                return calendar.currentYear;
             case 1:
-                return 0;
+                return calendar.currentYear;
             case 2:
-                return 0;
+                return calendar.returnnextYear();
             case 3:
-                return 0;
+                return calendar.returnnextYear();
             case 4:
-                return 0;
+                return calendar.returnnextYear();
             case 5:
-                return 0;
+                return calendar.returnnextYear();
             case 6:
-                return 0;
+                return calendar.returnnextYear();
             case 7:
-                return 0;
+                return calendar.returnnextYear();
             case 8:
-                return 0;
+                return calendar.returnnextYear();
             case 9:
-                return 0;
+                return calendar.returnnextYear();
 
             default:
                 return 0;
@@ -651,28 +674,55 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
 
     private int DecideDPCCalendarTourneyEndMonth(int i)
     {
+        Debug.Log("Decide End Month");
+
+        int nextTourneyStartYear = 0;
+        int nextTourneyStartMonth = 0;
+        int nextTourneyStartDay = 0;
+
+        if (i < 9)
+        {
+            nextTourneyStartYear = GetNextTourneyStartYear(i);
+            nextTourneyStartMonth = GetNextTourneyStartMonth(i);
+            nextTourneyStartDay = GetNextTourneyStartDay(i);
+        }
+        else
+        {
+            DotaTournament earliestOpenQualDay = null;
+
+            if (i == 9)
+            {
+                earliestOpenQualDay = GetEarliestOpenQualsTournament();
+
+                nextTourneyStartYear = earliestOpenQualDay.startYear;
+                nextTourneyStartMonth = earliestOpenQualDay.startMonth;
+                nextTourneyStartDay = earliestOpenQualDay.startDay;
+            }
+
+        }
+
         switch (i)
         {
             case 0:
-                return 0;
+                return calendar.CalculateMonthSubtractingDays(nextTourneyStartYear, nextTourneyStartMonth, nextTourneyStartDay, 5);
             case 1:
-                return 0;
+                return calendar.CalculateMonthSubtractingDays(nextTourneyStartYear, nextTourneyStartMonth, nextTourneyStartDay, 52);
             case 2:
-                return 0;
+                return calendar.CalculateMonthSubtractingDays(nextTourneyStartYear, nextTourneyStartMonth, nextTourneyStartDay, 6);
             case 3:
-                return 0;
+                return calendar.CalculateMonthSubtractingDays(nextTourneyStartYear, nextTourneyStartMonth, nextTourneyStartDay, 39);
             case 4:
-                return 0;
+                return calendar.CalculateMonthSubtractingDays(nextTourneyStartYear, nextTourneyStartMonth, nextTourneyStartDay, 4);
             case 5:
-                return 0;
+                return calendar.CalculateMonthSubtractingDays(nextTourneyStartYear, nextTourneyStartMonth, nextTourneyStartDay, 29);
             case 6:
-                return 0;
+                return calendar.CalculateMonthSubtractingDays(nextTourneyStartYear, nextTourneyStartMonth, nextTourneyStartDay, 6);
             case 7:
-                return 0;
+                return calendar.CalculateMonthSubtractingDays(nextTourneyStartYear, nextTourneyStartMonth, nextTourneyStartDay, 31);
             case 8:
-                return 0;
+                return calendar.CalculateMonthSubtractingDays(nextTourneyStartYear, nextTourneyStartMonth, nextTourneyStartDay, 6);
             case 9:
-                return 0;
+                return calendar.CalculateMonthSubtractingDays(nextTourneyStartYear, nextTourneyStartMonth, nextTourneyStartDay, 3);
 
             default:
                 return 0;
@@ -681,28 +731,53 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
 
     private int DecideDPCCalendarTourneyEndDay(int i)
     {
+        int nextTourneyEndYear = 0;
+        int nextTourneyEndMonth = 0;
+        int nextTourneyEndDay = 0;
+
+        if (i < 9)
+        {
+            nextTourneyEndYear = GetNextTourneyStartYear(i);
+            nextTourneyEndMonth = GetNextTourneyStartMonth(i);
+            nextTourneyEndDay = GetNextTourneyStartDay(i);
+        }
+        else
+        {
+            DotaTournament earliestOpenQualDay = null;
+
+            if (i == 9)
+            {
+                //get tournament Qual instead of day
+                earliestOpenQualDay = GetEarliestOpenQualsTournament();
+            }
+            Debug.Log("OOstart: " + earliestOpenQualDay);
+            nextTourneyEndYear = earliestOpenQualDay.startYear;
+            nextTourneyEndMonth = earliestOpenQualDay.startMonth;
+            nextTourneyEndDay = earliestOpenQualDay.startDay;
+        }
+
         switch (i)
         {
             case 0:
-                return 0;
+                return calendar.CalculateDaySubtractingDays(nextTourneyEndYear, nextTourneyEndMonth, nextTourneyEndDay, 5);
             case 1:
-                return 0;
+                return calendar.CalculateDaySubtractingDays(nextTourneyEndYear, nextTourneyEndMonth, nextTourneyEndDay, 52);
             case 2:
-                return 0;
+                return calendar.CalculateDaySubtractingDays(nextTourneyEndYear, nextTourneyEndMonth, nextTourneyEndDay, 6);
             case 3:
-                return 0;
+                return calendar.CalculateDaySubtractingDays(nextTourneyEndYear, nextTourneyEndMonth, nextTourneyEndDay, 39);
             case 4:
-                return 0;
+                return calendar.CalculateDaySubtractingDays(nextTourneyEndYear, nextTourneyEndMonth, nextTourneyEndDay, 4);
             case 5:
-                return 0;
+                return calendar.CalculateDaySubtractingDays(nextTourneyEndYear, nextTourneyEndMonth, nextTourneyEndDay, 29);
             case 6:
-                return 0;
+                return calendar.CalculateDaySubtractingDays(nextTourneyEndYear, nextTourneyEndMonth, nextTourneyEndDay, 6);
             case 7:
-                return 0;
+                return calendar.CalculateDaySubtractingDays(nextTourneyEndYear, nextTourneyEndMonth, nextTourneyEndDay, 31);
             case 8:
-                return 0;
+                return calendar.CalculateDaySubtractingDays(nextTourneyEndYear, nextTourneyEndMonth, nextTourneyEndDay, 6);
             case 9:
-                return 0;
+                return calendar.CalculateDaySubtractingDays(nextTourneyEndYear, nextTourneyEndMonth, nextTourneyEndDay, 3);
 
             default:
                 return 0;
@@ -815,19 +890,21 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
         }
     }
 
-    private int GetEarliestOpenQualsStartDate()
+    private DotaTournament GetEarliestOpenQualsTournament()
     {
         int controlDay = 31;
+        int tournamentIndex = 0;
 
         for (int i = 0; i < internationalOpenQualifiers.Length; i++)
         {
             if (internationalOpenQualifiers[i].startDay < controlDay)
             {
                 controlDay = internationalOpenQualifiers[i].startDay;
+                tournamentIndex = i;
             }
         }
 
-        return controlDay;
+        return internationalOpenQualifiers[tournamentIndex];
     }
 
     private void CreateMajorTournament()

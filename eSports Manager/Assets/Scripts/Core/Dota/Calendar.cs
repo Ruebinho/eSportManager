@@ -9,6 +9,8 @@ public class Calendar : MonoBehaviour
     public int currentMonth = 9;
     public int currentYear = 2018;
 
+    public DateTime currentDateTime = new DateTime(2018, 9, 1);
+
     public int returncurrentDay()
     {
         return currentDay;
@@ -22,6 +24,11 @@ public class Calendar : MonoBehaviour
     public int returncurrentYear()
     {
         return currentYear;
+    }
+
+    public int returnnextYear()
+    {
+        return currentYear + 1;
     }
 
     public void AdvanceTime()
@@ -218,12 +225,17 @@ public class Calendar : MonoBehaviour
 
     public int CalculateMonthSubtractingDays(int startYear, int startMonth, int startDay, int daysToSubtract)
     {
-        if (startMonth > 1 && daysToSubtract <= 31)
+        Debug.Log("Calculating Month:" + startYear + "/" + startMonth + "/" + startDay + "// Days To Substarct: " + daysToSubtract);
+
+        if (daysToSubtract < startDay)
         {
-            return startYear;
+            Debug.Log("dts<startday");
+            return startMonth;
         }
         else
         {
+            Debug.Log("dts > startday");
+            Debug.Log("New Month: " + CalculateNewDateMonth(startMonth, startDay, daysToSubtract));
             return CalculateNewDateMonth(startMonth, startDay, daysToSubtract);
         }
 
@@ -231,9 +243,9 @@ public class Calendar : MonoBehaviour
 
     public int CalculateDaySubtractingDays(int startYear, int startMonth, int startDay, int daysToSubtract)
     {
-        if (startMonth > 1 && daysToSubtract <= 31)
+        if (daysToSubtract < startDay)
         {
-            return startYear;
+            return startDay-daysToSubtract;
         }
         else
         {
@@ -314,17 +326,29 @@ public class Calendar : MonoBehaviour
 
         while (calcDaysToSubstract > 0)
         {
-            if (calcToNewMonth == startMonth)
+            if ((calcToNewMonth == startMonth) && (calcToNewMonth == 1))
             {
-                calcDaysToSubstract -= startDay;
-                calcToNewMonth -= 1;
+                calcDaysToSubstract = calcDaysToSubstract-startDay;
+                calcToNewMonth = 12;
+            }
+            else if (calcToNewMonth == startMonth)
+            {
+                calcDaysToSubstract = calcDaysToSubstract - startDay;
+                calcToNewMonth = calcToNewMonth - 1;
             }
             else
             {
-                if (calcDaysToSubstract > returnAmountDaysOfMonth(calcToNewMonth))
+                if ((calcDaysToSubstract > returnAmountDaysOfMonth(calcToNewMonth)) && calcToNewMonth == 1)
                 {
-                    calcDaysToSubstract -= returnAmountDaysOfMonth(calcToNewMonth);
-                    calcToNewMonth -= 1;
+                    calcDaysToSubstract = calcDaysToSubstract - returnAmountDaysOfMonth(calcToNewMonth);
+                    calcToNewMonth = 12;
+                    break;
+                }
+                else if (calcDaysToSubstract > returnAmountDaysOfMonth(calcToNewMonth))
+                {
+                    calcDaysToSubstract = calcDaysToSubstract - returnAmountDaysOfMonth(calcToNewMonth);
+                    calcToNewMonth = calcToNewMonth-1;
+                    break;
                 }
                 else
                 {
@@ -332,8 +356,8 @@ public class Calendar : MonoBehaviour
                 }
             }
         }
+        return calcToNewMonth;
 
-        return 0;
     }
 
     private int CalculateNewDateDay(int startMonth, int startDay, int daysToSubtract)
@@ -341,9 +365,14 @@ public class Calendar : MonoBehaviour
         int calcDaysToSubstract = daysToSubtract;
         int calcToNewMonth = startMonth;
 
-        while (calcDaysToSubstract > 0)
+        while (calcDaysToSubstract >= 0)
         {
-            if (calcToNewMonth == startMonth)
+            if ((calcToNewMonth == startMonth) && (calcToNewMonth == 1))
+            {
+                calcDaysToSubstract -= startDay;
+                calcToNewMonth = 12;
+            }
+            else if (calcToNewMonth == startMonth)
             {
                 calcDaysToSubstract -= startDay;
                 calcToNewMonth -= 1;
