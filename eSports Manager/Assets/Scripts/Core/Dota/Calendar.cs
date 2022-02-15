@@ -259,20 +259,16 @@ public class Calendar : MonoBehaviour
     {
         int remainderDaysForCalculation = daysToSubtract;
 
-        // if day of month is bigger than daysToSubstract
-        if (startDay > daysToSubtract)
+
+        if (isDaysToSubstractBiggerThanDaysInYearLeft(startMonth, startDay, daysToSubtract))
         {
-            return startYear;
+            return startYear - 1;
         }
         else
         {
-            if (isDaysToSubstractBiggerThanDaysInYearLeft(startMonth, startDay, daysToSubtract))
-            {
-                return startYear - 1;
-            }
+            return startYear;
         }
 
-        return 0;
     }
 
     private bool isDaysToSubstractBiggerThanDaysInYearLeft(int startMonth, int startDay, int daysToSubtract)

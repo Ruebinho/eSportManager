@@ -492,9 +492,102 @@ public class DotA2TournamentScheduleGenerator : MonoBehaviour
 
         DotaTournament dotaTempTourneyQualifier = gtg.GenerateDotaTournamentQualifier();
 
+        SetupDotaTournamentQualifier(dotaTempTourneyQualifier, tStartYear, tStartMonth, tStartDay, i);
+
         dotaTempTourney.dotaTournamentQualifier = dotaTempTourneyQualifier;
 
         dpcCalendarSchedule[i] = dotaTempTourney;
+    }
+
+    private void SetupDotaTournamentQualifier(DotaTournament dotaTempTourneyQualifier, int tStartYear, int tStartMonth, int tStartDay, int i)
+    {
+        int tourneyQualYearEnd = 0;
+        int tourneyQualMonthEnd = 0;
+        int tourneyQualDayEnd = 0;
+
+        int tourneyQualYearStart = 0;
+        int tourneyQualMonthStart = 0;
+        int tourneyQualDayStart = 0;
+
+        int daysToSubtract = DecideHowManyDaysBeforeTourneyQualStarts(i);
+
+        tourneyQualYearEnd = calendar.CalculateYearSubtractingDays(tStartYear, tStartMonth, tStartDay, daysToSubtract);
+        tourneyQualMonthEnd = calendar.CalculateMonthSubtractingDays(tStartYear, tStartMonth, tStartDay, daysToSubtract);
+        tourneyQualDayEnd = calendar.CalculateDaySubtractingDays(tStartYear, tStartMonth, tStartDay, daysToSubtract);
+
+        dotaTempTourneyQualifier.endYear = tourneyQualYearEnd;
+        dotaTempTourneyQualifier.endMonth = tourneyQualMonthEnd;
+        dotaTempTourneyQualifier.endDay = tourneyQualDayEnd;
+
+        int qualDurationDays = DecideHowManyDaysQualTakes(i);
+        
+        tourneyQualYearStart = calendar.CalculateYearSubtractingDays(tourneyQualYearEnd, tourneyQualMonthEnd, tourneyQualDayEnd, qualDurationDays);
+        tourneyQualMonthStart = calendar.CalculateMonthSubtractingDays(tourneyQualYearStart, tourneyQualMonthEnd, tourneyQualDayEnd, qualDurationDays);
+        tourneyQualDayStart = calendar.CalculateDaySubtractingDays(tourneyQualYearStart, tourneyQualMonthStart, tourneyQualDayEnd, qualDurationDays);
+
+        dotaTempTourneyQualifier.startYear = tourneyQualYearStart;
+        dotaTempTourneyQualifier.startMonth = tourneyQualMonthStart;
+        dotaTempTourneyQualifier.startDay = tourneyQualDayStart;
+    }
+
+    private int DecideHowManyDaysQualTakes(int i)
+    {
+        switch (i)
+        {
+            case 0:
+                return 3;
+            case 1:
+                return 11;
+            case 2:
+                return 4;
+            case 3:
+                return 15;
+            case 4:
+                return 5;
+            case 5:
+                return 13;
+            case 6:
+                return 5;
+            case 7:
+                return 11;
+            case 8:
+                return 5;
+            case 9:
+                return 8;
+
+            default:
+                return 0;
+        }
+    }
+
+    private int DecideHowManyDaysBeforeTourneyQualStarts(int i)
+    {
+        switch (i)
+        {
+            case 0:
+                return 33;
+            case 1:
+                return 49;
+            case 2:
+                return 35;
+            case 3:
+                return 50;
+            case 4:
+                return 23;
+            case 5:
+                return 36;
+            case 6:
+                return 16;
+            case 7:
+                return 33;
+            case 8:
+                return 19;
+            case 9:
+                return 34;
+
+            default:
+                return 0;
+        }
     }
 
     private int DecideDPCCalendarTourneyStartYear(int i, int tEndYear)
